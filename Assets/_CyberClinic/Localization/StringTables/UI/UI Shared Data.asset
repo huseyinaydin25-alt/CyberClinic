@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: UI
+  m_TableCollectionNameGuidString: e31658482e43e5f43919a9e3e39bfef4
+  m_Entries:
+  - m_Id: 1833771008
+    m_Key: ui.app.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2018320384
+    m_Key: ui.common.confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2022514688
+    m_Key: ui.common.cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2022514689
+    m_Key: ui.common.back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2022514690
+    m_Key: ui.common.continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2022514691
+    m_Key: ui.common.close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2022514692
+    m_Key: ui.common.loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2022514693
+    m_Key: ui.common.error
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2022514694
+    m_Key: ui.common.retry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2022514695
+    m_Key: ui.clinic.day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2022514696
+    m_Key: ui.clinic.money
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2022514697
+    m_Key: ui.clinic.reputation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2022514698
+    m_Key: ui.clinic.patient_queue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2022514699
+    m_Key: ui.operation.scan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2022514700
+    m_Key: ui.operation.deep_scan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2022514701
+    m_Key: ui.operation.operate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2022514702
+    m_Key: ui.operation.risk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2022514703
+    m_Key: ui.operation.success_chance
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6621679559742324956
+  references:
+    version: 2
+    RefIds:
+    - rid: 6621679559742324956
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1779514166922

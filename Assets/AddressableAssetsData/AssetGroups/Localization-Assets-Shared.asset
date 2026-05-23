@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Shared
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Localization-Assets-Shared
+  m_GUID: af939dfec375f2b459f4d3f1cabe1b83
+  m_SerializeEntries:
+  - m_GUID: 1c10f81428ea96b409f23a49ff3e43f8
+    m_Address: Assets/_CyberClinic/Localization/StringTables/Patients/Patients Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28f8996e2f8a77b4ba0a55539d6df339
+    m_Address: Assets/_CyberClinic/Localization/StringTables/Tutorial/Tutorial Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46159f9e9b5fdf147abe2c775cef455c
+    m_Address: Assets/_CyberClinic/Localization/StringTables/Cosmetics/Cosmetics
+      Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae533837a6926df429ee141d5f112415
+    m_Address: Assets/_CyberClinic/Localization/StringTables/Economy/Economy Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2c89311ccc779b499f055f988915fad
+    m_Address: Assets/_CyberClinic/Localization/StringTables/Clinic/Clinic Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce8a3c934ff456140bf6031a9bcd7b96
+    m_Address: Assets/_CyberClinic/Localization/StringTables/Errors/Errors Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3f746ece9b8ea4459911c2f7da7d023
+    m_Address: Assets/_CyberClinic/Localization/StringTables/Implants/Implants Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e22db592d85d72545a71a54df6f92e6a
+    m_Address: Assets/_CyberClinic/Localization/StringTables/Events/Events Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e31658482e43e5f43919a9e3e39bfef4
+    m_Address: Assets/_CyberClinic/Localization/StringTables/UI/UI Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3385016ad15f5d45aaebaf6258204ab
+    m_Address: Assets/_CyberClinic/Localization/StringTables/System/System Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ed2d1dcbe43401644a82f5a7141bf6f4
+    m_Address: Assets/_CyberClinic/Localization/StringTables/Procedures/Procedures
+      Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: d9761d7e7fd82d148bd54405c1df04da, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 6bb7786bb3d81ad4a8165653b88454e0, type: 2}
+    - {fileID: 11400000, guid: b225a4bacf6469d4c971c3956a6b788e, type: 2}

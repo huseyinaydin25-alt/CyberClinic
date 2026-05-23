@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Clinic_tr
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: tr
+  m_SharedData: {fileID: 11400000, guid: b2c89311ccc779b499f055f988915fad, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 445456384
+    m_Localized: "Ara Sokak Klini\u011Fi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 533536768
+    m_Localized: "Sokak Klini\u011Fi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 533536769
+    m_Localized: "Neon Uzman Klini\u011Fi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 533536770
+    m_Localized: Kurumsal Laboratuvar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 533536771
+    m_Localized: Kara Pazar Elit
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

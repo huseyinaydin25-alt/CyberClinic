@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Tutorial_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 28f8996e2f8a77b4ba0a55539d6df339, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 441262080
+    m_Localized: Clinic systems online. First patient incoming.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 650977280
+    m_Localized: Open the patient file.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 650977281
+    m_Localized: Scan the patient to reveal hidden risks.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 650977282
+    m_Localized: Choose an implant for the operation.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 650977283
+    m_Localized: Review the operation risk.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 650977284
+    m_Localized: Start the operation.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 650977285
+    m_Localized: Stable outcome. The clinic survives another night.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 650977286
+    m_Localized: Replay Tutorial
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

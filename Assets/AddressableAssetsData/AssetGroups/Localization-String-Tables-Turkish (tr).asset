@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Turkish (tr)
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Localization-String-Tables-Turkish (tr)
+  m_GUID: 0461844184e3d26438deb5a8b1d4f482
+  m_SerializeEntries:
+  - m_GUID: 0d93a13d8c7252e4da44cbc75cd884f8
+    m_Address: Procedures_tr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-tr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13a66d375fb833648b9cb2b3e5deef9c
+    m_Address: Events_tr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-tr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 143331b3be2c3d44b96fc0a0e6ed12e3
+    m_Address: System_tr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-tr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ccd361b954daee41b044576e6f58c1a
+    m_Address: Errors_tr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-tr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4612edaf13a99904d93ba684f8a906f0
+    m_Address: Economy_tr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-tr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 481cb532b68be5a448b65a2dc2cecf1f
+    m_Address: Patients_tr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-tr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76ebcad7acbb5d94d8997e90e41bc8c9
+    m_Address: Clinic_tr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-tr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 799b41c1b0184f84d90d783b61a12c65
+    m_Address: Implants_tr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-tr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89b9f5d2255a37b438b6e0ab6ca9509d
+    m_Address: UI_tr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-tr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6427bc2f5141084f874806df8dd4c1d
+    m_Address: Cosmetics_tr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-tr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e91222f111168ab4cb4bd0ff1ad2df38
+    m_Address: Tutorial_tr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-tr
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: d9761d7e7fd82d148bd54405c1df04da, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: edf712b0fc841764194df4341728f07a, type: 2}
+    - {fileID: 11400000, guid: da3a3a5ca1dbb164c89ac1aadc33d2ed, type: 2}

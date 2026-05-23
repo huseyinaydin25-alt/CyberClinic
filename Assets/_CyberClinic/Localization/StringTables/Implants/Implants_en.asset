@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Implants_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: d3f746ece9b8ea4459911c2f7da7d023, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 428679168
+    m_Localized: Cheap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 512565248
+    m_Localized: Quality
+    m_Metadata:
+      m_Items: []
+  - m_Id: 512565249
+    m_Localized: Illegal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 512565250
+    m_Localized: Legal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 512565251
+    m_Localized: Gray Market
+    m_Metadata:
+      m_Items: []
+  - m_Id: 512565252
+    m_Localized: Illegal
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

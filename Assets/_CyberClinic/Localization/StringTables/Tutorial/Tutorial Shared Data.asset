@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Tutorial Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: Tutorial
+  m_TableCollectionNameGuidString: 28f8996e2f8a77b4ba0a55539d6df339
+  m_Entries:
+  - m_Id: 441262080
+    m_Key: tutorial.intro.clinic_boot.001
+    m_Metadata:
+      m_Items: []
+  - m_Id: 650977280
+    m_Key: tutorial.prompt.open_patient_file
+    m_Metadata:
+      m_Items: []
+  - m_Id: 650977281
+    m_Key: tutorial.prompt.scan_patient
+    m_Metadata:
+      m_Items: []
+  - m_Id: 650977282
+    m_Key: tutorial.prompt.choose_implant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 650977283
+    m_Key: tutorial.prompt.review_risk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 650977284
+    m_Key: tutorial.prompt.start_operation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 650977285
+    m_Key: tutorial.result.first_success
+    m_Metadata:
+      m_Items: []
+  - m_Id: 650977286
+    m_Key: tutorial.replay.title
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6621679559742324957
+  references:
+    version: 2
+    RefIds:
+    - rid: 6621679559742324957
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1779514167407
