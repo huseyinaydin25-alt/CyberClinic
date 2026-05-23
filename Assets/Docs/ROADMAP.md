@@ -4,8 +4,8 @@
 > Update after **every major milestone**. Sync with `CHANGELOG.md`, `DECISIONS.md`, and relevant design memory docs.
 
 **Last updated:** 2026-05-23  
-**Current milestone:** **2 — Localization Foundation** (in progress, not complete)  
-**Doc version:** 0.1.0
+**Current milestone:** **1.5 — First-Time Tutorial Design** (next)  
+**Doc version:** 0.2.0
 
 ---
 
@@ -271,7 +271,7 @@ Full rules: `README_ARCHITECTURE.md`
 
 ---
 
-### Milestone 1.5 — First-Time Tutorial Design `Planned`
+### Milestone 1.5 — First-Time Tutorial Design `Next`
 
 - Tutorial case finalized
 - Tutorial UI highlight rules
@@ -292,16 +292,17 @@ Full rules: `README_ARCHITECTURE.md`
 
 ---
 
-### Milestone 2 — Localization Foundation `In progress`
+### Milestone 2 — Localization Foundation `Done`
 
-- Unity Localization package (`com.unity.localization`) + Addressables dependency
-- English (`en`) base locale, Turkish (`tr`) secondary locale
-- String table collections: UI, Tutorial, Patients, Implants, Procedures, Economy, Events, Cosmetics, Clinic, Errors, System
-- CSV seed data (`StringTables/Seed/*.csv`) with en/tr values
-- Editor setup menu: **Setup Foundation (M2)**
-- Editor validator: **Validate Hardcoded Text**
-- `README_LOCALIZATION.md`
-- **Not done yet:** run setup in Unity, verify tables in Localization window, mark M2 complete
+- Unity Localization package (`com.unity.localization`) and Addressables dependency added to `Packages/manifest.json`.
+- English (`en`) base locale and Turkish (`tr`) secondary locale created.
+- String table collections created: UI, Tutorial, Patients, Implants, Procedures, Economy, Events, Cosmetics, Clinic, Errors, System.
+- CSV seed data created under `Assets/_CyberClinic/Localization/StringTables/Seed/` with en/tr values.
+- Setup menu created: **Cyber Clinic → Localization → Setup Foundation (M2)**.
+- Validator menu created: **Cyber Clinic → Localization → Validate Hardcoded Text**.
+- Unity setup was run successfully and imported/updated 85 keys across 11 tables.
+- Validator returned no suspicious hardcoded player-facing strings.
+- No gameplay UI, scenes, prefabs, SDK integrations, backend implementations, patient generator, or OperationCalculator were created.
 
 ---
 
@@ -434,25 +435,24 @@ Full rules: `README_ARCHITECTURE.md`
 | Unity project | Created, Universal 2D |
 | Repo & folders | Done |
 | Design memory | Done |
-| Data architecture (M1) | **Done** |
-| Localization (M2) | **In progress** — manifest + CSV seeds + editor tools; run Setup in Unity |
+| Data architecture (M1) | Done |
+| Localization (M2) | **Done** |
 | Gameplay logic | Not started |
-| Unity packages | Localization + Addressables in `manifest.json` (resolve in Editor) |
+| Unity packages | Localization + Addressables installed |
 | Orientation | Landscape decided |
 | Supabase | Interfaces only; no integration |
 | AdMob | Pending approval; `IAdService` only |
-| Next practical step | Resolve packages → run **Setup Foundation (M2)** → validate compile |
+| Next practical step | Milestone 1.5 — First-Time Tutorial Design |
 
 ---
 
 ## Immediate next steps
 
 1. User pulls latest documentation updates.
-2. Wait for Package Manager to install Localization + Addressables.
-3. Run **Cyber Clinic → Localization → Setup Foundation (M2)**.
-4. Run **Validate Hardcoded Text** and fix any warnings.
-5. Confirm `en`/`tr` tables in Unity Localization UI; then mark M2 complete in docs.
-6. Do not add gameplay UI, OperationCalculator, patient generator, or SDK work during M2.
+2. Start Milestone 1.5 with tutorial case planning only.
+3. Finalize the first controlled patient case and tutorial beat map.
+4. Do not add gameplay UI, OperationCalculator, patient generator, SDK integrations, or backend implementation during tutorial design.
+5. After tutorial design, proceed to Milestone 1.6 for clinic visual progression/cosmetic data planning, then continue toward procedural patient generation.
 
 ---
 
@@ -464,6 +464,7 @@ Full rules: `README_ARCHITECTURE.md`
 | 0.0.1 | 2026-05-23 | M0.5 | Full design memory + living roadmap |
 | 0.0.2 | 2026-05-23 | M0.5 | Added landscape, tutorial, cosmetics, clinic visual progression, Supabase strategy, and ChatGPT docs ownership |
 | 0.1.0 | 2026-05-23 | M1 | Architecture and data foundation compiled and reviewed |
+| 0.2.0 | 2026-05-23 | M2 | Localization foundation installed, seeded, and validated |
 
 ---
 
@@ -474,3 +475,4 @@ Full rules: `README_ARCHITECTURE.md`
 | 2026-05-23 | M0 — Project Foundation | Initial structure |
 | 2026-05-23 | M0.5 — Design Memory Foundation | Expanded project memory |
 | 2026-05-23 | M1 — Architecture and Data Foundation | Data contracts, SO definitions, runtime models, interfaces; no gameplay logic |
+| 2026-05-23 | M2 — Localization Foundation | Unity Localization package, en/tr locales, 11 string table collections, 85 seed keys, validator |
