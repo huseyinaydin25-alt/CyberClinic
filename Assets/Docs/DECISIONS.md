@@ -2,20 +2,6 @@
 
 Record of significant decisions for **Cyber Clinic**. Add a new entry when a choice is hard to reverse or affects multiple modules.
 
-Format for new entries:
-
-```markdown
-## ADR-NNN: Title (YYYY-MM-DD)
-
-**Status:** Accepted | Superseded | Deprecated
-
-**Context:** …
-
-**Decision:** …
-
-**Consequences:** …
-```
-
 ---
 
 ## Initial decisions (project foundation)
@@ -46,17 +32,17 @@ Format for new entries:
 
 **Decision:** **Android** is the primary platform for day-to-day device testing and iteration.
 
-**Consequences:** Android SDK setup, keystore, and permissions are prioritized in platform milestones; iOS follows with parity requirements from the start (see #5).
+**Consequences:** Android SDK setup, keystore, and permissions are prioritized in platform milestones; iOS follows with parity requirements from the start.
 
 ---
 
-### 4. iOS builds via CodeMagic (later)
+### 4. iOS builds via CodeMagic later
 
 **Status:** Accepted (2026-05-23)
 
-**Decision:** **iOS** CI/build distribution will use **CodeMagic** when the iOS pipeline milestone is reached—not ad-hoc local-only releases for production.
+**Decision:** iOS CI/build distribution will use **CodeMagic** when the iOS pipeline milestone is reached.
 
-**Consequences:** Signing, provisioning, and build scripts should be CodeMagic-friendly; document secrets handling outside the repo.
+**Consequences:** Signing, provisioning, and build scripts should be CodeMagic-friendly; secrets stay outside the repo.
 
 ---
 
@@ -66,7 +52,7 @@ Format for new entries:
 
 **Decision:** Architecture and platform abstractions must support **Android and iOS from day one**, even when Android is tested first.
 
-**Consequences:** No Android-only APIs in gameplay; platform code behind interfaces in `Scripts/PlatformServices/`; test with Editor fakes until both adapters exist.
+**Consequences:** No Android-only APIs in gameplay; platform code behind interfaces in `Scripts/PlatformServices/`.
 
 ---
 
@@ -74,9 +60,9 @@ Format for new entries:
 
 **Status:** Accepted (2026-05-23)
 
-**Decision:** **All player-facing text** uses **localization keys** via the **Unity Localization** package. No hardcoded display strings in code, prefabs, or content SO fields.
+**Decision:** **All player-facing text** uses localization keys via the Unity Localization package. No hardcoded display strings in code, prefabs, or content data.
 
-**Consequences:** String Tables under `Assets/_CyberClinic/Localization/StringTables/` are mandatory for shipping UI and dialogue; keys are stable API for writers and translators.
+**Consequences:** String Tables under `Assets/_CyberClinic/Localization/StringTables/` are mandatory for UI and dialogue.
 
 ---
 
@@ -84,23 +70,21 @@ Format for new entries:
 
 **Status:** Accepted (2026-05-23)
 
-**Decision:** Game content (patients, implants, procedures, complications, events, dialogue references, economy tuning, visual/audio feedback mappings) is **data-driven** and defined with **ScriptableObjects**, separate from runtime instances.
+**Decision:** Game content is data-driven and defined with ScriptableObjects, separate from runtime instances.
 
-**Consequences:** Designers own balance in `ScriptableObjects/`; programmers implement systems that consume definitions; runtime state must not mutate SO assets.
+**Consequences:** Designers tune content in assets; runtime state must not mutate ScriptableObject definitions.
 
 ---
 
-## Design memory & process decisions
+## Design memory and process decisions
 
 ### 8. Design memory before coding
 
 **Status:** Accepted (2026-05-23)
 
-**Context:** Implementation is led by Cursor/ChatGPT; the user does not write code. Without permanent specs, agents drift from the core puzzle and coupling rules.
+**Decision:** Create and maintain design memory under `Assets/Docs/` before gameplay C#.
 
-**Decision:** Create and maintain **design memory** under `Assets/Docs/` (`GAME_DESIGN_MEMORY.md`, `PROCEDURAL_PATIENT_SYSTEM.md`, `OPERATION_MATH.md`, etc.) **before** gameplay C#. Code must follow docs; docs update when plans change.
-
-**Consequences:** Milestone 0.5 completes before Milestone 1 scripts; PRs reject behavior not reflected in docs.
+**Consequences:** Code must follow docs; docs update when plans change.
 
 ---
 
@@ -108,9 +92,9 @@ Format for new entries:
 
 **Status:** Accepted (2026-05-23)
 
-**Decision:** `ROADMAP.md` is the authoritative milestone and status tracker—updated after every major milestone, not a one-time placeholder.
+**Decision:** `ROADMAP.md` is the authoritative milestone and status tracker.
 
-**Consequences:** `CHANGELOG.md` and milestone log stay in sync; “current milestone” always visible at top of roadmap.
+**Consequences:** `CHANGELOG.md` and milestone log stay in sync.
 
 ---
 
@@ -118,9 +102,9 @@ Format for new entries:
 
 **Status:** Accepted (2026-05-23)
 
-**Decision:** Visual effects, UI motion, SFX, ambience, and music are **core systems**, not late polish. Every major player action has paired visual + audio feedback per `VISUAL_AUDIO_DIRECTION.md`.
+**Decision:** Visual effects, UI motion, SFX, ambience, and music are core systems, not late polish.
 
-**Consequences:** Milestones 7–8 are required before vertical slice; event-driven `Visual/` and `Audio/` modules.
+**Consequences:** Milestones 7 and 8 are required before vertical slice.
 
 ---
 
@@ -128,9 +112,9 @@ Format for new entries:
 
 **Status:** Accepted (2026-05-23)
 
-**Decision:** Patient generation and operation variance use **deterministic seeds** (`runSeed`, day index, slot, operation hash) so results replay identically on Android, iOS, and Editor.
+**Decision:** Patient generation and operation variance use deterministic seeds.
 
-**Consequences:** No unscoped global random in domain logic; debug/replay can reproduce cases from seed.
+**Consequences:** Same inputs plus seed should reproduce the same case and result on Android, iOS, and Editor.
 
 ---
 
@@ -138,7 +122,7 @@ Format for new entries:
 
 **Status:** Accepted (2026-05-23)
 
-**Decision:** RevenueCat, AdMob (when approved), notifications, and haptics are accessed only through `PlatformServices` interfaces with **mock implementations** until real adapters ship.
+**Decision:** RevenueCat, AdMob, notifications, and haptics are accessed only through PlatformServices interfaces with mock implementations until real adapters ship.
 
 **Consequences:** AdMob pending does not block milestones; gameplay never references SDK types.
 
@@ -148,18 +132,69 @@ Format for new entries:
 
 **Status:** Accepted (2026-05-23)
 
-**Decision:** Production **iOS** builds use **CodeMagic** CI/CD connected to GitHub, with App Store Connect API and TestFlight distribution (Milestone 12).
+**Decision:** Production iOS builds use CodeMagic CI/CD connected to GitHub.
 
-**Consequences:** Build scripts and signing secrets live in CI, not in repo; Apple Developer account already exists.
+**Consequences:** Build scripts and signing secrets live in CI, not in repo.
+
+---
+
+### 14. Landscape-first gameplay
+
+**Status:** Accepted (2026-05-23)
+
+**Decision:** Cyber Clinic targets landscape mobile gameplay, not portrait-first UI.
+
+**Consequences:** Patient file, clinic view, scan panel, operation panel, and result screen must be composed for horizontal screens from the beginning.
+
+---
+
+### 15. ChatGPT owns project memory docs
+
+**Status:** Accepted (2026-05-23)
+
+**Decision:** `Assets/Docs/` project memory updates are ultimately controlled by ChatGPT. Cursor may draft or generate files, but docs are reviewed and finalized through ChatGPT.
+
+**Consequences:** After user pushes implementation changes, ChatGPT checks GitHub and updates roadmap, changelog, decisions, and relevant design docs.
+
+---
+
+### 16. First tutorial is a core retention system
+
+**Status:** Accepted (2026-05-23)
+
+**Decision:** The first-time tutorial must be an enjoyable, atmospheric, controlled first case rather than a generic popup sequence.
+
+**Consequences:** Tutorial design receives its own doc and milestone before complex UI/gameplay work.
+
+---
+
+### 17. Interchangeable visual and clinic progression system
+
+**Status:** Accepted (2026-05-23)
+
+**Decision:** Cyber Clinic must support long-term visual evolution through clinic tiers, themes, UI packs, scan styles, VFX variants, result animations, seasonal visuals, and premium cosmetics.
+
+**Consequences:** Visual systems must be data-driven; the game should not rely on one static clinic or one static UI throughout its lifetime.
+
+---
+
+### 18. Supabase as online service layer, not core gameplay dependency
+
+**Status:** Accepted (2026-05-23)
+
+**Decision:** Supabase may be used for remote config, cloud save, live events, leaderboards, telemetry, and backend support, but the core gameplay loop remains offline-first.
+
+**Consequences:** Gameplay systems do not call Supabase directly. Backend access goes through service interfaces and mockable adapters.
 
 ---
 
 ## Pending decisions
 
-_Items to resolve as milestones land on `ROADMAP.md`:_
-
 - Unity Localization package install and default locale setup
 - Addressables vs Resources for content delivery
-- Save format (JSON, binary, cloud sync)
+- Save format and cloud sync model
 - Analytics and attribution SDK choice
-- Exact ad and IAP SDK versions (behind platform interfaces)
+- Exact ad and IAP SDK versions behind platform interfaces
+- Supabase schema and RLS policies
+- Tutorial skip/replay policy
+- Clinic tier unlock rules
