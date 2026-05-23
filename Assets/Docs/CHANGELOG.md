@@ -8,21 +8,46 @@ All notable changes to the Cyber Clinic project are documented in this file.
 
 ### Added
 
-- **Milestone 2 — Localization Foundation (started):**
-  - `com.unity.localization` (1.5.9) and `com.unity.addressables` (2.9.1) in `Packages/manifest.json`.
-  - Localization folders: `Locales/`, `StringTables/`, `StringTables/Seed/`, `AssetTables/`.
-  - Eleven CSV seed tables (UI, Tutorial, Patients, Implants, Procedures, Economy, Events, Cosmetics, Clinic, Errors, System) with English and Turkish copy.
-  - Editor setup: `LocalizationFoundationSetup.cs` — menu **Cyber Clinic/Localization/Setup Foundation (M2)**.
-  - Editor validator: `LocalizationKeyValidator.cs` — menu **Cyber Clinic/Localization/Validate Hardcoded Text**.
-  - `README_LOCALIZATION.md`, `CyberClinic.Localization.asmdef`, `CyberClinic.Localization.Editor.asmdef`.
+- _(none yet)_
 
 ### Changed
 
-- `ROADMAP.md` — Milestone 2 marked **in progress**.
+- _(none yet)_
 
 ### Fixed
 
 - _(none yet)_
+
+---
+
+## [0.2.0] — 2026-05-23
+
+### Added
+
+- **Milestone 2 — Localization Foundation:**
+  - `com.unity.localization` and `com.unity.addressables` in `Packages/manifest.json`.
+  - Localization folders: `Locales/`, `StringTables/`, `StringTables/Seed/`, `AssetTables/`.
+  - Eleven CSV seed tables: UI, Tutorial, Patients, Implants, Procedures, Economy, Events, Cosmetics, Clinic, Errors, System.
+  - English (`en`) and Turkish (`tr`) localization values.
+  - Editor setup menu: **Cyber Clinic/Localization/Setup Foundation (M2)**.
+  - Editor validator menu: **Cyber Clinic/Localization/Validate Hardcoded Text**.
+  - `README_LOCALIZATION.md`, `CyberClinic.Localization.asmdef`, and `CyberClinic.Localization.Editor.asmdef`.
+
+### Changed
+
+- `ROADMAP.md` moved Milestone 2 to done and Milestone 1.5 to next.
+
+### Fixed
+
+- Updated `LocalizationFoundationSetup.cs` for Unity Localization 1.5.9 API compatibility.
+- Replaced unsupported editor API calls with `ActiveLocalizationSettings` and shared-table key lookup.
+- Setup is idempotent for locales, collections, and keys.
+
+### Verified
+
+- Unity setup ran successfully and imported/updated 85 keys across 11 tables.
+- Hardcoded text validator reported no suspicious player-facing strings.
+- No gameplay UI, scenes, prefabs, SDK integrations, backend implementations, patient generator, or OperationCalculator were created.
 
 ---
 
