@@ -1,20 +1,19 @@
 using System;
 using CyberClinic.Core;
-using CyberClinic.Implants;
 using CyberClinic.Patients;
 
 namespace CyberClinic.Procedures
 {
     /// <summary>
-    /// Immutable input DTO for OperationCalculator (Milestone 5). Pure data only.
+    /// Input DTO for OperationCalculator (Milestone 5). References content by id, not ScriptableObject instances.
     /// </summary>
     [Serializable]
     public class OperationInput
     {
         public ProcedurePlan Plan;
         public GeneratedPatient Patient;
-        public ImplantData SelectedImplant;
-        public ProcedureData SelectedProcedure;
+        public string SelectedImplantId;
+        public string SelectedProcedureId;
         public float ClinicSkillBonus;
         public float EquipmentBonus;
         public float ImplantCompatibilityScore;

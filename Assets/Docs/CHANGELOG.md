@@ -25,7 +25,7 @@ All notable changes to the Cyber Clinic project are documented in this file.
 
 ### Fixed
 
-- _(none yet)_
+- M1 architecture review: Unity-serializable `Percentage01`, `LocalizationKey`, and `SeedContext` fields; removed non-deterministic `Guid.NewGuid()` default on `GeneratedPatient`; `OperationInput` uses content ids instead of ScriptableObject references; `INotificationService` uses `LocalizationKey` for notification copy.
 
 ---
 

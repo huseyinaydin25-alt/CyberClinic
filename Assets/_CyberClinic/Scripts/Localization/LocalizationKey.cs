@@ -4,11 +4,12 @@ namespace CyberClinic.Localization
 {
     /// <summary>
     /// Stable localization table entry id. Player-facing copy lives in String Tables, not in code.
+    /// Uses a public field for Unity serialization.
     /// </summary>
     [Serializable]
-    public readonly struct LocalizationKey : IEquatable<LocalizationKey>
+    public struct LocalizationKey : IEquatable<LocalizationKey>
     {
-        public string Value { get; }
+        public string Value;
 
         public LocalizationKey(string value) => Value = value ?? string.Empty;
 

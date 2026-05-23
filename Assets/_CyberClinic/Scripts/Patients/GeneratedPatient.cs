@@ -10,7 +10,8 @@ namespace CyberClinic.Patients
     [Serializable]
     public class GeneratedPatient
     {
-        public Guid InstanceId = Guid.NewGuid();
+        /// <summary>Assigned when the patient instance is created (not auto-generated here).</summary>
+        public Guid InstanceId;
         public int PatientSeed;
         public SeedContext GenerationContext;
 

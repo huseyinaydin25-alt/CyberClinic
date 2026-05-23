@@ -4,11 +4,12 @@ namespace CyberClinic.Core
 {
     /// <summary>
     /// Normalized value in the closed interval [0, 1] (success chance, resistance, pressure).
+    /// Uses a public field for Unity serialization.
     /// </summary>
     [Serializable]
-    public readonly struct Percentage01 : IEquatable<Percentage01>
+    public struct Percentage01 : IEquatable<Percentage01>
     {
-        public float Value { get; }
+        public float Value;
 
         public Percentage01(float value)
         {

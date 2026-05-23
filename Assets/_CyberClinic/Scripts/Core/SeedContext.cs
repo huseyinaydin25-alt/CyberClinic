@@ -4,22 +4,27 @@ namespace CyberClinic.Core
 {
     /// <summary>
     /// Inputs used to derive deterministic seeds for patient generation and operations.
+    /// Uses public fields for Unity serialization. OperationIndex is -1 when unused.
     /// </summary>
     [Serializable]
-    public readonly struct SeedContext : IEquatable<SeedContext>
+    public struct SeedContext : IEquatable<SeedContext>
     {
-        public int RunSeed { get; }
-        public int DayIndex { get; }
-        public int SlotIndex { get; }
-        public int? OperationIndex { get; }
+        public const int NoOperationIndex = -1;
 
-        public SeedContext(int runSeed, int dayIndex, int slotIndex, int? operationIndex = null)
+        public int RunSeed;
+        public int DayIndex;
+        public int SlotIndex;
+        public int OperationIndex;
+
+        public SeedContext(int runSeed, int dayIndex, int slotIndex, int operationIndex = NoOperationIndex)
         {
             RunSeed = runSeed;
             DayIndex = dayIndex;
             SlotIndex = slotIndex;
             OperationIndex = operationIndex;
         }
+
+        public bool HasOperationIndex => OperationIndex >= 0;
 
         /// <summary>Seed for procedural patient generation at this queue slot.</summary>
         public int ToPatientSeed() => CyberClinicRandom.CombineSeed(RunSeed, DayIndex, SlotIndex);
