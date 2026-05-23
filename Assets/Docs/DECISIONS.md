@@ -90,6 +90,70 @@ Format for new entries:
 
 ---
 
+## Design memory & process decisions
+
+### 8. Design memory before coding
+
+**Status:** Accepted (2026-05-23)
+
+**Context:** Implementation is led by Cursor/ChatGPT; the user does not write code. Without permanent specs, agents drift from the core puzzle and coupling rules.
+
+**Decision:** Create and maintain **design memory** under `Assets/Docs/` (`GAME_DESIGN_MEMORY.md`, `PROCEDURAL_PATIENT_SYSTEM.md`, `OPERATION_MATH.md`, etc.) **before** gameplay C#. Code must follow docs; docs update when plans change.
+
+**Consequences:** Milestone 0.5 completes before Milestone 1 scripts; PRs reject behavior not reflected in docs.
+
+---
+
+### 9. Living roadmap as project memory
+
+**Status:** Accepted (2026-05-23)
+
+**Decision:** `ROADMAP.md` is the authoritative milestone and status tracker—updated after every major milestone, not a one-time placeholder.
+
+**Consequences:** `CHANGELOG.md` and milestone log stay in sync; “current milestone” always visible at top of roadmap.
+
+---
+
+### 10. Visual and audio as core gameplay feedback
+
+**Status:** Accepted (2026-05-23)
+
+**Decision:** Visual effects, UI motion, SFX, ambience, and music are **core systems**, not late polish. Every major player action has paired visual + audio feedback per `VISUAL_AUDIO_DIRECTION.md`.
+
+**Consequences:** Milestones 7–8 are required before vertical slice; event-driven `Visual/` and `Audio/` modules.
+
+---
+
+### 11. Deterministic seed-based procedural generation
+
+**Status:** Accepted (2026-05-23)
+
+**Decision:** Patient generation and operation variance use **deterministic seeds** (`runSeed`, day index, slot, operation hash) so results replay identically on Android, iOS, and Editor.
+
+**Consequences:** No unscoped global random in domain logic; debug/replay can reproduce cases from seed.
+
+---
+
+### 12. Platform SDKs behind service interfaces
+
+**Status:** Accepted (2026-05-23)
+
+**Decision:** RevenueCat, AdMob (when approved), notifications, and haptics are accessed only through `PlatformServices` interfaces with **mock implementations** until real adapters ship.
+
+**Consequences:** AdMob pending does not block milestones; gameplay never references SDK types.
+
+---
+
+### 13. CodeMagic for iOS builds
+
+**Status:** Accepted (2026-05-23)
+
+**Decision:** Production **iOS** builds use **CodeMagic** CI/CD connected to GitHub, with App Store Connect API and TestFlight distribution (Milestone 12).
+
+**Consequences:** Build scripts and signing secrets live in CI, not in repo; Apple Developer account already exists.
+
+---
+
 ## Pending decisions
 
 _Items to resolve as milestones land on `ROADMAP.md`:_

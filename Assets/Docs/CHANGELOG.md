@@ -10,14 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- Initial production-minded folder architecture under `Assets/_CyberClinic/` (Art, Audio, Prefabs, Scenes, Scripts, ScriptableObjects, Localization, Settings).
-- Project documentation under `Assets/Docs/`:
-  - `README_ARCHITECTURE.md` — modular layout, decoupling rules, data-driven workflow.
-  - `DEVELOPMENT_RULES.md` — localization, ScriptableObjects, modularity, Git, platform abstraction.
-  - `DECISIONS.md` — foundational technology and design decisions.
-  - `ROADMAP.md` — living product roadmap placeholder.
-  - `CHANGELOG.md` — this file.
-- Architecture rules: no hardcoded player-facing text; Unity Localization for all visible copy; ScriptableObject-driven content; decoupled modules for patients, implants, procedures, complications, events, dialogue, visual/audio feedback, economy, save, progression, and platform services.
+- _(none yet)_
 
 ### Changed
 
@@ -26,6 +19,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Fixed
 
 - _(none yet)_
+
+---
+
+## [0.0.1] — 2026-05-23
+
+### Added
+
+- **Design Memory Foundation** (Milestone 0.5):
+  - `GAME_DESIGN_MEMORY.md` — high concept, core puzzle, decisions, replayability pillars.
+  - `PROCEDURAL_PATIENT_SYSTEM.md` — generation formula, archetypes, known/unknown, seeds, SO notes.
+  - `OPERATION_MATH.md` — success chance formula, risk bands, breakdown, calculator purity rules.
+  - `VISUAL_AUDIO_DIRECTION.md` — cyberpunk medical noir style, VFX/audio modules, feedback table.
+  - `LOCALIZATION_PLAN.md` — en/tr locales, string table groups, key convention, Cursor rules.
+  - `PLATFORM_SERVICES_PLAN.md` — interfaces, mocks, AdMob pending, CodeMagic iOS plan.
+- Full living `ROADMAP.md` — milestones 0 through 12, platform strategy, design rules, current status.
+- Expanded `README_ARCHITECTURE.md` — design memory index, mandatory Cursor read order.
+- Expanded `DEVELOPMENT_RULES.md` — design-memory-first rule, deterministic sim, doc update protocol.
+- New `DECISIONS.md` entries #8–13 (design memory, roadmap, visual/audio core, seeds, platform interfaces, CodeMagic).
+
+### Changed
+
+- `ROADMAP.md` replaced placeholder phases with full milestone plan and version history.
+- `README_ARCHITECTURE.md` now references all design memory documents.
 
 ---
 
