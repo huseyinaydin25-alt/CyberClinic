@@ -21,7 +21,7 @@ namespace CyberClinic.Localization.Editor
         const string LocalesPath = LocalizationRoot + "/Locales";
         const string StringTablesPath = LocalizationRoot + "/StringTables";
         const string SeedPath = StringTablesPath + "/Seed";
-        const string SettingsAssetPath = LocalizationRoot + "/Localization Settings.asset";
+        const string SettingsAssetPath = LocalizationRoot + "/LocalizationSettings.asset";
 
         static readonly (string CollectionName, string CsvFileName)[] TableDefinitions =
         {
@@ -96,9 +96,16 @@ namespace CyberClinic.Localization.Editor
                 return existing;
             }
 
+            var assetPath = $"{LocalesPath}/{displayName}.asset";
+            var existingAsset = AssetDatabase.LoadAssetAtPath<Locale>(assetPath);
+            if (existingAsset != null)
+            {
+                LocalizationEditorSettings.AddLocale(existingAsset);
+                return existingAsset;
+            }
+
             var locale = Locale.CreateLocale(code);
             locale.name = displayName;
-            var assetPath = $"{LocalesPath}/{displayName}.asset";
             AssetDatabase.CreateAsset(locale, assetPath);
             LocalizationEditorSettings.AddLocale(locale);
             return locale;
@@ -106,20 +113,20 @@ namespace CyberClinic.Localization.Editor
 
         static void EnsureLocalizationSettings(Locale localeEn)
         {
-            var settings = LocalizationEditorSettings.GetLocalizationSettings();
+            var settings = LocalizationEditorSettings.ActiveLocalizationSettings;
+            if (settings == null)
+            {
+                settings = AssetDatabase.LoadAssetAtPath<LocalizationSettings>(SettingsAssetPath);
+            }
+
             if (settings == null)
             {
                 settings = ScriptableObject.CreateInstance<LocalizationSettings>();
                 AssetDatabase.CreateAsset(settings, SettingsAssetPath);
-                LocalizationEditorSettings.SetLocalizationSettings(settings);
             }
 
-            if (LocalizationEditorSettings.ActiveLocalizationSettings == null)
-            {
-                LocalizationEditorSettings.ActiveLocalizationSettings = settings;
-            }
-
-            settings.SetProjectLocale(localeEn);
+            LocalizationEditorSettings.ActiveLocalizationSettings = settings;
+            LocalizationSettings.ProjectLocale = localeEn;
             EditorUtility.SetDirty(settings);
         }
 
@@ -146,14 +153,15 @@ namespace CyberClinic.Localization.Editor
             var count = 0;
             foreach (var row in rows)
             {
-                var sharedEntry = collection.SharedData.GetEntry(row.Key);
-                if (sharedEntry == null)
+                var keyId = collection.SharedData.GetId(row.Key, addNewKey: true);
+                if (keyId == SharedTableData.EmptyId)
                 {
-                    sharedEntry = collection.SharedData.AddEntry(row.Key);
+                    Debug.LogWarning($"Could not create shared key '{row.Key}' in collection '{collectionName}'.");
+                    continue;
                 }
 
-                SetTableEntry(enTable, sharedEntry.Id, row.English);
-                SetTableEntry(trTable, sharedEntry.Id, row.Turkish);
+                SetTableEntry(enTable, keyId, row.English);
+                SetTableEntry(trTable, keyId, row.Turkish);
                 count++;
             }
 

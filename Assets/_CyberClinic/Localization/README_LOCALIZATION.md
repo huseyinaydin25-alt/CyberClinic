@@ -11,6 +11,8 @@ Milestone 2 localization foundation for **Unity Localization** (`com.unity.local
 | `en` | **Base / source locale** | `Locales/English (en).asset` (created by setup) |
 | `tr` | **Secondary locale** | `Locales/Turkish (tr).asset` (created by setup) |
 
+Active settings asset: `LocalizationSettings.asset` (assigned via `LocalizationEditorSettings.ActiveLocalizationSettings`).
+
 English is the project default locale. Turkish must stay in parity for core UI and system strings as features ship.
 
 ---
@@ -34,7 +36,7 @@ Localization/
   StringTables/         # String Table Collection assets per group
   StringTables/Seed/    # CSV source of truth for seed keys (en + tr)
   AssetTables/          # Localized sprites/assets (future)
-  Localization Settings.asset
+  LocalizationSettings.asset
   README_LOCALIZATION.md
 ```
 
