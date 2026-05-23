@@ -8,11 +8,17 @@ All notable changes to the Cyber Clinic project are documented in this file.
 
 ### Added
 
-- _(none yet)_
+- **Milestone 2 — Localization Foundation (started):**
+  - `com.unity.localization` (1.5.9) and `com.unity.addressables` (2.9.1) in `Packages/manifest.json`.
+  - Localization folders: `Locales/`, `StringTables/`, `StringTables/Seed/`, `AssetTables/`.
+  - Eleven CSV seed tables (UI, Tutorial, Patients, Implants, Procedures, Economy, Events, Cosmetics, Clinic, Errors, System) with English and Turkish copy.
+  - Editor setup: `LocalizationFoundationSetup.cs` — menu **Cyber Clinic/Localization/Setup Foundation (M2)**.
+  - Editor validator: `LocalizationKeyValidator.cs` — menu **Cyber Clinic/Localization/Validate Hardcoded Text**.
+  - `README_LOCALIZATION.md`, `CyberClinic.Localization.asmdef`, `CyberClinic.Localization.Editor.asmdef`.
 
 ### Changed
 
-- _(none yet)_
+- `ROADMAP.md` — Milestone 2 marked **in progress**.
 
 ### Fixed
 

@@ -1,0 +1,6 @@
+Key,English,Turkish
+system.boot.initializing,Initializing clinic systems...,Klinik sistemleri başlatılıyor...
+system.boot.ready,Clinic ready.,Klinik hazır.
+system.offline_mode,Offline mode,Çevrimdışı mod
+system.sync.pending,Sync pending,Senkronizasyon bekliyor
+system.sync.complete,Sync complete,Senkronizasyon tamamlandı

@@ -1,0 +1,11 @@
+Key,English,Turkish
+procedure.difficulty.easy,Easy,Kolay
+procedure.difficulty.standard,Standard,Standart
+procedure.difficulty.dangerous,Dangerous,Tehlikeli
+operation.risk.safe,Safe,Güvenli
+operation.risk.uncertain,Uncertain,Belirsiz
+operation.risk.dangerous,Dangerous,Tehlikeli
+operation.risk.critical,Critical,Kritik
+operation.outcome.success,Success,Başarılı
+operation.outcome.failure,Failure,Başarısız
+operation.outcome.complication,Complication,Komplikasyon

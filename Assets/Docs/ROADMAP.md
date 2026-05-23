@@ -4,7 +4,7 @@
 > Update after **every major milestone**. Sync with `CHANGELOG.md`, `DECISIONS.md`, and relevant design memory docs.
 
 **Last updated:** 2026-05-23  
-**Current milestone:** **2 — Localization Foundation** (next)  
+**Current milestone:** **2 — Localization Foundation** (in progress, not complete)  
 **Doc version:** 0.1.0
 
 ---
@@ -292,14 +292,16 @@ Full rules: `README_ARCHITECTURE.md`
 
 ---
 
-### Milestone 2 — Localization Foundation `Next`
+### Milestone 2 — Localization Foundation `In progress`
 
-- Unity Localization package
-- English base locale
-- Turkish secondary locale
-- Key naming rules
-- No-hardcoded-text checks
-- Initial string table groups for UI, tutorial, patients, events, cosmetics, errors, system messages
+- Unity Localization package (`com.unity.localization`) + Addressables dependency
+- English (`en`) base locale, Turkish (`tr`) secondary locale
+- String table collections: UI, Tutorial, Patients, Implants, Procedures, Economy, Events, Cosmetics, Clinic, Errors, System
+- CSV seed data (`StringTables/Seed/*.csv`) with en/tr values
+- Editor setup menu: **Setup Foundation (M2)**
+- Editor validator: **Validate Hardcoded Text**
+- `README_LOCALIZATION.md`
+- **Not done yet:** run setup in Unity, verify tables in Localization window, mark M2 complete
 
 ---
 
@@ -433,22 +435,24 @@ Full rules: `README_ARCHITECTURE.md`
 | Repo & folders | Done |
 | Design memory | Done |
 | Data architecture (M1) | **Done** |
+| Localization (M2) | **In progress** — manifest + CSV seeds + editor tools; run Setup in Unity |
 | Gameplay logic | Not started |
-| Unity packages | Not installed yet |
+| Unity packages | Localization + Addressables in `manifest.json` (resolve in Editor) |
 | Orientation | Landscape decided |
 | Supabase | Interfaces only; no integration |
 | AdMob | Pending approval; `IAdService` only |
-| Next practical step | Milestone 2 — Localization Foundation |
+| Next practical step | Resolve packages → run **Setup Foundation (M2)** → validate compile |
 
 ---
 
 ## Immediate next steps
 
 1. User pulls latest documentation updates.
-2. Start Milestone 2 with Unity Localization package only.
-3. Create base locales: `en` and `tr`.
-4. Create initial string table groups for UI, tutorial, patients, events, cosmetics, errors, and system copy.
-5. Do not add gameplay UI flow, OperationCalculator, patient generator, SDK integrations, or backend implementation during M2.
+2. Wait for Package Manager to install Localization + Addressables.
+3. Run **Cyber Clinic → Localization → Setup Foundation (M2)**.
+4. Run **Validate Hardcoded Text** and fix any warnings.
+5. Confirm `en`/`tr` tables in Unity Localization UI; then mark M2 complete in docs.
+6. Do not add gameplay UI, OperationCalculator, patient generator, or SDK work during M2.
 
 ---
 

@@ -1,0 +1,9 @@
+Key,English,Turkish
+tutorial.intro.clinic_boot.001,Clinic systems online. First patient incoming.,Klinik sistemleri aktif. İlk hasta geliyor.
+tutorial.prompt.open_patient_file,Open the patient file.,Hasta dosyasını aç.
+tutorial.prompt.scan_patient,Scan the patient to reveal hidden risks.,Gizli riskleri görmek için hastayı tara.
+tutorial.prompt.choose_implant,Choose an implant for the operation.,Operasyon için bir implant seç.
+tutorial.prompt.review_risk,Review the operation risk.,Operasyon riskini incele.
+tutorial.prompt.start_operation,Start the operation.,Operasyonu başlat.
+tutorial.result.first_success,Stable outcome. The clinic survives another night.,Stabil sonuç. Klinik bir gece daha ayakta.
+tutorial.replay.title,Replay Tutorial,Öğreticiyi Tekrarla

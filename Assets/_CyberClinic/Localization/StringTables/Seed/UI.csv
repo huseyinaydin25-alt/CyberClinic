@@ -1,0 +1,19 @@
+Key,English,Turkish
+ui.app.title,Cyber Clinic,Cyber Clinic
+ui.common.confirm,Confirm,Onayla
+ui.common.cancel,Cancel,İptal
+ui.common.back,Back,Geri
+ui.common.continue,Continue,Devam
+ui.common.close,Close,Kapat
+ui.common.loading,Loading,Yükleniyor
+ui.common.error,Error,Hata
+ui.common.retry,Retry,Tekrar Dene
+ui.clinic.day,Day,Gün
+ui.clinic.money,Money,Para
+ui.clinic.reputation,Reputation,İtibar
+ui.clinic.patient_queue,Patient Queue,Hasta Kuyruğu
+ui.operation.scan,Scan,Tara
+ui.operation.deep_scan,Deep Scan,Derin Tarama
+ui.operation.operate,Operate,Operasyon
+ui.operation.risk,Risk,Risk
+ui.operation.success_chance,Success Chance,Başarı Şansı
