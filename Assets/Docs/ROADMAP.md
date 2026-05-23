@@ -4,7 +4,7 @@
 > Update after **every major milestone**. Sync with `CHANGELOG.md`, `DECISIONS.md`, and relevant design memory docs.
 
 **Last updated:** 2026-05-23  
-**Current milestone:** **0.5 — Design Memory Foundation** (expanded; docs review in progress)  
+**Current milestone:** **1 — Architecture and Data Foundation** (started, not complete)  
 **Doc version:** 0.0.2
 
 ---
@@ -259,13 +259,13 @@ Full rules: `README_ARCHITECTURE.md`
 
 ---
 
-### Milestone 1 — Architecture and Data Foundation `Planned`
+### Milestone 1 — Architecture and Data Foundation `In progress`
 
-- ScriptableObject data models
-- Runtime models
-- Module assembly boundaries
-- Domain interfaces
-- No UI implementation yet
+- ScriptableObject data model classes (Patients, Implants, Procedures, Complications, Economy, Events, Visual, Audio, Tutorial, Cosmetics, Progression)
+- Runtime model classes (`GeneratedPatient`, operation DTOs, clinic/save/progression state)
+- Core utilities (`SeedContext`, `CyberClinicRandom`, ranges, localization refs)
+- Backend and platform **interfaces only** (no Supabase, RevenueCat, AdMob)
+- **No** `OperationCalculator`, patient generator, UI, scenes, prefabs, or packages yet
 
 ---
 
@@ -429,22 +429,23 @@ Full rules: `README_ARCHITECTURE.md`
 | Unity project | Created, Universal 2D |
 | Repo & folders | Done |
 | Design memory | Expanded |
-| Gameplay C# | Not started intentionally |
+| Data architecture (M1) | **In progress** — SO + runtime + interface contracts under `Scripts/` |
+| Gameplay logic | Not started (no calculator, generator, UI flow) |
 | Unity packages | Not installed yet |
 | Orientation | Landscape decided |
-| Supabase | Planned, not created in repo |
-| AdMob | Pending approval |
-| Next practical step | Review docs, then plan M1 data architecture |
+| Supabase | Interfaces only; no integration |
+| AdMob | Pending approval; `IAdService` only |
+| Next practical step | Validate compile in Unity; author first SO assets; then M2 Localization |
 
 ---
 
 ## Immediate next steps
 
-1. User pulls latest documentation changes.
-2. Review all docs for alignment.
-3. Decide whether Milestone 0.5 is complete.
-4. Prepare Cursor prompt for Milestone 1 data architecture only.
-5. Still no gameplay UI/scene work until M1 is scoped.
+1. Open Unity and confirm all `CyberClinic.*` scripts compile.
+2. Create first ScriptableObject assets from data classes (no logic).
+3. Complete M1 review checklist, then mark M1 done in roadmap + `CHANGELOG`.
+4. Begin Milestone 2 (Unity Localization) — still no gameplay UI flow.
+5. Do not add `OperationCalculator` or patient generator until M3/M5.
 
 ---
 

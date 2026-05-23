@@ -8,11 +8,20 @@ All notable changes to the Cyber Clinic project are documented in this file.
 
 ### Added
 
-- _(none yet)_
+- **Milestone 1 — Architecture and Data Foundation (in progress):**
+  - Core utilities: `CyberClinicConstants`, `CyberClinicIds`, `IIdentifiable`, `IWeightedDefinition`, `WeightedEntry<T>`, `RangeFloat`, `RangeInt`, `Percentage01`, `SeedContext`, `CyberClinicRandom`.
+  - Localization contracts: `LocalizationKey`, `LocalizedTextRef` (keys only, no display text).
+  - Patient SO definitions and runtime models (`GeneratedPatient`, known/hidden info, risk/budget/urgency profiles, enums).
+  - Implant, Procedure, Complication, Economy, Event SO definitions and operation DTOs (no `OperationCalculator` yet).
+  - Visual and Audio SO feedback mapping definitions.
+  - Tutorial, Cosmetics, Progression SO definitions and runtime state models.
+  - Backend interfaces (`IBackendService`, remote config, cloud save, leaderboard, live events, telemetry) + DTOs.
+  - Platform service interfaces (`IRevenueService`, `IAdService`, `INotificationService`, `IHapticService`, `IPlatformService`).
+  - Save models (`SaveGameSnapshot`, `SaveVersion`) and `ISaveService`.
 
 ### Changed
 
-- _(none yet)_
+- `ROADMAP.md` — current milestone set to **M1 started** (not complete).
 
 ### Fixed
 
