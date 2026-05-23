@@ -2,8 +2,6 @@
 
 All notable changes to the Cyber Clinic project are documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to semantic versioning for releases when versioning begins.
-
 ---
 
 ## [Unreleased]
@@ -22,6 +20,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ---
 
+## [0.0.2] — 2026-05-23
+
+### Added
+
+- `TUTORIAL_DESIGN.md` — first-time tutorial and onboarding design memory.
+- `COSMETIC_SYSTEM.md` — cosmetic and visual upgrade system design memory.
+- `CLINIC_VISUAL_PROGRESSION.md` — clinic tier and interchangeable visual progression design memory.
+- `SUPABASE_BACKEND_PLAN.md` — Supabase backend strategy and offline-first rules.
+
+### Changed
+
+- Expanded `ROADMAP.md` to doc version 0.0.2.
+- Added landscape mobile gameplay as a project identity rule.
+- Added ChatGPT ownership of `Assets/Docs` project memory.
+- Added Milestone 1.5 — First-Time Tutorial Design.
+- Added Milestone 1.6 — Cosmetic, Clinic Progression and Interchangeable Visual Design.
+- Added Milestone 10.6 — Supabase Backend Foundation.
+- Clarified that Supabase is an online service layer, not a core gameplay dependency.
+
+---
+
 ## [0.0.1] — 2026-05-23
 
 ### Added
@@ -36,7 +55,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Full living `ROADMAP.md` — milestones 0 through 12, platform strategy, design rules, current status.
 - Expanded `README_ARCHITECTURE.md` — design memory index, mandatory Cursor read order.
 - Expanded `DEVELOPMENT_RULES.md` — design-memory-first rule, deterministic sim, doc update protocol.
-- New `DECISIONS.md` entries #8–13 (design memory, roadmap, visual/audio core, seeds, platform interfaces, CodeMagic).
+- New `DECISIONS.md` entries #8–13.
 
 ### Changed
 
@@ -49,4 +68,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- **Project foundation** — Unity 6.3 LTS Universal 2D project structure and Cyber Clinic module layout established (folders and docs only; no gameplay scripts, packages, or project setting changes in this milestone).
+- **Project foundation** — Unity 6.3 LTS Universal 2D project structure and Cyber Clinic module layout established.
