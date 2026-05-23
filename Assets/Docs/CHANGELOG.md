@@ -8,24 +8,45 @@ All notable changes to the Cyber Clinic project are documented in this file.
 
 ### Added
 
-- **Milestone 1 — Architecture and Data Foundation (in progress):**
-  - Core utilities: `CyberClinicConstants`, `CyberClinicIds`, `IIdentifiable`, `IWeightedDefinition`, `WeightedEntry<T>`, `RangeFloat`, `RangeInt`, `Percentage01`, `SeedContext`, `CyberClinicRandom`.
-  - Localization contracts: `LocalizationKey`, `LocalizedTextRef` (keys only, no display text).
-  - Patient SO definitions and runtime models (`GeneratedPatient`, known/hidden info, risk/budget/urgency profiles, enums).
-  - Implant, Procedure, Complication, Economy, Event SO definitions and operation DTOs (no `OperationCalculator` yet).
-  - Visual and Audio SO feedback mapping definitions.
-  - Tutorial, Cosmetics, Progression SO definitions and runtime state models.
-  - Backend interfaces (`IBackendService`, remote config, cloud save, leaderboard, live events, telemetry) + DTOs.
-  - Platform service interfaces (`IRevenueService`, `IAdService`, `INotificationService`, `IHapticService`, `IPlatformService`).
-  - Save models (`SaveGameSnapshot`, `SaveVersion`) and `ISaveService`.
+- _(none yet)_
 
 ### Changed
 
-- `ROADMAP.md` — current milestone set to **M1 started** (not complete).
+- _(none yet)_
 
 ### Fixed
 
-- M1 architecture review: Unity-serializable `Percentage01`, `LocalizationKey`, and `SeedContext` fields; removed non-deterministic `Guid.NewGuid()` default on `GeneratedPatient`; `OperationInput` uses content ids instead of ScriptableObject references; `INotificationService` uses `LocalizationKey` for notification copy.
+- _(none yet)_
+
+---
+
+## [0.1.0] — 2026-05-23
+
+### Added
+
+- **Milestone 1 — Architecture and Data Foundation:**
+  - Core utilities: `CyberClinicConstants`, `CyberClinicIds`, `IIdentifiable`, `IWeightedDefinition`, `WeightedEntry<T>`, `RangeFloat`, `RangeInt`, `Percentage01`, `SeedContext`, `CyberClinicRandom`.
+  - Localization contracts: `LocalizationKey`, `LocalizedTextRef`.
+  - Patient ScriptableObject definitions and runtime models.
+  - Implant, procedure, complication, economy, and event data definitions.
+  - Operation DTOs only; no `OperationCalculator` yet.
+  - Visual and audio feedback data definitions.
+  - Tutorial, cosmetics, and progression data contracts.
+  - Backend interfaces and DTOs only.
+  - Platform service interfaces only.
+  - Save models and `ISaveService`.
+
+### Changed
+
+- `ROADMAP.md` moved Milestone 1 to done and Milestone 2 to next.
+
+### Fixed
+
+- Architecture review fixes for Unity serialization and deterministic replay safety:
+  - `Percentage01`, `LocalizationKey`, and `SeedContext` are Unity-serializable.
+  - `GeneratedPatient` no longer auto-generates non-deterministic ids.
+  - `OperationInput` references selected implant/procedure by content id rather than direct ScriptableObject reference.
+  - `INotificationService` uses localization keys for notification title/body.
 
 ---
 
