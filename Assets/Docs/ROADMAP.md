@@ -4,8 +4,8 @@
 > Update after **every major milestone**. Sync with `CHANGELOG.md`, `DECISIONS.md`, and relevant design memory docs.
 
 **Last updated:** 2026-05-23  
-**Current milestone:** **1 — Architecture and Data Foundation** (started, not complete)  
-**Doc version:** 0.0.2
+**Current milestone:** **2 — Localization Foundation** (next)  
+**Doc version:** 0.1.0
 
 ---
 
@@ -240,7 +240,7 @@ Full rules: `README_ARCHITECTURE.md`
 
 ---
 
-### Milestone 0.5 — Design Memory Foundation `In progress`
+### Milestone 0.5 — Design Memory Foundation `Done`
 
 - Permanent design memory docs
 - Full roadmap
@@ -255,17 +255,19 @@ Full rules: `README_ARCHITECTURE.md`
 - Cosmetic system design
 - Clinic visual progression docs
 
-**Exit:** all docs reviewed; no gameplay C#; team aligned on puzzle, tutorial, visual progression, math, backend boundaries, and localization.
-
 ---
 
-### Milestone 1 — Architecture and Data Foundation `In progress`
+### Milestone 1 — Architecture and Data Foundation `Done`
 
-- ScriptableObject data model classes (Patients, Implants, Procedures, Complications, Economy, Events, Visual, Audio, Tutorial, Cosmetics, Progression)
-- Runtime model classes (`GeneratedPatient`, operation DTOs, clinic/save/progression state)
-- Core utilities (`SeedContext`, `CyberClinicRandom`, ranges, localization refs)
-- Backend and platform **interfaces only** (no Supabase, RevenueCat, AdMob)
-- **No** `OperationCalculator`, patient generator, UI, scenes, prefabs, or packages yet
+- ScriptableObject data model classes created.
+- Runtime model classes created.
+- Core deterministic utility contracts created.
+- Localization reference types created.
+- Backend and platform service interfaces created.
+- Save/progression/cosmetic/tutorial data contracts created.
+- Unity compile confirmed with no Console errors.
+- Architecture review pass completed with serialization and determinism fixes.
+- No gameplay UI, scenes, prefabs, packages, SDK integrations, patient generator, or OperationCalculator were created.
 
 ---
 
@@ -290,13 +292,14 @@ Full rules: `README_ARCHITECTURE.md`
 
 ---
 
-### Milestone 2 — Localization Foundation `Planned`
+### Milestone 2 — Localization Foundation `Next`
 
 - Unity Localization package
 - English base locale
 - Turkish secondary locale
 - Key naming rules
 - No-hardcoded-text checks
+- Initial string table groups for UI, tutorial, patients, events, cosmetics, errors, system messages
 
 ---
 
@@ -428,24 +431,24 @@ Full rules: `README_ARCHITECTURE.md`
 |------|-------|
 | Unity project | Created, Universal 2D |
 | Repo & folders | Done |
-| Design memory | Expanded |
-| Data architecture (M1) | **In progress** — SO + runtime + interface contracts under `Scripts/` |
-| Gameplay logic | Not started (no calculator, generator, UI flow) |
+| Design memory | Done |
+| Data architecture (M1) | **Done** |
+| Gameplay logic | Not started |
 | Unity packages | Not installed yet |
 | Orientation | Landscape decided |
 | Supabase | Interfaces only; no integration |
 | AdMob | Pending approval; `IAdService` only |
-| Next practical step | Validate compile in Unity; author first SO assets; then M2 Localization |
+| Next practical step | Milestone 2 — Localization Foundation |
 
 ---
 
 ## Immediate next steps
 
-1. Open Unity and confirm all `CyberClinic.*` scripts compile.
-2. Create first ScriptableObject assets from data classes (no logic).
-3. Complete M1 review checklist, then mark M1 done in roadmap + `CHANGELOG`.
-4. Begin Milestone 2 (Unity Localization) — still no gameplay UI flow.
-5. Do not add `OperationCalculator` or patient generator until M3/M5.
+1. User pulls latest documentation updates.
+2. Start Milestone 2 with Unity Localization package only.
+3. Create base locales: `en` and `tr`.
+4. Create initial string table groups for UI, tutorial, patients, events, cosmetics, errors, and system copy.
+5. Do not add gameplay UI flow, OperationCalculator, patient generator, SDK integrations, or backend implementation during M2.
 
 ---
 
@@ -456,6 +459,7 @@ Full rules: `README_ARCHITECTURE.md`
 | 0.0.0 | 2026-05-23 | M0 | Folder architecture + initial docs |
 | 0.0.1 | 2026-05-23 | M0.5 | Full design memory + living roadmap |
 | 0.0.2 | 2026-05-23 | M0.5 | Added landscape, tutorial, cosmetics, clinic visual progression, Supabase strategy, and ChatGPT docs ownership |
+| 0.1.0 | 2026-05-23 | M1 | Architecture and data foundation compiled and reviewed |
 
 ---
 
@@ -465,3 +469,4 @@ Full rules: `README_ARCHITECTURE.md`
 |------|-----------|-------|
 | 2026-05-23 | M0 — Project Foundation | Initial structure |
 | 2026-05-23 | M0.5 — Design Memory Foundation | Expanded project memory |
+| 2026-05-23 | M1 — Architecture and Data Foundation | Data contracts, SO definitions, runtime models, interfaces; no gameplay logic |
