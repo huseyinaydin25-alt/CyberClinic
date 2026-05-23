@@ -1,6 +1,27 @@
 # Cyber Clinic — Architecture Overview
 
-**Cyber Clinic** is a Unity 6.3 LTS Universal 2D mobile game. This document describes the production-minded modular layout under `Assets/_CyberClinic` and how systems must stay decoupled as the project grows.
+**Cyber Clinic** is a Unity 6.3 LTS Universal 2D mobile game. This document describes the production-minded modular layout under `Assets/_CyberClinic`, how systems stay decoupled, and how **design memory docs** govern implementation.
+
+---
+
+## Mandatory context for Cursor (read before coding)
+
+Before implementing **any** system, read the relevant design memory in `Assets/Docs/`:
+
+| If you are building… | Read first |
+|----------------------|------------|
+| Anything | `ROADMAP.md`, `DEVELOPMENT_RULES.md` |
+| Patient flow / generation | `GAME_DESIGN_MEMORY.md`, `PROCEDURAL_PATIENT_SYSTEM.md` |
+| Surgery / risk / outcomes | `OPERATION_MATH.md`, `GAME_DESIGN_MEMORY.md` |
+| UI / copy | `LOCALIZATION_PLAN.md`, `DEVELOPMENT_RULES.md` |
+| VFX / animation / juice | `VISUAL_AUDIO_DIRECTION.md` |
+| Audio | `VISUAL_AUDIO_DIRECTION.md` |
+| IAP / ads / push / haptics | `PLATFORM_SERVICES_PLAN.md` |
+| Saves / day loop / economy | `ROADMAP.md` (M9–10), `GAME_DESIGN_MEMORY.md` |
+
+These documents are **permanent design memory**—not suggestions. If implementation diverges, update the doc in the same change set or fix the code.
+
+**Rule (see `DEVELOPMENT_RULES.md` §11):** Before implementing a new system, check the relevant `Assets/Docs/` file and update it if the plan changes.
 
 ---
 
@@ -16,6 +37,27 @@ This project is split into **feature modules** with clear boundaries:
 - **Platform services** sit behind interfaces so gameplay never calls AdMob, RevenueCat, notifications, or haptics directly.
 
 New work should extend an existing module or add a new module with the same rules—not bypass them.
+
+---
+
+## Design memory ↔ module map
+
+| Design doc | `Scripts/` module | `ScriptableObjects/` |
+|------------|-------------------|----------------------|
+| `PROCEDURAL_PATIENT_SYSTEM.md` | `Patients/` | `Patients/` |
+| Implants (ROADMAP M4) | `Implants/` | `Implants/` |
+| Procedures (ROADMAP M4–5) | `Procedures/` | `Procedures/` |
+| `OPERATION_MATH.md` | `Procedures/` (+ pure calculator type) | `Procedures/`, tuning SO |
+| Complications | `Complications/` | `Complications/` |
+| Clinic events | `Events/` | `Events/` |
+| Dialogue | — (data) | `Dialogue/` |
+| Economy / day | `Economy/` | `Economy/` |
+| `VISUAL_AUDIO_DIRECTION.md` | `Visual/`, `Audio/` | `Visual/`, `Audio/` |
+| `LOCALIZATION_PLAN.md` | `Localization/` | `Localization/StringTables/` |
+| Save | `Save/` | — |
+| Meta unlocks | `Progression/` | — |
+| `PLATFORM_SERVICES_PLAN.md` | `PlatformServices/` | — |
+| Shared boot/DI | `Core/` | `Settings/` |
 
 ---
 
@@ -54,6 +96,8 @@ Authoring assets only—sprites, atlases, animations, materials used by 2D rende
 
 **Rule:** No player-facing text baked into art. Labels and copy use localization.
 
+**Style reference:** `VISUAL_AUDIO_DIRECTION.md` (cyberpunk medical noir, neon, rain, holographic UI).
+
 ---
 
 ### `Audio/`
@@ -63,10 +107,12 @@ Audio clips and related authoring data (not gameplay mix logic).
 | Subfolder | Purpose |
 |-----------|---------|
 | `SFX/` | Short feedback sounds (tools, UI, surgery) |
-| `Ambience/` | Room tone, clinic atmosphere |
+| `Ambience/` | Room tone, clinic atmosphere, rain |
 | `Music/` | Tracks and stems |
 
 Playback and pooling logic belongs in `Scripts/Audio/`. Content definitions (which clip for which event) belong in `ScriptableObjects/Audio/`.
+
+**Direction:** `VISUAL_AUDIO_DIRECTION.md`
 
 ---
 
@@ -91,7 +137,7 @@ Playable and bootstrap scenes.
 
 | Subfolder | Purpose |
 |-----------|---------|
-| `Boot/` | Initialization, loading, service setup |
+| `Boot/` | Initialization, loading, **platform service registration** |
 | `MainClinic/` | Clinic hub / management flow |
 | `SurgeryRoom/` | Procedure gameplay space |
 
@@ -108,17 +154,17 @@ Runtime code only—organized by **domain module**. Each folder is a bounded con
 | `Core/` | App lifecycle, service locator/DI hooks, shared contracts, bootstrapping |
 | `Patients/` | Procedural patient generation orchestration (not SO data) |
 | `Implants/` | Implant selection/application rules |
-| `Procedures/` | Surgery/procedure flow |
+| `Procedures/` | Surgery/procedure flow, **pure operation calculator** |
 | `Complications/` | Complication resolution |
 | `Economy/` | Currency, costs, rewards (calculation only) |
 | `Events/` | Clinic events scheduling and outcomes |
 | `UI/` | Views, presenters, input routing—**no economy math** |
-| `Visual/` | Visual feedback triggers (particles, highlights)—**no gameplay math** |
+| `Visual/` | VFX feedback triggers—**no gameplay math** |
 | `Audio/` | Audio feedback triggers—**no gameplay math** |
 | `Localization/` | Key resolution, table loading helpers |
 | `Save/` | Serialization, profiles, migration |
 | `Progression/` | Unlocks, reputation tiers, meta progression |
-| `PlatformServices/` | Interfaces + adapters for ads, IAP, analytics, notifications, haptics |
+| `PlatformServices/` | Interfaces + adapters (RevenueCat, AdMob, notifications, haptics) |
 | `Utilities/` | Pure helpers with no domain knowledge |
 
 **Do not** place cross-cutting gameplay in `Utilities/` to avoid “god helpers.”
@@ -131,7 +177,7 @@ Runtime code only—organized by **domain module**. Each folder is a bounded con
 
 | Subfolder | Content type |
 |-----------|----------------|
-| `Patients/` | Patient templates, trait pools, generation parameters |
+| `Patients/` | Archetypes, trait pools, generation parameters |
 | `Implants/` | Implant definitions, stats, compatibility |
 | `Procedures/` | Procedure steps, durations, requirements |
 | `Complications/` | Complication types, weights, outcomes |
@@ -143,11 +189,13 @@ Runtime code only—organized by **domain module**. Each folder is a bounded con
 
 Runtime **instances** (e.g. “Patient #7 in today’s queue”) are not ScriptableObjects—they are plain runtime objects built from SO definitions.
 
+Schema guidance: `PROCEDURAL_PATIENT_SYSTEM.md`, `OPERATION_MATH.md`
+
 ---
 
 ### `Localization/`
 
-Unity Localization package assets.
+Unity Localization package assets (install at Milestone 2).
 
 | Subfolder | Purpose |
 |-----------|---------|
@@ -155,6 +203,8 @@ Unity Localization package assets.
 | `AssetTables/` | Localized sprites/assets where needed |
 
 Every UI label, dialogue line, tutorial, error, and notification body must resolve through a **localization key**—never a literal string in code or prefab text components.
+
+**Plan:** `LOCALIZATION_PLAN.md`
 
 ---
 
@@ -172,19 +222,25 @@ These boundaries apply as soon as gameplay code is added:
    Gameplay publishes state/events; UI subscribes and renders. UI never computes rewards, reputation, or procedure outcomes.
 
 2. **Gameplay ↔ Visual / Audio feedback**  
-   Gameplay raises semantic events (e.g. `ProcedureStepCompleted`). Visual and Audio modules map events to presentation via `ScriptableObjects/Visual` and `ScriptableObjects/Audio`.
+   Gameplay raises semantic events (e.g. `OperationResolved`). Visual and Audio modules map events to presentation via `ScriptableObjects/Visual` and `ScriptableObjects/Audio`. See `VISUAL_AUDIO_DIRECTION.md`.
 
 3. **Gameplay ↔ Platform services**  
-   Gameplay depends on interfaces in `Scripts/PlatformServices/`. Concrete AdMob, RevenueCat, push, and haptic implementations live in adapters—not in procedure or economy code.
+   Gameplay depends on interfaces in `Scripts/PlatformServices/`. See `PLATFORM_SERVICES_PLAN.md`.
 
 4. **Gameplay ↔ Save**  
-   Save module reads/writes DTOs; domain modules expose snapshot APIs. Avoid static “SaveManager everywhere” calls from UI.
+   Save module reads/writes DTOs; domain modules expose snapshot APIs.
 
-5. **Content ↔ Code**  
-   Balance and copy change in ScriptableObjects and string tables. Code defines *how* to apply data, not *what* the next implant costs.
+5. **Operation calculator purity**  
+   `OperationCalculator` returns results only; Economy/Reputation/Save react to events. See `OPERATION_MATH.md`.
 
-6. **Localization ↔ Everything**  
-   All visible text flows: key → Unity Localization → UI/TextMeshPro. No exceptions for “temporary” debug UI in builds.
+6. **Content ↔ Code**  
+   Balance and copy change in ScriptableObjects and string tables.
+
+7. **Localization ↔ Everything**  
+   All visible text flows: key → Unity Localization → UI/TextMeshPro.
+
+8. **Deterministic generation**  
+   Patient and operation seeds produce identical results on all platforms. See `PROCEDURAL_PATIENT_SYSTEM.md`.
 
 ---
 
@@ -200,11 +256,11 @@ These boundaries apply as soon as gameplay code is added:
 
 ## What not to put here (yet)
 
-Per project phase zero:
+Per roadmap before Milestone 1:
 
-- No gameplay logic scripts until modules are specified in the roadmap.
+- No gameplay logic scripts until data models are defined.
 - No placeholder “manager” singletons that fake entire systems.
-- No package installs or project setting changes documented here—those are tracked in `DECISIONS.md` and `CHANGELOG.md`.
+- No package installs or project setting changes without `CHANGELOG.md` + `DECISIONS.md`.
 
 When adding a feature, ask: **Which module owns this?** If two modules need it, extract a contract to `Core/` or a shared interface—not a shared static class.
 
@@ -212,9 +268,15 @@ When adding a feature, ask: **Which module owns this?** If two modules need it, 
 
 ## Related documents
 
-| Document | Location |
-|----------|----------|
-| Coding & process rules | `Assets/Docs/DEVELOPMENT_RULES.md` |
-| Product roadmap | `Assets/Docs/ROADMAP.md` |
-| Architecture decisions | `Assets/Docs/DECISIONS.md` |
-| Change history | `Assets/Docs/CHANGELOG.md` |
+| Document | Purpose |
+|----------|---------|
+| `ROADMAP.md` | Milestones, status, next steps |
+| `GAME_DESIGN_MEMORY.md` | Core puzzle, tone, replayability |
+| `PROCEDURAL_PATIENT_SYSTEM.md` | Patient generation |
+| `OPERATION_MATH.md` | Operation calculator |
+| `VISUAL_AUDIO_DIRECTION.md` | VFX/audio modules |
+| `LOCALIZATION_PLAN.md` | Locales and keys |
+| `PLATFORM_SERVICES_PLAN.md` | SDK abstraction |
+| `DEVELOPMENT_RULES.md` | Coding rules |
+| `DECISIONS.md` | ADRs |
+| `CHANGELOG.md` | Version history |

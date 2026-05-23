@@ -1,6 +1,35 @@
 # Cyber Clinic — Development Rules
 
-Binding rules for all contributors and automation. When in doubt, prefer **decoupling**, **data-driven content**, and **localization keys** over convenience shortcuts.
+Binding rules for all contributors, **Cursor**, and **ChatGPT**-guided automation. When in doubt, prefer **decoupling**, **data-driven content**, and **localization keys** over convenience shortcuts.
+
+**Design memory lives in `Assets/Docs/`** — not in chat history. Always prefer docs over recalled conversation.
+
+---
+
+## 0. Design memory first (mandatory)
+
+### Rule
+
+**Before implementing a new system**, read the relevant document(s) in `Assets/Docs/` and follow them. **If the implementation plan changes**, update that document in the same PR/commit before or alongside code.
+
+| System | Document |
+|--------|----------|
+| Overall / milestone | `ROADMAP.md` |
+| Creative pillar / puzzle | `GAME_DESIGN_MEMORY.md` |
+| Patients | `PROCEDURAL_PATIENT_SYSTEM.md` |
+| Operations / risk | `OPERATION_MATH.md` |
+| VFX / juice | `VISUAL_AUDIO_DIRECTION.md` |
+| Audio | `VISUAL_AUDIO_DIRECTION.md` |
+| Strings / locales | `LOCALIZATION_PLAN.md` |
+| Ads / IAP / platform | `PLATFORM_SERVICES_PLAN.md` |
+| Folders / modules | `README_ARCHITECTURE.md` |
+
+### Cursor workflow
+
+1. Open the doc(s) for the milestone task.
+2. Implement only what the docs specify; flag gaps in doc comments or update docs.
+3. Do not invent gameplay rules in code that are not in design memory.
+4. After milestone: update `ROADMAP.md`, `CHANGELOG.md`, and `DECISIONS.md` as needed.
 
 ---
 
@@ -17,10 +46,11 @@ Binding rules for all contributors and automation. When in doubt, prefer **decou
 
 ### Required approach
 
-- Use the **Unity Localization** package.
+- Use the **Unity Localization** package (from Milestone 2 onward).
 - Store copy in `Assets/_CyberClinic/Localization/StringTables/`.
 - Reference entries by **localization keys** (stable IDs), not by English fallback in code.
 - Localized assets (if any) use `Localization/AssetTables/`.
+- Full key groups, locales (`en`, `tr`), and examples: **`LOCALIZATION_PLAN.md`**.
 
 ### Key naming
 
@@ -123,6 +153,8 @@ Each system lives in its module folder under `Scripts/` and owns its contracts.
 - Gameplay emits **semantic events** (what happened).
 - `Scripts/Visual/` and `Scripts/Audio/` map events to presentation using `ScriptableObjects/Visual` and `ScriptableObjects/Audio`.
 - Changing a sound or particle must not change economy or procedure outcomes.
+- **Every major gameplay action** must have visual and audio feedback — see `VISUAL_AUDIO_DIRECTION.md`.
+- Visual/audio are **core gameplay feedback**, not optional polish.
 
 ---
 
@@ -141,10 +173,11 @@ Gameplay and UI **must not** call platform SDKs directly:
 
 ### Required approach
 
-1. Define interfaces in `Scripts/PlatformServices/` (e.g. `IAdsService`, `IPurchaseService`, `INotificationService`, `IHapticsService`).
-2. Implement adapters per platform (Android, iOS) in the same module or platform-specific assemblies.
-3. Register implementations during **Boot** scene initialization.
-4. Gameplay depends only on interfaces.
+1. Define interfaces in `Scripts/PlatformServices/` — see **`PLATFORM_SERVICES_PLAN.md`** (`IRevenueService`, `IAdService`, `INotificationService`, `IHapticService`, `IPlatformService`).
+2. Use **mock services** until AdMob is approved and adapters are wired (Milestone 10.5).
+3. Implement adapters per platform (Android, iOS) in the same module or platform-specific assemblies.
+4. Register implementations during **Boot** scene initialization.
+5. Gameplay depends only on interfaces.
 
 ### Testing
 
@@ -200,12 +233,21 @@ When Unity Localization is installed, all new UI work must use it immediately—
 
 ---
 
-## 10. Documentation discipline
+## 10. Deterministic simulation
+
+- Procedural patients: same `runSeed + dayIndex + slot` → same patient — see `PROCEDURAL_PATIENT_SYSTEM.md`.
+- Operations: pure calculator, seeded variance only within tuned band — see `OPERATION_MATH.md`.
+- Do not use `UnityEngine.Random` without scoped seed state per generation/operation.
+
+---
+
+## 11. Documentation discipline
 
 | Event | Update |
 |-------|--------|
 | Major milestone shipped | `ROADMAP.md` (status), `CHANGELOG.md` (entry) |
 | Architectural choice | `DECISIONS.md` |
+| System behavior change | Relevant design memory doc (`GAME_DESIGN_MEMORY.md`, etc.) |
 | Folder or module boundary change | `README_ARCHITECTURE.md` |
 | New mandatory rule | This file |
 
@@ -213,6 +255,8 @@ When Unity Localization is installed, all new UI work must use it immediately—
 
 ## Quick checklist (before merge)
 
+- [ ] Read relevant `Assets/Docs/` design memory before coding
+- [ ] Design doc updated if behavior changed
 - [ ] No player-facing string literals in code or prefabs
 - [ ] New copy has localization keys in String Tables
 - [ ] New content uses ScriptableObjects, not magic numbers in scenes
