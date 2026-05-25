@@ -4,8 +4,8 @@
 > Update after **every major milestone**. Sync with `CHANGELOG.md`, `DECISIONS.md`, and relevant design memory docs.
 
 **Last updated:** 2026-05-23  
-**Current milestone:** **1.6 — Cosmetic, Clinic Progression and Interchangeable Visual Design** (next)  
-**Doc version:** 0.2.5
+**Current milestone:** **3 — Procedural Patient Generator** (next)  
+**Doc version:** 0.2.6
 
 ---
 
@@ -50,13 +50,14 @@ Cyber Clinic will not be developed with a “fix it later” mindset. The previo
 | Design memory | Done |
 | Data architecture (M1) | Done |
 | Localization (M2) | Done |
-| First-time tutorial design (M1.5) | **Done** |
+| First-time tutorial design (M1.5) | Done |
+| Cosmetic / clinic visual progression design (M1.6) | **Done** |
 | Gameplay logic | Not started |
 | Unity packages | Localization + Addressables installed |
 | Orientation | Landscape decided |
 | Supabase | Interfaces only; no integration |
 | AdMob | Pending approval; `IAdService` only |
-| Next practical step | Milestone 1.6 — Cosmetic, Clinic Progression and Interchangeable Visual Design |
+| Next practical step | Milestone 3 — Procedural Patient Generator |
 
 ---
 
@@ -169,15 +170,15 @@ Detail: `TUTORIAL_DESIGN.md`
 
 Cyber Clinic must not use one static clinic and one static UI forever. The player should see clinic growth through environment, UI, scan effects, result reveals, operation equipment, and ambience.
 
-Visual progression and cosmetic systems can support:
+M1.6 finalized these principles:
 
-- reputation progression
-- clinic tier upgrades
-- event rewards
-- premium visual packs
-- seasonal themes
-- UI/scan/VFX personalization
-- long-term retention
+- cosmetics must be visible or meaningfully felt in the core loop
+- premium visuals must not create unfair core math advantage
+- visual packs must be swappable by data/configuration
+- clinic tiers must preserve landscape readability
+- seasonal/special-day visuals should be data overlays, not separate hardcoded scenes
+- cosmetic names/descriptions/store labels must use localization keys
+- ownership must be save-safe and cloud-sync-ready later
 
 Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 
@@ -230,14 +231,18 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 
 ---
 
-### Milestone 1.6 — Cosmetic, Clinic Progression and Interchangeable Visual Design `Next`
+### Milestone 1.6 — Cosmetic, Clinic Progression and Interchangeable Visual Design `Done`
 
-- Clinic theme data model
-- Cosmetic data model
-- Visual pack data model
-- Clinic tier visual definitions
-- RevenueCat entitlement boundaries
-- Pay-to-win risk limits
+- Cosmetic categories documented.
+- Clinic tier visual language expanded.
+- Landscape visual composition constraints documented.
+- Data-driven visual pack approach documented.
+- Premium/progression/event reward boundaries documented.
+- Functional cosmetic limits documented.
+- Ownership/save/cloud-sync implications documented.
+- Cosmetic and clinic localization seed keys expanded.
+- Unity localization setup re-run successfully after key additions.
+- No store implementation, gameplay UI, SDK integration, backend implementation, or scene work was created.
 
 ---
 
@@ -248,16 +253,17 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 - String table collections created: UI, Tutorial, Patients, Implants, Procedures, Economy, Events, Cosmetics, Clinic, Errors, System.
 - CSV seed data created under `Assets/_CyberClinic/Localization/StringTables/Seed/` with en/tr values.
 - Setup menu and hardcoded text validator created.
-- Initial setup imported 85 keys; tutorial key expansion later raised the count to 96 keys.
+- Initial setup imported 85 keys; later milestone key expansions increased the imported key count.
 
 ---
 
-### Milestone 3 — Procedural Patient Generator `Planned`
+### Milestone 3 — Procedural Patient Generator `Next`
 
 - Deterministic seed support
 - Archetypes, motivations, hidden conditions
 - Visual traits, known/unknown model
 - Scan reveal rules
+- No UI, operation calculator, save, backend, or platform SDK implementation
 
 ---
 
@@ -377,9 +383,10 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 ## Immediate next steps
 
 1. User pulls latest documentation updates.
-2. Start Milestone 1.6 with cosmetic and clinic visual progression planning.
-3. Finalize clinic tier visual language, data needs, premium/progression/event reward boundaries.
-4. Do not add gameplay UI, OperationCalculator, patient generator, SDK integrations, backend implementation, or store logic during M1.6.
+2. Start Milestone 3 with procedural patient generator planning/implementation.
+3. Read `PROCEDURAL_PATIENT_SYSTEM.md`, `GAME_DESIGN_MEMORY.md`, `LOCALIZATION_PLAN.md`, `TUTORIAL_DESIGN.md`, and M1 data contracts before coding.
+4. Build only deterministic patient generation logic and related tests/debug helpers.
+5. Do not add gameplay UI, OperationCalculator, SDK integrations, backend implementation, or scene work during M3.
 
 ---
 
@@ -393,6 +400,7 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 | 0.1.0 | 2026-05-23 | M1 | Architecture and data foundation compiled and reviewed |
 | 0.2.0 | 2026-05-23 | M2 | Localization foundation installed, seeded, and validated |
 | 0.2.5 | 2026-05-23 | M1.5 | First tutorial design finalized and tutorial localization keys imported |
+| 0.2.6 | 2026-05-23 | M1.6 | Cosmetic and clinic visual progression design finalized |
 
 ---
 
@@ -405,3 +413,4 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 | 2026-05-23 | M1 — Architecture and Data Foundation | Data contracts, SO definitions, runtime models, interfaces; no gameplay logic |
 | 2026-05-23 | M2 — Localization Foundation | Unity Localization package, en/tr locales, 11 string table collections, validator |
 | 2026-05-23 | M1.5 — First-Time Tutorial Design | Case 001, beat map, tutorial localization keys, no gameplay implementation |
+| 2026-05-23 | M1.6 — Cosmetic / Clinic Visual Progression | Cosmetic system, clinic tiers, visual packs, localization keys, no store implementation |
