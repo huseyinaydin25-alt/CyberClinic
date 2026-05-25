@@ -3,9 +3,37 @@ cosmetic.category.clinic_theme,Clinic Theme,Klinik Teması
 cosmetic.category.ui_theme,UI Theme,Arayüz Teması
 cosmetic.category.scan_visual,Scan Visual,Tarama Görseli
 cosmetic.category.result_animation,Result Animation,Sonuç Animasyonu
+cosmetic.category.operation_table,Operation Table,Operasyon Masası
+cosmetic.category.patient_card,Patient Card,Hasta Kartı
+cosmetic.category.risk_panel,Risk Panel,Risk Paneli
+cosmetic.category.ambience_pack,Ambience Pack,Ambiyans Paketi
+cosmetic.category.visual_pack,Visual Pack,Görsel Paket
+cosmetic.category.ui_sound_pack,UI Sound Pack,Arayüz Ses Paketi
 cosmetic.rarity.common,Common,Sıradan
 cosmetic.rarity.rare,Rare,Nadir
 cosmetic.rarity.premium,Premium,Premium
+cosmetic.rarity.event_limited,Event Limited,Etkinliğe Özel
 cosmetic.purchase_type.progression,Progression,İlerleme
 cosmetic.purchase_type.premium,Premium,Premium
 cosmetic.purchase_type.event_reward,Event Reward,Etkinlik Ödülü
+cosmetic.purchase_type.reputation_unlock,Reputation Unlock,İtibar Kilidi
+cosmetic.purchase_type.achievement,Achievement,Başarım
+cosmetic.effect.pure_visual,Pure Visual,Sadece Görsel
+cosmetic.effect.feedback_clarity,Feedback Clarity,Geri Bildirim Netliği
+cosmetic.effect.quality_of_life,Quality of Life,Kullanım Kolaylığı
+cosmetic.effect.progression_linked,Progression Linked,İlerlemeye Bağlı
+cosmetic.pack.neon_specialist.name,Neon Specialist Pack,Neon Uzman Paketi
+cosmetic.pack.neon_specialist.description,A coordinated clinic UI scan and result style for a sharper specialist identity.,Daha keskin bir uzman kimliği için uyumlu klinik arayüzü tarama ve sonuç stili.
+cosmetic.pack.corporate_precision.name,Corporate Precision Pack,Kurumsal Hassasiyet Paketi
+cosmetic.pack.corporate_precision.description,Clean medical panels precise scan visuals and restrained audio feedback.,Temiz medikal paneller hassas tarama görselleri ve kontrollü ses geri bildirimi.
+cosmetic.pack.redline_night.name,Redline Night Pack,Kırmızı Hat Gece Paketi
+cosmetic.pack.redline_night.description,A darker high-intensity visual pack for risky late-night operations.,Riskli gece operasyonları için daha karanlık ve yoğun bir görsel paket.
+cosmetic.store.preview,Preview,Önizle
+cosmetic.store.owned,Owned,Sahip Olundu
+cosmetic.store.locked,Locked,Kilitli
+cosmetic.store.equip,Equip,Kuşan
+cosmetic.store.equipped,Equipped,Kuşanıldı
+cosmetic.store.restore_purchases,Restore Purchases,Satın Almaları Geri Yükle
+cosmetic.unlock.required_reputation,Requires Reputation,İtibar Gerektirir
+cosmetic.unlock.required_clinic_tier,Requires Clinic Tier,Klinik Seviyesi Gerektirir
+cosmetic.unlock.event_reward,Event Reward,Etkinlik Ödülü
