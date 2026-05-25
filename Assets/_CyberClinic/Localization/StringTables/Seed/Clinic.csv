@@ -4,3 +4,21 @@ clinic.tier.street_clinic,Street Clinic,Sokak Kliniği
 clinic.tier.neon_specialist,Neon Specialist Clinic,Neon Uzman Kliniği
 clinic.tier.corporate_lab,Corporate Lab,Kurumsal Laboratuvar
 clinic.tier.black_market_elite,Black Market Elite,Kara Pazar Elit
+clinic.tier.back_alley.description,Cramped unstable and rain-soaked. A risky clinic trying to survive.,Dar dengesiz ve yağmurla yıpranmış. Hayatta kalmaya çalışan riskli bir klinik.
+clinic.tier.street_clinic.description,Cleaner more reliable and still close to the street.,Daha temiz daha güvenilir ama hâlâ sokaklara yakın.
+clinic.tier.neon_specialist.description,Holographic panels stronger scans and a sharper specialist identity.,Holografik paneller güçlü taramalar ve daha keskin bir uzman kimliği.
+clinic.tier.corporate_lab.description,Sterile precise and built for prestigious high-stakes clients.,Steril hassas ve prestijli yüksek riskli müşteriler için kurulu.
+clinic.tier.black_market_elite.description,Dark luxurious and dangerous. High profit high consequence.,Karanlık lüks ve tehlikeli. Yüksek kâr yüksek sonuç.
+clinic.visual.zone.patient,Patient Zone,Hasta Alanı
+clinic.visual.zone.operation,Operation Zone,Operasyon Alanı
+clinic.visual.zone.file,Patient File Zone,Hasta Dosyası Alanı
+clinic.visual.zone.status,Status Bar,Durum Çubuğu
+clinic.visual.zone.actions,Action Bar,Eylem Çubuğu
+clinic.visual.unlock.preview_locked,Visual Upgrade Locked,Görsel Yükseltme Kilitli
+clinic.visual.unlock.preview_available,Visual Upgrade Available,Görsel Yükseltme Mevcut
+clinic.visual.upgrade_hint,Your clinic can evolve as your reputation grows.,İtibarın arttıkça kliniğin de gelişebilir.
+clinic.visual.theme.back_alley_rain.name,Back-Alley Rain,Ara Sokak Yağmuru
+clinic.visual.theme.neon_specialist.name,Neon Specialist,Neon Uzman
+clinic.visual.theme.corporate_precision.name,Corporate Precision,Kurumsal Hassasiyet
+clinic.visual.theme.redline_night.name,Redline Night,Kırmızı Hat Gecesi
+clinic.visual.theme.midnight_trauma.name,Midnight Trauma Bay,Gece Yarısı Travma Odası
