@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e69e1e47c0656748b72ab13e0db5e1d, type: 3}
+  m_Name: PatientArchetype_Test_StreetNetrunner
+  m_EditorClassIdentifier: 
+  _id: test_street_netrunner
+  _weight: 1.2
+  _category: 2
+  _name: {_key: patient.archetype.test_street_netrunner.name}
+  _description: {_key: patient.archetype.test_street_netrunner.description}
+  _flavor: {_key: patient.archetype.test_street_netrunner.flavor}
+  _defaultLegalLean: 0
