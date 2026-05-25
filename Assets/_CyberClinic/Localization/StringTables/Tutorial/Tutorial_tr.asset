@@ -50,6 +50,52 @@ MonoBehaviour:
     m_Localized: "\xD6\u011Freticiyi Tekrarla"
     m_Metadata:
       m_Items: []
+  - m_Id: 994377569476608
+    m_Localized: "Hastan\u0131n g\xF6r\xFCnen bilgilerini incele."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057664
+    m_Localized: "Hastay\u0131 kabul et ve klini\u011Fi haz\u0131rla."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057665
+    m_Localized: "Yak\u0131nda daha karma\u015F\u0131k vakalar gelecek."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057666
+    m_Localized: "Tarama hafif n\xF6ral dengesizlik g\xF6sterdi."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057667
+    m_Localized: "G\xF6r\xFCnen bilgiler sadece ba\u015Flang\u0131\xE7t\u0131r."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057668
+    m_Localized: "Baz\u0131 riskler tarama yapana kadar gizli kal\u0131r."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057669
+    m_Localized: "Risk \xF6nizlemesi plan\u0131n\u0131n nas\u0131l sonu\xE7 verebilece\u011Fini
+      g\xF6sterir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057670
+    m_Localized: "Operasyon ba\u015Flad\u0131\u011F\u0131nda karar\u0131n kilitlenir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057671
+    m_Localized: "\xD6\u011Freticiyi Atla?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057672
+    m_Localized: Daha sonra ayarlardan tekrar oynayabilirsin.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057673
+    m_Localized: "\u0130lk klinik vakas\u0131n\u0131 ve \xF6\u011Fretici ak\u0131\u015F\u0131n\u0131
+      tekrar et."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

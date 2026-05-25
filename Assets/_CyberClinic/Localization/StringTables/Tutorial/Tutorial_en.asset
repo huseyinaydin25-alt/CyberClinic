@@ -50,6 +50,50 @@ MonoBehaviour:
     m_Localized: Replay Tutorial
     m_Metadata:
       m_Items: []
+  - m_Id: 994377569476608
+    m_Localized: Review the visible patient data.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057664
+    m_Localized: Accept the patient and prepare the clinic.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057665
+    m_Localized: More complex cases will arrive soon.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057666
+    m_Localized: Scan revealed mild neural instability.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057667
+    m_Localized: Visible information is only the beginning.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057668
+    m_Localized: Some risks stay hidden until you scan.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057669
+    m_Localized: Risk preview shows how your plan may behave.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057670
+    m_Localized: Once the operation starts your decision is locked.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057671
+    m_Localized: Skip Tutorial?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057672
+    m_Localized: You can replay it later from settings.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057673
+    m_Localized: Repeat the first clinic case and tutorial flow.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

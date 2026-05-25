@@ -47,6 +47,50 @@ MonoBehaviour:
     m_Key: tutorial.replay.title
     m_Metadata:
       m_Items: []
+  - m_Id: 994377569476608
+    m_Key: tutorial.prompt.review_patient_file
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057664
+    m_Key: tutorial.prompt.accept_patient
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057665
+    m_Key: tutorial.prompt.next_patient_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057666
+    m_Key: tutorial.warning.scan_revealed_neural_instability
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057667
+    m_Key: tutorial.explain.visible_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057668
+    m_Key: tutorial.explain.hidden_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057669
+    m_Key: tutorial.explain.risk_preview
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057670
+    m_Key: tutorial.explain.operation_locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057671
+    m_Key: tutorial.skip.confirm_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057672
+    m_Key: tutorial.skip.confirm_body
+    m_Metadata:
+      m_Items: []
+  - m_Id: 994378467057673
+    m_Key: tutorial.replay.description
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
