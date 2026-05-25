@@ -7,3 +7,14 @@ tutorial.prompt.review_risk,Review the operation risk.,Operasyon riskini incele.
 tutorial.prompt.start_operation,Start the operation.,Operasyonu başlat.
 tutorial.result.first_success,Stable outcome. The clinic survives another night.,Stabil sonuç. Klinik bir gece daha ayakta.
 tutorial.replay.title,Replay Tutorial,Öğreticiyi Tekrarla
+tutorial.prompt.review_patient_file,Review the visible patient data.,Hastanın görünen bilgilerini incele.
+tutorial.prompt.accept_patient,Accept the patient and prepare the clinic.,Hastayı kabul et ve kliniği hazırla.
+tutorial.prompt.next_patient_hint,More complex cases will arrive soon.,Yakında daha karmaşık vakalar gelecek.
+tutorial.warning.scan_revealed_neural_instability,Scan revealed mild neural instability.,Tarama hafif nöral dengesizlik gösterdi.
+tutorial.explain.visible_info,Visible information is only the beginning.,Görünen bilgiler sadece başlangıçtır.
+tutorial.explain.hidden_info,Some risks stay hidden until you scan.,Bazı riskler tarama yapana kadar gizli kalır.
+tutorial.explain.risk_preview,Risk preview shows how your plan may behave.,Risk önizlemesi planının nasıl sonuç verebileceğini gösterir.
+tutorial.explain.operation_locked,Once the operation starts your decision is locked.,Operasyon başladığında kararın kilitlenir.
+tutorial.skip.confirm_title,Skip Tutorial?,Öğreticiyi Atla?
+tutorial.skip.confirm_body,You can replay it later from settings.,Daha sonra ayarlardan tekrar oynayabilirsin.
+tutorial.replay.description,Repeat the first clinic case and tutorial flow.,İlk klinik vakasını ve öğretici akışını tekrar et.
