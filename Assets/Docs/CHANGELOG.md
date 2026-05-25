@@ -20,6 +20,32 @@ All notable changes to the Cyber Clinic project are documented in this file.
 
 ---
 
+## [0.2.6] — 2026-05-23
+
+### Added
+
+- **Milestone 1.6 — Cosmetic, Clinic Progression and Interchangeable Visual Design:**
+  - Expanded cosmetic categories and examples.
+  - Clinic tier visual language and landscape composition rules.
+  - Data-driven visual pack and seasonal overlay strategy.
+  - Premium/progression/event reward boundaries.
+  - Functional cosmetic effect limits.
+  - Cosmetic ownership and future save/cloud-sync implications.
+  - Additional `Cosmetics.csv` and `Clinic.csv` localization seed keys.
+
+### Changed
+
+- `COSMETIC_SYSTEM.md` expanded with cosmetic design pillars, ownership model, visual pack composition, store UX principles, and RevenueCat entitlement rules.
+- `CLINIC_VISUAL_PROGRESSION.md` expanded with tier-specific visual language, landscape layout constraints, progression unlock philosophy, and seasonal overlay rules.
+- `ROADMAP.md` moved Milestone 1.6 to done and Milestone 3 to next.
+
+### Verified
+
+- Cosmetic and clinic localization keys were imported successfully through the localization setup.
+- No gameplay UI, store implementation, SDK integration, backend implementation, patient generator, OperationCalculator, or scene work was created.
+
+---
+
 ## [0.2.5] — 2026-05-23
 
 ### Added
