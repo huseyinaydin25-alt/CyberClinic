@@ -4,8 +4,8 @@
 > Update after **every major milestone**. Sync with `CHANGELOG.md`, `DECISIONS.md`, and relevant design memory docs.
 
 **Last updated:** 2026-05-23  
-**Current milestone:** **1.5 — First-Time Tutorial Design** (next)  
-**Doc version:** 0.2.0
+**Current milestone:** **1.6 — Cosmetic, Clinic Progression and Interchangeable Visual Design** (next)  
+**Doc version:** 0.2.5
 
 ---
 
@@ -39,6 +39,24 @@ Cyber Clinic will not be developed with a “fix it later” mindset. The previo
 8. **Shippable i18n** — No hardcoded player-facing text, ever on `main`.
 9. **Long-term visual evolution** — The clinic must not remain visually static; progression, reputation, cosmetics, and events change the look and feel over time.
 10. **Offline-first gameplay** — Supabase can enhance the game, but the core loop must work without backend connection.
+
+---
+
+## Current milestone status
+
+| Area | State |
+|------|-------|
+| Unity project | Created, Universal 2D |
+| Design memory | Done |
+| Data architecture (M1) | Done |
+| Localization (M2) | Done |
+| First-time tutorial design (M1.5) | **Done** |
+| Gameplay logic | Not started |
+| Unity packages | Localization + Addressables installed |
+| Orientation | Landscape decided |
+| Supabase | Interfaces only; no integration |
+| AdMob | Pending approval; `IAdService` only |
+| Next practical step | Milestone 1.6 — Cosmetic, Clinic Progression and Interchangeable Visual Design |
 
 ---
 
@@ -132,15 +150,16 @@ Detail: `GAME_DESIGN_MEMORY.md`
 
 Cyber Clinic is niche and can look complex. The first tutorial must be a controlled, enjoyable, atmospheric first case—not a dry popup sequence.
 
-Tutorial goals:
+Tutorial design is now anchored around:
 
-- teach one mechanic at a time
-- use the first patient as a story/teaching case
-- show scan, hidden risk, implant choice, risk preview, operation commit, and result reveal
-- make the player feel the clinic atmosphere immediately
-- avoid overwhelming UI density
-- use localization keys for all tutorial copy
-- remain replayable later
+- **Case 001 — The Runner at the Door**
+- a street courier/netrunner first patient
+- mild neural instability revealed by scan
+- a safe guided but real implant decision
+- beat-by-beat tutorial flow from clinic boot to first success
+- short localized prompts and no hardcoded tutorial copy
+- skip/replay policy draft
+- required VFX/SFX feedback map
 
 Detail: `TUTORIAL_DESIGN.md`
 
@@ -164,71 +183,6 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 
 ---
 
-## System concepts
-
-| System | Summary | Design doc |
-|--------|---------|------------|
-| Procedural patient | Archetype + motivation + problems + hidden traits; seed-stable | `PROCEDURAL_PATIENT_SYSTEM.md` |
-| Implants | Slots, tiers, compatibility, legality, visual variants | M4; `GAME_DESIGN_MEMORY.md` |
-| Procedures | Difficulty, body stress, request links | M4–5 |
-| Operation math | Deterministic success chance + risk bands + breakdown | `OPERATION_MATH.md` |
-| Tutorial | First controlled atmospheric learning case | `TUTORIAL_DESIGN.md` |
-| Economy & reputation | Money, clinic brand, long-term progression | M9 |
-| Cosmetics | Visual packs, UI themes, scan styles, premium/event rewards | `COSMETIC_SYSTEM.md` |
-| Clinic visual progression | Back-alley to elite clinic visual evolution | `CLINIC_VISUAL_PROGRESSION.md` |
-| Clinic events | Special days, seasons, supply shocks, raids | M9+, `SUPABASE_BACKEND_PLAN.md` |
-| Localization | en base, tr secondary; key groups | `LOCALIZATION_PLAN.md` |
-| Visual / VFX | Scan, glitch, warning, reveal, transitions | `VISUAL_AUDIO_DIRECTION.md` |
-| Audio | Ambience, SFX, music states, blips | `VISUAL_AUDIO_DIRECTION.md` |
-| Platform services | Revenue, ads, notifications, haptics | `PLATFORM_SERVICES_PLAN.md` |
-| Backend | Supabase remote config, cloud save, events, leaderboard | `SUPABASE_BACKEND_PLAN.md` |
-
----
-
-## Folder architecture
-
-```text
-Assets/
-  _CyberClinic/
-    Art/          Characters, Patients, Implants, Backgrounds, UI, VFX
-    Audio/        SFX, Ambience, Music
-    Prefabs/      Patients, Implants, UI, VFX
-    Scenes/       Boot, MainClinic, SurgeryRoom
-    Scripts/      Core, Patients, Implants, Procedures, Complications,
-                  Economy, Events, UI, Visual, Audio, Localization,
-                  Save, Progression, PlatformServices, Utilities
-    ScriptableObjects/  Patients, Implants, Procedures, Complications,
-                  Events, Dialogue, Economy, Visual, Audio
-    Localization/ StringTables, AssetTables
-    Settings/
-  Docs/           All design memory + roadmap
-```
-
-Full rules: `README_ARCHITECTURE.md`
-
----
-
-## Design memory index
-
-| Document | Purpose |
-|----------|---------|
-| `GAME_DESIGN_MEMORY.md` | Creative pillar, core puzzle, replayability |
-| `PROCEDURAL_PATIENT_SYSTEM.md` | Patient generation formula & data |
-| `OPERATION_MATH.md` | Success chance, bands, calculator purity |
-| `VISUAL_AUDIO_DIRECTION.md` | Style, VFX/audio modules, feedback table |
-| `LOCALIZATION_PLAN.md` | Locales, keys, smart strings |
-| `PLATFORM_SERVICES_PLAN.md` | Platform interfaces, mocks, CodeMagic |
-| `SUPABASE_BACKEND_PLAN.md` | Supabase backend strategy and offline-first rules |
-| `TUTORIAL_DESIGN.md` | First-time tutorial design |
-| `COSMETIC_SYSTEM.md` | Cosmetic and visual upgrade economy |
-| `CLINIC_VISUAL_PROGRESSION.md` | Clinic tier visual evolution |
-| `README_ARCHITECTURE.md` | Code layout & decoupling |
-| `DEVELOPMENT_RULES.md` | Mandatory coding rules |
-| `DECISIONS.md` | ADRs |
-| `CHANGELOG.md` | Version history |
-
----
-
 ## Milestone plan
 
 ### Milestone 0 — Project Foundation `Done`
@@ -244,16 +198,7 @@ Full rules: `README_ARCHITECTURE.md`
 
 - Permanent design memory docs
 - Full roadmap
-- Game design memory
-- Procedural patient docs
-- Operation math docs
-- Visual/audio docs
-- Localization plan
-- Platform services plan
-- Supabase backend plan
-- Tutorial design
-- Cosmetic system design
-- Clinic visual progression docs
+- Core design memory docs created
 
 ---
 
@@ -271,17 +216,21 @@ Full rules: `README_ARCHITECTURE.md`
 
 ---
 
-### Milestone 1.5 — First-Time Tutorial Design `Next`
+### Milestone 1.5 — First-Time Tutorial Design `Done`
 
-- Tutorial case finalized
-- Tutorial UI highlight rules
-- Tutorial localization keys
-- Replay/skip policy
-- VFX/SFX needs
+- Canonical first case documented: **Case 001 — The Runner at the Door**.
+- Tutorial beat map documented from clinic boot to first success.
+- UI guidance/highlight rules drafted.
+- Skip and replay policy drafted.
+- VFX/SFX requirements listed.
+- Tutorial localization key gaps identified and added to `Tutorial.csv`.
+- Unity localization setup re-run successfully: 96 keys across 11 tables.
+- Validator returned no suspicious hardcoded player-facing strings.
+- No gameplay implementation was created.
 
 ---
 
-### Milestone 1.6 — Cosmetic, Clinic Progression and Interchangeable Visual Design `Planned`
+### Milestone 1.6 — Cosmetic, Clinic Progression and Interchangeable Visual Design `Next`
 
 - Clinic theme data model
 - Cosmetic data model
@@ -294,15 +243,12 @@ Full rules: `README_ARCHITECTURE.md`
 
 ### Milestone 2 — Localization Foundation `Done`
 
-- Unity Localization package (`com.unity.localization`) and Addressables dependency added to `Packages/manifest.json`.
+- Unity Localization package (`com.unity.localization`) and Addressables dependency added.
 - English (`en`) base locale and Turkish (`tr`) secondary locale created.
 - String table collections created: UI, Tutorial, Patients, Implants, Procedures, Economy, Events, Cosmetics, Clinic, Errors, System.
 - CSV seed data created under `Assets/_CyberClinic/Localization/StringTables/Seed/` with en/tr values.
-- Setup menu created: **Cyber Clinic → Localization → Setup Foundation (M2)**.
-- Validator menu created: **Cyber Clinic → Localization → Validate Hardcoded Text**.
-- Unity setup was run successfully and imported/updated 85 keys across 11 tables.
-- Validator returned no suspicious hardcoded player-facing strings.
-- No gameplay UI, scenes, prefabs, SDK integrations, backend implementations, patient generator, or OperationCalculator were created.
+- Setup menu and hardcoded text validator created.
+- Initial setup imported 85 keys; tutorial key expansion later raised the count to 96 keys.
 
 ---
 
@@ -428,31 +374,12 @@ Full rules: `README_ARCHITECTURE.md`
 
 ---
 
-## Current status
-
-| Area | State |
-|------|-------|
-| Unity project | Created, Universal 2D |
-| Repo & folders | Done |
-| Design memory | Done |
-| Data architecture (M1) | Done |
-| Localization (M2) | **Done** |
-| Gameplay logic | Not started |
-| Unity packages | Localization + Addressables installed |
-| Orientation | Landscape decided |
-| Supabase | Interfaces only; no integration |
-| AdMob | Pending approval; `IAdService` only |
-| Next practical step | Milestone 1.5 — First-Time Tutorial Design |
-
----
-
 ## Immediate next steps
 
 1. User pulls latest documentation updates.
-2. Start Milestone 1.5 with tutorial case planning only.
-3. Finalize the first controlled patient case and tutorial beat map.
-4. Do not add gameplay UI, OperationCalculator, patient generator, SDK integrations, or backend implementation during tutorial design.
-5. After tutorial design, proceed to Milestone 1.6 for clinic visual progression/cosmetic data planning, then continue toward procedural patient generation.
+2. Start Milestone 1.6 with cosmetic and clinic visual progression planning.
+3. Finalize clinic tier visual language, data needs, premium/progression/event reward boundaries.
+4. Do not add gameplay UI, OperationCalculator, patient generator, SDK integrations, backend implementation, or store logic during M1.6.
 
 ---
 
@@ -465,6 +392,7 @@ Full rules: `README_ARCHITECTURE.md`
 | 0.0.2 | 2026-05-23 | M0.5 | Added landscape, tutorial, cosmetics, clinic visual progression, Supabase strategy, and ChatGPT docs ownership |
 | 0.1.0 | 2026-05-23 | M1 | Architecture and data foundation compiled and reviewed |
 | 0.2.0 | 2026-05-23 | M2 | Localization foundation installed, seeded, and validated |
+| 0.2.5 | 2026-05-23 | M1.5 | First tutorial design finalized and tutorial localization keys imported |
 
 ---
 
@@ -475,4 +403,5 @@ Full rules: `README_ARCHITECTURE.md`
 | 2026-05-23 | M0 — Project Foundation | Initial structure |
 | 2026-05-23 | M0.5 — Design Memory Foundation | Expanded project memory |
 | 2026-05-23 | M1 — Architecture and Data Foundation | Data contracts, SO definitions, runtime models, interfaces; no gameplay logic |
-| 2026-05-23 | M2 — Localization Foundation | Unity Localization package, en/tr locales, 11 string table collections, 85 seed keys, validator |
+| 2026-05-23 | M2 — Localization Foundation | Unity Localization package, en/tr locales, 11 string table collections, validator |
+| 2026-05-23 | M1.5 — First-Time Tutorial Design | Case 001, beat map, tutorial localization keys, no gameplay implementation |
