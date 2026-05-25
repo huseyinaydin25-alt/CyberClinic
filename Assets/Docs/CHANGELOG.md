@@ -20,6 +20,29 @@ All notable changes to the Cyber Clinic project are documented in this file.
 
 ---
 
+## [0.2.5] — 2026-05-23
+
+### Added
+
+- **Milestone 1.5 — First-Time Tutorial Design:**
+  - Canonical first tutorial case: **Case 001 — The Runner at the Door**.
+  - Beat-by-beat tutorial flow from clinic boot to first success.
+  - Tutorial UI guidance, interaction locking, skip/replay, and visual/audio requirements.
+  - Additional tutorial localization keys in `Tutorial.csv`.
+
+### Changed
+
+- `TUTORIAL_DESIGN.md` expanded with tutorial design pillars, first case details, beat map, and acceptance criteria.
+- `ROADMAP.md` moved Milestone 1.5 to done and Milestone 1.6 to next.
+- Localization setup was re-run after new tutorial keys; key count is now 96 across 11 tables.
+
+### Verified
+
+- Hardcoded text validator reported no suspicious player-facing strings.
+- No gameplay implementation, scenes, prefabs, patient generator, OperationCalculator, SDK integration, or backend implementation was created.
+
+---
+
 ## [0.2.0] — 2026-05-23
 
 ### Added
