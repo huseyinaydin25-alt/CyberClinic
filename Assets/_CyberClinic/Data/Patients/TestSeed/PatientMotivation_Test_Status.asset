@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca4db66a322eb044af35bed0d929646, type: 3}
+  m_Name: PatientMotivation_Test_Status
+  m_EditorClassIdentifier: 
+  _id: test_status_pressure
+  _weight: 1.0
+  _hintLabel: {_key: patient.motivation.test_status_pressure.hint}
+  _description: {_key: patient.motivation.test_status_pressure.description}
