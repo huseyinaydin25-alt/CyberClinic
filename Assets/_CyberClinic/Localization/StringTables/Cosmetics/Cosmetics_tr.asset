@@ -58,6 +58,121 @@ MonoBehaviour:
     m_Localized: "Etkinlik \xD6d\xFCl\xFC"
     m_Metadata:
       m_Items: []
+  - m_Id: 996633744318464
+    m_Localized: "Operasyon Masas\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634096640000
+    m_Localized: "Hasta Kart\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634096640001
+    m_Localized: Risk Paneli
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886208
+    m_Localized: Ambiyans Paketi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886209
+    m_Localized: "G\xF6rsel Paket"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886210
+    m_Localized: "Aray\xFCz Ses Paketi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886211
+    m_Localized: "Etkinli\u011Fe \xD6zel"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886212
+    m_Localized: "\u0130tibar Kilidi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886213
+    m_Localized: "Ba\u015Far\u0131m"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886214
+    m_Localized: "Sadece G\xF6rsel"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886215
+    m_Localized: "Geri Bildirim Netli\u011Fi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886216
+    m_Localized: "Kullan\u0131m Kolayl\u0131\u011F\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886217
+    m_Localized: "\u0130lerlemeye Ba\u011Fl\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886218
+    m_Localized: Neon Uzman Paketi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634272800768
+    m_Localized: "Daha keskin bir uzman kimli\u011Fi i\xE7in uyumlu klinik aray\xFCz\xFC
+      tarama ve sonu\xE7 stili."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634272800769
+    m_Localized: Kurumsal Hassasiyet Paketi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634272800770
+    m_Localized: "Temiz medikal paneller hassas tarama g\xF6rselleri ve kontroll\xFC
+      ses geri bildirimi."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634373464064
+    m_Localized: "K\u0131rm\u0131z\u0131 Hat Gece Paketi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634373464065
+    m_Localized: "Riskli gece operasyonlar\u0131 i\xE7in daha karanl\u0131k ve yo\u011Fun
+      bir g\xF6rsel paket."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634373464066
+    m_Localized: "\xD6nizle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634373464067
+    m_Localized: Sahip Olundu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634373464068
+    m_Localized: Kilitli
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634427990016
+    m_Localized: "Ku\u015Fan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634427990017
+    m_Localized: "Ku\u015Fan\u0131ld\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634427990018
+    m_Localized: "Sat\u0131n Almalar\u0131 Geri Y\xFCkle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634427990019
+    m_Localized: "\u0130tibar Gerektirir"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634427990020
+    m_Localized: Klinik Seviyesi Gerektirir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634516070400
+    m_Localized: "Etkinlik \xD6d\xFCl\xFC"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

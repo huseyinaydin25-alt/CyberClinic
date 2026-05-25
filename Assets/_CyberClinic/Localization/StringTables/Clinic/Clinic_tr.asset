@@ -38,6 +38,82 @@ MonoBehaviour:
     m_Localized: Kara Pazar Elit
     m_Metadata:
       m_Items: []
+  - m_Id: 996633907896320
+    m_Localized: "Dar dengesiz ve ya\u011Fmurla y\u0131pranm\u0131\u015F. Hayatta
+      kalmaya \xE7al\u0131\u015Fan riskli bir klinik."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634511876096
+    m_Localized: "Daha temiz daha g\xFCvenilir ama h\xE2l\xE2 sokaklara yak\u0131n."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634511876097
+    m_Localized: "Holografik paneller g\xFC\xE7l\xFC taramalar ve daha keskin bir
+      uzman kimli\u011Fi."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634587373568
+    m_Localized: "Steril hassas ve prestijli y\xFCksek riskli m\xFC\u015Fteriler
+      i\xE7in kurulu."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634671259648
+    m_Localized: "Karanl\u0131k l\xFCks ve tehlikeli. Y\xFCksek k\xE2r y\xFCksek
+      sonu\xE7."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634671259649
+    m_Localized: "Hasta Alan\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634709008384
+    m_Localized: "Operasyon Alan\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634709008385
+    m_Localized: "Hasta Dosyas\u0131 Alan\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634709008386
+    m_Localized: "Durum \xC7ubu\u011Fu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865984
+    m_Localized: "Eylem \xC7ubu\u011Fu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865985
+    m_Localized: "G\xF6rsel Y\xFCkseltme Kilitli"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865986
+    m_Localized: "G\xF6rsel Y\xFCkseltme Mevcut"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865987
+    m_Localized: "\u0130tibar\u0131n artt\u0131k\xE7a klini\u011Fin de geli\u015Febilir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865988
+    m_Localized: "Ara Sokak Ya\u011Fmuru"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865989
+    m_Localized: Neon Uzman
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865990
+    m_Localized: Kurumsal Hassasiyet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865991
+    m_Localized: "K\u0131rm\u0131z\u0131 Hat Gecesi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634855809024
+    m_Localized: "Gece Yar\u0131s\u0131 Travma Odas\u0131"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

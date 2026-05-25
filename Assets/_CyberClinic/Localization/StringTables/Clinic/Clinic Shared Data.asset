@@ -35,6 +35,78 @@ MonoBehaviour:
     m_Key: clinic.tier.black_market_elite
     m_Metadata:
       m_Items: []
+  - m_Id: 996633907896320
+    m_Key: clinic.tier.back_alley.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634511876096
+    m_Key: clinic.tier.street_clinic.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634511876097
+    m_Key: clinic.tier.neon_specialist.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634587373568
+    m_Key: clinic.tier.corporate_lab.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634671259648
+    m_Key: clinic.tier.black_market_elite.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634671259649
+    m_Key: clinic.visual.zone.patient
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634709008384
+    m_Key: clinic.visual.zone.operation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634709008385
+    m_Key: clinic.visual.zone.file
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634709008386
+    m_Key: clinic.visual.zone.status
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865984
+    m_Key: clinic.visual.zone.actions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865985
+    m_Key: clinic.visual.unlock.preview_locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865986
+    m_Key: clinic.visual.unlock.preview_available
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865987
+    m_Key: clinic.visual.upgrade_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865988
+    m_Key: clinic.visual.theme.back_alley_rain.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865989
+    m_Key: clinic.visual.theme.neon_specialist.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865990
+    m_Key: clinic.visual.theme.corporate_precision.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865991
+    m_Key: clinic.visual.theme.redline_night.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634855809024
+    m_Key: clinic.visual.theme.midnight_trauma.name
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -55,6 +55,118 @@ MonoBehaviour:
     m_Key: cosmetic.purchase_type.event_reward
     m_Metadata:
       m_Items: []
+  - m_Id: 996633744318464
+    m_Key: cosmetic.category.operation_table
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634096640000
+    m_Key: cosmetic.category.patient_card
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634096640001
+    m_Key: cosmetic.category.risk_panel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886208
+    m_Key: cosmetic.category.ambience_pack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886209
+    m_Key: cosmetic.category.visual_pack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886210
+    m_Key: cosmetic.category.ui_sound_pack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886211
+    m_Key: cosmetic.rarity.event_limited
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886212
+    m_Key: cosmetic.purchase_type.reputation_unlock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886213
+    m_Key: cosmetic.purchase_type.achievement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886214
+    m_Key: cosmetic.effect.pure_visual
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886215
+    m_Key: cosmetic.effect.feedback_clarity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886216
+    m_Key: cosmetic.effect.quality_of_life
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886217
+    m_Key: cosmetic.effect.progression_linked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886218
+    m_Key: cosmetic.pack.neon_specialist.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634272800768
+    m_Key: cosmetic.pack.neon_specialist.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634272800769
+    m_Key: cosmetic.pack.corporate_precision.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634272800770
+    m_Key: cosmetic.pack.corporate_precision.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634373464064
+    m_Key: cosmetic.pack.redline_night.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634373464065
+    m_Key: cosmetic.pack.redline_night.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634373464066
+    m_Key: cosmetic.store.preview
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634373464067
+    m_Key: cosmetic.store.owned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634373464068
+    m_Key: cosmetic.store.locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634427990016
+    m_Key: cosmetic.store.equip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634427990017
+    m_Key: cosmetic.store.equipped
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634427990018
+    m_Key: cosmetic.store.restore_purchases
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634427990019
+    m_Key: cosmetic.unlock.required_reputation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634427990020
+    m_Key: cosmetic.unlock.required_clinic_tier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634516070400
+    m_Key: cosmetic.unlock.event_reward
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

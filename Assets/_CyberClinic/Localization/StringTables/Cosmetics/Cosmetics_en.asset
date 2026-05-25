@@ -58,6 +58,119 @@ MonoBehaviour:
     m_Localized: Event Reward
     m_Metadata:
       m_Items: []
+  - m_Id: 996633744318464
+    m_Localized: Operation Table
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634096640000
+    m_Localized: Patient Card
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634096640001
+    m_Localized: Risk Panel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886208
+    m_Localized: Ambience Pack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886209
+    m_Localized: Visual Pack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886210
+    m_Localized: UI Sound Pack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886211
+    m_Localized: Event Limited
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886212
+    m_Localized: Reputation Unlock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886213
+    m_Localized: Achievement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886214
+    m_Localized: Pure Visual
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886215
+    m_Localized: Feedback Clarity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886216
+    m_Localized: Quality of Life
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886217
+    m_Localized: Progression Linked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634209886218
+    m_Localized: Neon Specialist Pack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634272800768
+    m_Localized: A coordinated clinic UI scan and result style for a sharper specialist
+      identity.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634272800769
+    m_Localized: Corporate Precision Pack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634272800770
+    m_Localized: Clean medical panels precise scan visuals and restrained audio feedback.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634373464064
+    m_Localized: Redline Night Pack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634373464065
+    m_Localized: A darker high-intensity visual pack for risky late-night operations.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634373464066
+    m_Localized: Preview
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634373464067
+    m_Localized: Owned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634373464068
+    m_Localized: Locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634427990016
+    m_Localized: Equip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634427990017
+    m_Localized: Equipped
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634427990018
+    m_Localized: Restore Purchases
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634427990019
+    m_Localized: Requires Reputation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634427990020
+    m_Localized: Requires Clinic Tier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634516070400
+    m_Localized: Event Reward
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

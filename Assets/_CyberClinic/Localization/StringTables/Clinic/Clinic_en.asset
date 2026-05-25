@@ -38,6 +38,78 @@ MonoBehaviour:
     m_Localized: Black Market Elite
     m_Metadata:
       m_Items: []
+  - m_Id: 996633907896320
+    m_Localized: Cramped unstable and rain-soaked. A risky clinic trying to survive.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634511876096
+    m_Localized: Cleaner more reliable and still close to the street.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634511876097
+    m_Localized: Holographic panels stronger scans and a sharper specialist identity.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634587373568
+    m_Localized: Sterile precise and built for prestigious high-stakes clients.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634671259648
+    m_Localized: Dark luxurious and dangerous. High profit high consequence.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634671259649
+    m_Localized: Patient Zone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634709008384
+    m_Localized: Operation Zone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634709008385
+    m_Localized: Patient File Zone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634709008386
+    m_Localized: Status Bar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865984
+    m_Localized: Action Bar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865985
+    m_Localized: Visual Upgrade Locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865986
+    m_Localized: Visual Upgrade Available
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865987
+    m_Localized: Your clinic can evolve as your reputation grows.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865988
+    m_Localized: Back-Alley Rain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865989
+    m_Localized: Neon Specialist
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865990
+    m_Localized: Corporate Precision
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634813865991
+    m_Localized: Redline Night
+    m_Metadata:
+      m_Items: []
+  - m_Id: 996634855809024
+    m_Localized: Midnight Trauma Bay
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
