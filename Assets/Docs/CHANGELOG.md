@@ -8,11 +8,17 @@ All notable changes to the Cyber Clinic project are documented in this file.
 
 ### Added
 
-- _(none yet)_
+- **Milestone 3 — Procedural Patient Generator (started):**
+  - Deterministic `PatientGenerator` using `SeedContext` and `CyberClinicRandom`.
+  - `PatientGenerationInput`, `PatientGenerationConfig`, `PatientGenerationResult`, `PatientGenerationError`.
+  - `PatientGenerationValidator`, `PatientGenerationContextBuilder`, `PatientGenerationWeights`, `PatientIdFactory`.
+  - Known vs hidden runtime population on `GeneratedPatient` (localization keys only).
+  - Tutorial-safe generation constraints in config (no tutorial runtime flow).
+  - Editor menu: **Cyber Clinic/Patients/Generate Debug Patient** (technical log only).
 
 ### Changed
 
-- _(none yet)_
+- `ROADMAP.md` — Milestone 3 marked **in progress**.
 
 ### Fixed
 

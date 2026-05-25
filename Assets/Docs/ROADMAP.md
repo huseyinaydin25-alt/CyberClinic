@@ -4,7 +4,7 @@
 > Update after **every major milestone**. Sync with `CHANGELOG.md`, `DECISIONS.md`, and relevant design memory docs.
 
 **Last updated:** 2026-05-23  
-**Current milestone:** **3 — Procedural Patient Generator** (next)  
+**Current milestone:** **3 — Procedural Patient Generator** (in progress, not complete)  
 **Doc version:** 0.2.6
 
 ---
@@ -52,12 +52,13 @@ Cyber Clinic will not be developed with a “fix it later” mindset. The previo
 | Localization (M2) | Done |
 | First-time tutorial design (M1.5) | Done |
 | Cosmetic / clinic visual progression design (M1.6) | **Done** |
-| Gameplay logic | Not started |
+| Procedural patients (M3) | **In progress** — deterministic generator; Patient*Data assets still needed for tests |
+| Gameplay logic | Generator only; no operation flow / UI |
 | Unity packages | Localization + Addressables installed |
 | Orientation | Landscape decided |
 | Supabase | Interfaces only; no integration |
 | AdMob | Pending approval; `IAdService` only |
-| Next practical step | Milestone 3 — Procedural Patient Generator |
+| Next practical step | Create Patient*Data assets → run debug generator → validate determinism |
 
 ---
 
@@ -257,12 +258,15 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 
 ---
 
-### Milestone 3 — Procedural Patient Generator `Next`
+### Milestone 3 — Procedural Patient Generator `In progress`
 
-- Deterministic seed support
-- Archetypes, motivations, hidden conditions
-- Visual traits, known/unknown model
-- Scan reveal rules
+- Deterministic `PatientGenerator` + `CyberClinicRandom` / `SeedContext`
+- Weighted pool selection from Patient*Data ScriptableObjects
+- Known vs hidden info on runtime `GeneratedPatient`
+- `PatientIdFactory` (deterministic `Guid`, no `Guid.NewGuid`)
+- Tutorial-safe mode constraints in `PatientGenerationConfig`
+- Editor debug menu: **Generate Debug Patient**
+- **Not done yet:** scan reveal service, sample Patient*Data assets, mark M3 complete
 - No UI, operation calculator, save, backend, or platform SDK implementation
 
 ---
@@ -383,10 +387,10 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 ## Immediate next steps
 
 1. User pulls latest documentation updates.
-2. Start Milestone 3 with procedural patient generator planning/implementation.
-3. Read `PROCEDURAL_PATIENT_SYSTEM.md`, `GAME_DESIGN_MEMORY.md`, `LOCALIZATION_PLAN.md`, `TUTORIAL_DESIGN.md`, and M1 data contracts before coding.
-4. Build only deterministic patient generation logic and related tests/debug helpers.
-5. Do not add gameplay UI, OperationCalculator, SDK integrations, backend implementation, or scene work during M3.
+2. Create minimal Patient*Data ScriptableObject assets for generator smoke tests.
+3. Run **Cyber Clinic/Patients/Generate Debug Patient** twice with same seed — verify identical output.
+4. Mark M3 complete in docs when validated.
+5. Do not add gameplay UI, OperationCalculator, scan reveal service, SDK, or scenes during M3.
 
 ---
 
