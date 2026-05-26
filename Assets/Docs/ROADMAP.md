@@ -4,8 +4,8 @@
 > Update after **every major milestone**. Sync with `CHANGELOG.md`, `DECISIONS.md`, and relevant design memory docs.
 
 **Last updated:** 2026-05-27  
-**Current milestone:** **4 — Implant and Procedure System** (next)  
-**Doc version:** 0.3.0
+**Current milestone:** **5 — Operation Calculation System** (next)  
+**Doc version:** 0.4.0
 
 ---
 
@@ -53,12 +53,13 @@ Cyber Clinic will not be developed with a “fix it later” mindset. The previo
 | First-time tutorial design (M1.5) | Done |
 | Cosmetic / clinic visual progression design (M1.6) | **Done** |
 | Procedural patients (M3) | **Done** — deterministic generator validated with Patient*Data test assets |
-| Gameplay logic | Generator only; no operation flow / UI |
+| Implant / procedure data (M4) | **Done** — data foundation and debug validation complete |
+| Gameplay logic | Generator and data foundations only; no operation flow / UI |
 | Unity packages | Localization + Addressables installed |
 | Orientation | Landscape decided |
 | Supabase | Interfaces only; no integration |
 | AdMob | Pending approval; `IAdService` only |
-| Next practical step | Milestone 4 — Implant and Procedure System |
+| Next practical step | Milestone 5 — Operation Calculation System |
 
 ---
 
@@ -273,18 +274,22 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 
 ---
 
-### Milestone 4 — Implant and Procedure System `Next`
+### Milestone 4 — Implant and Procedure System `Done`
 
-- Implant compatibility matrix
-- Body slots
-- Procedure difficulty
-- Legal status tiers
-- Quality tiers
-- Visual variant links
+- Implant compatibility relation types added.
+- `ImplantCompatibilityRuleData` expanded into data-driven compatibility rules.
+- `ImplantVisualVariantData` added for visual variant links.
+- `ProcedureImplantCompatibilityData` added for procedure + implant compatibility metadata.
+- Implant and procedure localization key convention helpers added.
+- Minimal editor-only test assets created for implants, procedures, compatibility rules, visual variants, and procedure compatibility.
+- Editor debug menu: **Cyber Clinic/Implants/Validate Debug Data**.
+- Debug validation confirmed 2 implants, 2 procedures, 2 compatibility rules, 2 visual variants, and 2 procedure compatibility assets.
+- Completion details recorded in `MILESTONE_4_COMPLETION.md`.
+- No UI, operation calculator, save, backend, platform SDK, scene, prefab, economy, reputation, or day-flow work was created.
 
 ---
 
-### Milestone 5 — Operation Calculation System `Planned`
+### Milestone 5 — Operation Calculation System `Next`
 
 - Deterministic OperationCalculator
 - Risk breakdown DTO
@@ -389,10 +394,10 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 ## Immediate next steps
 
 1. User pulls latest documentation updates.
-2. Start Milestone 4 — Implant and Procedure System planning.
-3. Read `GAME_DESIGN_MEMORY.md`, `OPERATION_MATH.md`, `PROCEDURAL_PATIENT_SYSTEM.md`, `LOCALIZATION_PLAN.md`, and M1 data contracts before coding.
-4. Build only implant/procedure data definitions and compatibility foundations needed by M4.
-5. Do not add gameplay UI, OperationCalculator, save, backend, platform SDK, scenes, or prefabs during M4.
+2. Start Milestone 5 — Operation Calculation System planning.
+3. Read `OPERATION_MATH.md`, `GAME_DESIGN_MEMORY.md`, `PROCEDURAL_PATIENT_SYSTEM.md`, M3 generator contracts, and M4 implant/procedure data contracts before coding.
+4. Build only pure deterministic operation calculation DTOs/calculator and debug validation needed by M5.
+5. Do not add gameplay UI, save, backend, platform SDK, scenes, prefabs, economy, reputation, or day-flow side effects during M5.
 
 ---
 
@@ -408,6 +413,7 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 | 0.2.5 | 2026-05-23 | M1.5 | First tutorial design finalized and tutorial localization keys imported |
 | 0.2.6 | 2026-05-23 | M1.6 | Cosmetic and clinic visual progression design finalized |
 | 0.3.0 | 2026-05-27 | M3 | Procedural Patient Generator completed and deterministic debug generation validated |
+| 0.4.0 | 2026-05-27 | M4 | Implant and Procedure System data foundation completed and debug validation confirmed |
 
 ---
 
@@ -422,3 +428,4 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 | 2026-05-23 | M1.5 — First-Time Tutorial Design | Case 001, beat map, tutorial localization keys, no gameplay implementation |
 | 2026-05-23 | M1.6 — Cosmetic / Clinic Visual Progression | Cosmetic system, clinic tiers, visual packs, localization keys, no store implementation |
 | 2026-05-27 | M3 — Procedural Patient Generator | Deterministic generator, Patient*Data test assets, debug validation; no UI, OperationCalculator, save, backend, SDK, scene, or prefab work |
+| 2026-05-27 | M4 — Implant and Procedure System | Implant/procedure data foundation, compatibility rules, visual variants, debug validation; no UI, OperationCalculator, save, backend, SDK, scene, or prefab work |
