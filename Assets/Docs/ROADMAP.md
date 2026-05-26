@@ -4,8 +4,8 @@
 > Update after **every major milestone**. Sync with `CHANGELOG.md`, `DECISIONS.md`, and relevant design memory docs.
 
 **Last updated:** 2026-05-27  
-**Current milestone:** **5 — Operation Calculation System** (next)  
-**Doc version:** 0.4.0
+**Current milestone:** **6 — First Landscape UI Skeleton** (next)  
+**Doc version:** 0.5.0
 
 ---
 
@@ -54,12 +54,13 @@ Cyber Clinic will not be developed with a “fix it later” mindset. The previo
 | Cosmetic / clinic visual progression design (M1.6) | **Done** |
 | Procedural patients (M3) | **Done** — deterministic generator validated with Patient*Data test assets |
 | Implant / procedure data (M4) | **Done** — data foundation and debug validation complete |
-| Gameplay logic | Generator and data foundations only; no operation flow / UI |
+| Operation calculation (M5) | **Done** — pure deterministic calculator and debug validation complete |
+| Gameplay logic | Generator, data foundations, and pure operation math only; no operation flow / UI yet |
 | Unity packages | Localization + Addressables installed |
 | Orientation | Landscape decided |
 | Supabase | Interfaces only; no integration |
 | AdMob | Pending approval; `IAdService` only |
-| Next practical step | Milestone 5 — Operation Calculation System |
+| Next practical step | Milestone 6 — First Landscape UI Skeleton |
 
 ---
 
@@ -289,17 +290,21 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 
 ---
 
-### Milestone 5 — Operation Calculation System `Next`
+### Milestone 5 — Operation Calculation System `Done`
 
-- Deterministic OperationCalculator
-- Risk breakdown DTO
-- Success chance + risk bands
-- CyberTox / neural load / hidden penalty / panic / illegal risk
-- No money/reputation/save side effects
+- Pure deterministic `OperationCalculator` added.
+- `OperationBreakdownEntry` DTO added for localized breakdown terms.
+- `OperationResult` DTO added for calculation output.
+- `OperationOutcomeType.PreviewOnly` added for preview calculations.
+- `ProcedurePlan` expanded with calculation fields.
+- Editor debug menu: **Cyber Clinic/Procedures/Run Operation Calculator Debug**.
+- Debug validation confirmed deterministic preview and commit output with seeded variance.
+- Completion details recorded in `MILESTONE_5_COMPLETION.md`.
+- No UI, save, backend, platform SDK, scene, prefab, economy, reputation, day-flow, VFX, or audio feedback work was created.
 
 ---
 
-### Milestone 6 — First Landscape UI Skeleton `Planned`
+### Milestone 6 — First Landscape UI Skeleton `Next`
 
 - Landscape patient file UI
 - Implant selection UI
@@ -394,10 +399,10 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 ## Immediate next steps
 
 1. User pulls latest documentation updates.
-2. Start Milestone 5 — Operation Calculation System planning.
-3. Read `OPERATION_MATH.md`, `GAME_DESIGN_MEMORY.md`, `PROCEDURAL_PATIENT_SYSTEM.md`, M3 generator contracts, and M4 implant/procedure data contracts before coding.
-4. Build only pure deterministic operation calculation DTOs/calculator and debug validation needed by M5.
-5. Do not add gameplay UI, save, backend, platform SDK, scenes, prefabs, economy, reputation, or day-flow side effects during M5.
+2. Start Milestone 6 — First Landscape UI Skeleton planning.
+3. Read `GAME_DESIGN_MEMORY.md`, `LOCALIZATION_PLAN.md`, `VISUAL_AUDIO_DIRECTION.md`, M3 patient generator contracts, M4 implant/procedure data contracts, and M5 operation calculation contracts before UI work.
+4. Build only first landscape UI skeleton screens and localized placeholder bindings needed by M6.
+5. Do not add save, backend, platform SDK, economy, reputation, day-flow, VFX/audio implementation, or production content expansion during M6.
 
 ---
 
@@ -414,6 +419,7 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 | 0.2.6 | 2026-05-23 | M1.6 | Cosmetic and clinic visual progression design finalized |
 | 0.3.0 | 2026-05-27 | M3 | Procedural Patient Generator completed and deterministic debug generation validated |
 | 0.4.0 | 2026-05-27 | M4 | Implant and Procedure System data foundation completed and debug validation confirmed |
+| 0.5.0 | 2026-05-27 | M5 | Operation Calculation System completed and deterministic calculator debug validation confirmed |
 
 ---
 
@@ -429,3 +435,4 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 | 2026-05-23 | M1.6 — Cosmetic / Clinic Visual Progression | Cosmetic system, clinic tiers, visual packs, localization keys, no store implementation |
 | 2026-05-27 | M3 — Procedural Patient Generator | Deterministic generator, Patient*Data test assets, debug validation; no UI, OperationCalculator, save, backend, SDK, scene, or prefab work |
 | 2026-05-27 | M4 — Implant and Procedure System | Implant/procedure data foundation, compatibility rules, visual variants, debug validation; no UI, OperationCalculator, save, backend, SDK, scene, or prefab work |
+| 2026-05-27 | M5 — Operation Calculation System | Pure deterministic calculator, risk bands, outcome type, breakdown DTO, debug validation; no UI, save, backend, SDK, economy, day-flow, VFX, or audio work |
