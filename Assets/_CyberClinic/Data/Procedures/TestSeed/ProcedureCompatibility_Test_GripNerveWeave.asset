@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8b9c57a991455a97acdf47f670d7e6, type: 3}
+  m_Name: ProcedureCompatibility_Test_GripNerveWeave
+  m_EditorClassIdentifier: 
+  _id: test_proc_compat_grip_nerve_weave
+  _label: {_key: procedure.compatibility.test_proc_compat_grip_nerve_weave.label}
+  _procedureId: test_proc_nerve_weave
+  _implantId: test_implant_grip_upgrade
+  _targetSlot: 2
+  _relation: 1
+  _successModifier: 0
+  _bodyStressModifier: 0.05
+  _cyberToxModifier: 0.04
+  _neuralLoadModifier: 0.02
