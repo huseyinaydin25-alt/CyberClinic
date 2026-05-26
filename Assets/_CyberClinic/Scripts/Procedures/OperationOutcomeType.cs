@@ -2,10 +2,11 @@ namespace CyberClinic.Procedures
 {
     public enum OperationOutcomeType
     {
-        CriticalSuccess = 0,
-        StableSuccess = 1,
-        UnstableSuccess = 2,
-        Failure = 3,
-        Catastrophe = 4
+        PreviewOnly = 0,
+        CriticalSuccess = 1,
+        StableSuccess = 2,
+        UnstableSuccess = 3,
+        Failure = 4,
+        Catastrophe = 5
     }
 }
