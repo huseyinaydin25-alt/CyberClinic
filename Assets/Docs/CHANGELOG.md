@@ -8,21 +8,39 @@ All notable changes to the Cyber Clinic project are documented in this file.
 
 ### Added
 
-- **Milestone 3 — Procedural Patient Generator (started):**
+- **Milestone 3 — Procedural Patient Generator (completed):**
   - Deterministic `PatientGenerator` using `SeedContext` and `CyberClinicRandom`.
   - `PatientGenerationInput`, `PatientGenerationConfig`, `PatientGenerationResult`, `PatientGenerationError`.
   - `PatientGenerationValidator`, `PatientGenerationContextBuilder`, `PatientGenerationWeights`, `PatientIdFactory`.
   - Known vs hidden runtime population on `GeneratedPatient` (localization keys only).
   - Tutorial-safe generation constraints in config (no tutorial runtime flow).
   - Editor menu: **Cyber Clinic/Patients/Generate Debug Patient** (technical log only).
+  - Minimal editor-only Patient*Data test assets under `Assets/_CyberClinic/Data/Patients/TestSeed/`.
+  - `MILESTONE_3_COMPLETION.md` completion record.
 
 ### Changed
 
-- `ROADMAP.md` — Milestone 3 marked **in progress**.
+- `ROADMAP.md` — Milestone 3 marked **done** and Milestone 4 marked as the next practical step.
 
 ### Fixed
 
 - _(none yet)_
+
+### Verified
+
+- Debug generation was run twice with seed `84921`, day `3`, slot `0`.
+- Both runs produced identical patient ids, numeric values, and Known/Hidden fields.
+- Deterministic output confirmed:
+  - `instanceId=04e4fc25-4bb9-0001-0300-000022259d0e`
+  - `patientSeed=82115621`
+  - `archetypeId=test_street_netrunner`
+  - `motivationId=test_urgent_fix`
+  - `requestTypeId=test_optic_tune`
+  - `visualTraitId=test_chrome_jaw`
+  - `dialogueToneId=test_nervous`
+  - `budgetRange=150-337`, `trueCeiling=249`, `panic=29`
+  - `hiddenConditionCount=1`, `slotConflictHidden=False`
+- No gameplay UI, scenes, prefabs, OperationCalculator, save system, backend implementation, platform SDK integration, or out-of-scope systems were created.
 
 ---
 
