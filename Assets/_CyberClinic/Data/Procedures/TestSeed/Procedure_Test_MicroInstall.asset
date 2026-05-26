@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319c1ab7d3650ff4fb1ead164cf0bb31, type: 3}
+  m_Name: Procedure_Test_MicroInstall
+  m_EditorClassIdentifier: 
+  _id: test_proc_micro_install
+  _name: {_key: procedure.test_proc_micro_install.name}
+  _description: {_key: procedure.test_proc_micro_install.description}
+  _baseSuccess: 0.82
+  _procedureDifficulty: 0.12
+  _bodyStressAdd: 0.04
+  _cyberToxMultiplier: 1
+  _neuralMultiplier: 1.05
+  _difficultyLevel: 0
