@@ -8,6 +8,8 @@ namespace CyberClinic.Procedures
     {
         public string ProcedureId;
         public string ImplantId;
+        public float BaseSuccess;
+        public float ProcedureDifficulty;
         public float PreparationBonus;
         public int OperationSeed;
     }
