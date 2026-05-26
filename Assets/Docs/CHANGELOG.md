@@ -8,6 +8,14 @@ All notable changes to the Cyber Clinic project are documented in this file.
 
 ### Added
 
+- **Milestone 5 — Operation Calculation System (completed):**
+  - Pure deterministic `OperationCalculator`.
+  - `OperationBreakdownEntry` DTO for localized breakdown terms.
+  - `OperationResult` DTO for calculation output.
+  - `OperationOutcomeType.PreviewOnly` for preview-mode calculations.
+  - Calculation fields on `ProcedurePlan`: `BaseSuccess` and `ProcedureDifficulty`.
+  - Editor menu: **Cyber Clinic/Procedures/Run Operation Calculator Debug** (technical log only).
+  - `MILESTONE_5_COMPLETION.md` completion record.
 - **Milestone 4 — Implant and Procedure System (completed):**
   - `ImplantCompatibilityRelation` enum.
   - Expanded `ImplantCompatibilityRuleData` for data-driven compatibility rules.
@@ -29,7 +37,7 @@ All notable changes to the Cyber Clinic project are documented in this file.
 
 ### Changed
 
-- `ROADMAP.md` — Milestone 4 marked **done** and Milestone 5 marked as the next practical step.
+- `ROADMAP.md` — Milestone 5 marked **done** and Milestone 6 marked as the next practical step.
 
 ### Fixed
 
@@ -37,20 +45,21 @@ All notable changes to the Cyber Clinic project are documented in this file.
 
 ### Verified
 
-- M4 debug validation was run successfully through **Cyber Clinic/Implants/Validate Debug Data**.
+- M5 operation calculator debug validation was run successfully through **Cyber Clinic/Procedures/Run Operation Calculator Debug**.
 - Validation confirmed:
-  - `implantCount=2`
-  - `procedureCount=2`
-  - `compatibilityRuleCount=2`
-  - `visualVariantCount=2`
-  - `procedureCompatibilityCount=2`
-  - `firstImplantId=test_implant_grip_upgrade`
-  - `firstProcedureId=test_proc_micro_install`
-  - `firstCompatibilityRuleId=test_compat_arm_grip_stress`
-  - `firstVisualVariantId=test_visual_grip_upgrade`
-  - `firstProcedureCompatibilityId=test_proc_compat_grip_nerve_weave`
+  - `operationSeed=-1749383045`
+  - `previewSuccessChance=0,675`
+  - `previewRiskBand=Uncertain`
+  - `previewOutcome=PreviewOnly`
+  - `commitSuccessChance=0,690`
+  - `commitRiskBand=Uncertain`
+  - `commitOutcome=StableSuccess`
+  - `commitRandomVariance=0,015`
+  - `rawScore=0,690`
+  - `breakdownCount=13`
+- M4 debug validation was run successfully through **Cyber Clinic/Implants/Validate Debug Data**.
 - M3 debug generation was run twice with seed `84921`, day `3`, slot `0`; both runs produced identical patient ids, numeric values, and Known/Hidden fields.
-- No gameplay UI, scenes, prefabs, OperationCalculator, save system, backend implementation, platform SDK integration, or out-of-scope systems were created.
+- No gameplay UI, scenes, prefabs, save system, backend implementation, platform SDK integration, economy/reputation/day-flow, VFX/audio feedback, or other out-of-scope systems were created.
 
 ---
 
@@ -62,7 +71,7 @@ All notable changes to the Cyber Clinic project are documented in this file.
   - Expanded cosmetic categories and examples.
   - Clinic tier visual language and landscape composition rules.
   - Data-driven visual pack and seasonal overlay strategy.
-  - Premium/progression/event reward boundaries.
+  - Premium/progression/event boundaries.
   - Functional cosmetic effect limits.
   - Cosmetic ownership and future save/cloud-sync implications.
   - Additional `Cosmetics.csv` and `Clinic.csv` localization seed keys.
