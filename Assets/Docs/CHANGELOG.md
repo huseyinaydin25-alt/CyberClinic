@@ -8,6 +8,15 @@ All notable changes to the Cyber Clinic project are documented in this file.
 
 ### Added
 
+- **Milestone 4 — Implant and Procedure System (completed):**
+  - `ImplantCompatibilityRelation` enum.
+  - Expanded `ImplantCompatibilityRuleData` for data-driven compatibility rules.
+  - `ImplantVisualVariantData` for implant visual variant links.
+  - `ProcedureImplantCompatibilityData` for procedure + implant compatibility metadata.
+  - `ImplantLocalizationKeys` and `ProcedureLocalizationKeys` key convention helpers.
+  - Minimal editor-only implant/procedure test assets under `Assets/_CyberClinic/Data/Implants/TestSeed/` and `Assets/_CyberClinic/Data/Procedures/TestSeed/`.
+  - Editor menu: **Cyber Clinic/Implants/Validate Debug Data** (technical log only).
+  - `MILESTONE_4_COMPLETION.md` completion record.
 - **Milestone 3 — Procedural Patient Generator (completed):**
   - Deterministic `PatientGenerator` using `SeedContext` and `CyberClinicRandom`.
   - `PatientGenerationInput`, `PatientGenerationConfig`, `PatientGenerationResult`, `PatientGenerationError`.
@@ -20,7 +29,7 @@ All notable changes to the Cyber Clinic project are documented in this file.
 
 ### Changed
 
-- `ROADMAP.md` — Milestone 3 marked **done** and Milestone 4 marked as the next practical step.
+- `ROADMAP.md` — Milestone 4 marked **done** and Milestone 5 marked as the next practical step.
 
 ### Fixed
 
@@ -28,18 +37,19 @@ All notable changes to the Cyber Clinic project are documented in this file.
 
 ### Verified
 
-- Debug generation was run twice with seed `84921`, day `3`, slot `0`.
-- Both runs produced identical patient ids, numeric values, and Known/Hidden fields.
-- Deterministic output confirmed:
-  - `instanceId=04e4fc25-4bb9-0001-0300-000022259d0e`
-  - `patientSeed=82115621`
-  - `archetypeId=test_street_netrunner`
-  - `motivationId=test_urgent_fix`
-  - `requestTypeId=test_optic_tune`
-  - `visualTraitId=test_chrome_jaw`
-  - `dialogueToneId=test_nervous`
-  - `budgetRange=150-337`, `trueCeiling=249`, `panic=29`
-  - `hiddenConditionCount=1`, `slotConflictHidden=False`
+- M4 debug validation was run successfully through **Cyber Clinic/Implants/Validate Debug Data**.
+- Validation confirmed:
+  - `implantCount=2`
+  - `procedureCount=2`
+  - `compatibilityRuleCount=2`
+  - `visualVariantCount=2`
+  - `procedureCompatibilityCount=2`
+  - `firstImplantId=test_implant_grip_upgrade`
+  - `firstProcedureId=test_proc_micro_install`
+  - `firstCompatibilityRuleId=test_compat_arm_grip_stress`
+  - `firstVisualVariantId=test_visual_grip_upgrade`
+  - `firstProcedureCompatibilityId=test_proc_compat_grip_nerve_weave`
+- M3 debug generation was run twice with seed `84921`, day `3`, slot `0`; both runs produced identical patient ids, numeric values, and Known/Hidden fields.
 - No gameplay UI, scenes, prefabs, OperationCalculator, save system, backend implementation, platform SDK integration, or out-of-scope systems were created.
 
 ---
