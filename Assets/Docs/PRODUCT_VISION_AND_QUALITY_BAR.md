@@ -10,17 +10,40 @@
 
 Cyber Clinic is not intended to be a rushed minimal prototype.
 
+Cyber Clinic must remain its own original game with its own idea, world, systems, UI language, atmosphere, procedural engine, and product vision.
+
+The scale reference is a big-budget quality reference only: the project should be planned with the seriousness, patience, polish discipline, and production ambition of a large-budget game. This does not mean copying, resembling, borrowing from, or patterning the game after any specific studio, franchise, IP, mission structure, world design, camera style, narrative style, or content style.
+
 The target is a polished, premium-feeling cyberpunk clinic game with:
 
-- strong visual identity
+- strong original visual identity
 - advanced Unity-driven presentation
 - rich procedural gameplay depth
 - readable and satisfying UI
 - long-term progression desire
 - monetizable cosmetic appeal
 - expandable systems architecture
+- high production discipline across art, UI, audio, gameplay feel, and validation
 
 Time pressure is not the primary constraint. Quality, depth, and step-by-step validation are more important than speed.
+
+---
+
+## Planning principle
+
+Cyber Clinic should be planned as a long-term premium game, not a small MVP.
+
+That means:
+
+- milestone plans should protect quality instead of rushing visible output
+- prototypes are allowed, but only as stepping stones toward high quality
+- debug UI must not be mistaken for final game feel
+- every major feature should eventually have visual, audio, UI, and systemic feedback
+- production polish should be treated as part of the feature, not decoration after the fact
+- shortcuts are acceptable only when they keep the architecture clean and are easy to replace
+- the original Cyber Clinic concept must guide all creative and technical decisions
+
+The project can move slowly as long as each step makes the long-term game stronger.
 
 ---
 
@@ -37,6 +60,8 @@ The long-term game should aim for:
 - progression systems that make players want to continue
 - cosmetic identity, customization, collection, and upgrade desire
 - premium-feeling screens rather than plain debug forms
+- strong moment-to-moment tactility even in menu-heavy gameplay
+- a world and clinic identity that feel authored, memorable, and commercially presentable
 
 Debug UI and placeholder visuals are acceptable only as temporary validation steps.
 
@@ -55,6 +80,8 @@ Long-term procedural goals include:
 - replayable diagnosis/procedure puzzles
 - cases that feel authored even when generated
 - future support for rare cases, events, complications, and modifiers
+- generated cases that create tension, tradeoffs, and memorable outcomes
+- content systems that can scale without becoming random noise
 
 Procedural depth should be built carefully through deterministic, testable systems before being dressed with production art and UI.
 
@@ -73,6 +100,9 @@ The project should gradually benefit from Unity's production capabilities, inclu
 - post-processing, lighting, and camera polish
 - platform-specific build validation
 - automated validators and smoke tests for important flows
+- scene/prefab validation tooling
+- scalable content authoring tools
+- profiling and performance checks before mobile release
 
 These should be added deliberately, not all at once.
 
@@ -92,6 +122,8 @@ Potential future cosmetic/progression surfaces:
 - implant visual variants
 - cosmetic badges/titles
 - collection or prestige systems
+- premium clinic atmosphere upgrades
+- cosmetic animation/VFX variants that do not break gameplay clarity
 
 RevenueCat, AdMob, store products, and real monetization flows should remain out of scope until the core playable loop and production UI direction are validated.
 
@@ -105,7 +137,8 @@ The project should continue with small milestone steps:
 2. validate with editor menus and smoke tests
 3. make a local playable slice
 4. polish the slice enough to understand the intended game feel
-5. only then expand production UI, art, content, backend, SDKs, and monetization
+5. define production-quality UI/art/audio direction before scaling content
+6. only then expand production UI, art, content, backend, SDKs, and monetization
 
 Every major system should have a validation path before becoming a dependency for the next layer.
 
@@ -123,8 +156,9 @@ This vision does not mean immediately adding:
 - complex store systems
 - large content dumps
 - unvalidated scene/prefab expansion
+- creative imitation of any existing studio, franchise, or game
 
-The ambition is high, but the implementation remains incremental.
+The ambition is high, but the implementation remains incremental and original to Cyber Clinic.
 
 ---
 
@@ -132,4 +166,6 @@ The ambition is high, but the implementation remains incremental.
 
 The current UGUI playable slice remains a debug/playable foundation, not the final UI direction.
 
-The next phases should gradually transform the validated technical slice into a premium-feeling vertical slice while preserving deterministic systems, testability, localization discipline, and clean architecture.
+The next phases should gradually transform the validated technical slice into a premium-feeling vertical slice while preserving deterministic systems, testability, localization discipline, clean architecture, and the large-budget quality bar defined here.
+
+All future planning should assume the target is a high-quality, commercially serious Cyber Clinic game with its own original vision, not a fast disposable prototype and not a clone of any other game.
