@@ -1,7 +1,7 @@
 # Milestone 13.11 — Patient Puzzle Shell Localization Keys
 
 **Date:** 2026-05-27  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Centralize placeholder shell localization keys.
 
 ---
@@ -36,7 +36,7 @@ Cyber Clinic/Slices/Run Patient Puzzle Shell Localization Keys Debug
 
 ---
 
-## Expected validator output
+## Validated localization keys output
 
 ```text
 PatientPuzzleShellLocalizationKeysDebug OK
@@ -48,6 +48,42 @@ riskAnalysisTitle=ui.shell.risk_analysis.title
 operationResultTitle=ui.shell.operation_result.title
 actionFeedbackTitle=ui.shell.action_feedback.title
 uiBinding=shell_localization_keys_ready
+```
+
+---
+
+## Existing presenter validator still passes
+
+```text
+PatientPuzzleShellPresenterDebug OK
+patientPresentation=True
+procedurePresentation=True
+riskPresentation=True
+resultPresentation=True
+feedbackPresentation=True
+uiBinding=shell_presenter_decoupled
+```
+
+---
+
+## Existing shell validator still passes
+
+```text
+PatientPuzzleShellDebug OK
+rootExists=True
+canvasCount=1
+eventSystemCount=1
+patientArea=True
+procedureArea=True
+riskArea=True
+resultArea=True
+feedbackArea=True
+patientBinding=True
+procedureBinding=True
+riskBinding=True
+resultBinding=True
+feedbackBinding=True
+uiBinding=production_intent_shell_placeholder
 ```
 
 ---
@@ -66,6 +102,6 @@ uiBinding=shell_localization_keys_ready
 
 ---
 
-## Completion criteria
+## Completion result
 
-M13.11 is complete when the localization keys validator passes and existing shell presenter/runtime validators still pass.
+M13.11 is complete because the localization keys validator passed and existing shell presenter/runtime validators still passed locally in Unity.
