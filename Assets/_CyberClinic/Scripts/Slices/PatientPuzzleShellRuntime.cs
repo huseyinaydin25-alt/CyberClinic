@@ -9,13 +9,6 @@ namespace CyberClinic.Slices
 {
     public sealed class PatientPuzzleShellRuntime : MonoBehaviour
     {
-        static readonly Color BackgroundColor = new Color(0.025f, 0.035f, 0.055f, 1f);
-        static readonly Color PanelColor = new Color(0.075f, 0.095f, 0.135f, 0.96f);
-        static readonly Color HeaderColor = new Color(0.13f, 0.18f, 0.24f, 0.98f);
-        static readonly Color AccentColor = new Color(0.10f, 0.32f, 0.42f, 0.98f);
-        static readonly Color TextColor = new Color(0.92f, 0.96f, 1f, 1f);
-        static readonly Color MutedTextColor = new Color(0.68f, 0.76f, 0.84f, 1f);
-
         bool _built;
 
         void Awake()
@@ -53,9 +46,9 @@ namespace CyberClinic.Slices
             scaler.referenceResolution = PatientPuzzleShellLayout.ReferenceResolution;
             scaler.matchWidthOrHeight = 0.5f;
 
-            CreateFullScreenImage(root.transform, "ShellBackground", BackgroundColor);
-            CreateText(root.transform, PatientPuzzleShellLocalizationKeys.ShellTitle, 32, PatientPuzzleShellLayout.Title, Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, TextColor, FontStyle.Bold);
-            CreateText(root.transform, PatientPuzzleShellLocalizationKeys.ShellSubtitlePlaceholder, 18, PatientPuzzleShellLayout.Subtitle, Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, MutedTextColor, FontStyle.Normal);
+            CreateFullScreenImage(root.transform, "ShellBackground", PatientPuzzleShellStyle.BackgroundColor);
+            CreateText(root.transform, PatientPuzzleShellLocalizationKeys.ShellTitle, PatientPuzzleShellStyle.TitleFontSize, PatientPuzzleShellLayout.Title, Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, PatientPuzzleShellStyle.TextColor, FontStyle.Bold);
+            CreateText(root.transform, PatientPuzzleShellLocalizationKeys.ShellSubtitlePlaceholder, PatientPuzzleShellStyle.SubtitleFontSize, PatientPuzzleShellLayout.Subtitle, Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, PatientPuzzleShellStyle.MutedTextColor, FontStyle.Normal);
 
             CreateSection(root.transform, PatientPuzzleShellLayout.PatientDossierAreaName, PatientPuzzleShellLocalizationKeys.PatientDossierTitle, presentation.PatientDossierBody, PatientPuzzleShellLayout.PatientDossier);
             CreateSection(root.transform, PatientPuzzleShellLayout.ProcedureDecisionAreaName, PatientPuzzleShellLocalizationKeys.ProcedureDecisionTitle, presentation.ProcedureDecisionBody, PatientPuzzleShellLayout.ProcedureDecision);
@@ -63,7 +56,7 @@ namespace CyberClinic.Slices
             CreateSection(root.transform, PatientPuzzleShellLayout.OperationResultAreaName, PatientPuzzleShellLocalizationKeys.OperationResultTitle, presentation.OperationResultBody, PatientPuzzleShellLayout.OperationResult);
             CreateSection(root.transform, PatientPuzzleShellLayout.ActionFeedbackAreaName, PatientPuzzleShellLocalizationKeys.ActionFeedbackTitle, presentation.ActionFeedbackBody, PatientPuzzleShellLayout.ActionFeedback);
 
-            CreateText(root.transform, PatientPuzzleShellLocalizationKeys.FooterPlaceholder, 16, PatientPuzzleShellLayout.Footer, Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, MutedTextColor, FontStyle.Normal);
+            CreateText(root.transform, PatientPuzzleShellLocalizationKeys.FooterPlaceholder, PatientPuzzleShellStyle.FooterFontSize, PatientPuzzleShellLayout.Footer, Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, PatientPuzzleShellStyle.MutedTextColor, FontStyle.Normal);
 
             _built = true;
         }
@@ -72,7 +65,7 @@ namespace CyberClinic.Slices
         {
             if (Camera.main != null)
             {
-                Camera.main.backgroundColor = BackgroundColor;
+                Camera.main.backgroundColor = PatientPuzzleShellStyle.BackgroundColor;
                 return;
             }
 
@@ -80,7 +73,7 @@ namespace CyberClinic.Slices
             cameraObject.tag = "MainCamera";
             var camera = cameraObject.GetComponent<Camera>();
             camera.clearFlags = CameraClearFlags.SolidColor;
-            camera.backgroundColor = BackgroundColor;
+            camera.backgroundColor = PatientPuzzleShellStyle.BackgroundColor;
             camera.orthographic = true;
             camera.orthographicSize = 5f;
             camera.transform.position = new Vector3(0f, 0f, -10f);
@@ -110,16 +103,16 @@ namespace CyberClinic.Slices
             rect.anchorMax = anchor.Max;
             rect.offsetMin = Vector2.zero;
             rect.offsetMax = Vector2.zero;
-            panel.GetComponent<Image>().color = PanelColor;
+            panel.GetComponent<Image>().color = PatientPuzzleShellStyle.PanelColor;
 
             var header = new GameObject("Header", typeof(RectTransform), typeof(Image));
             header.transform.SetParent(panel.transform, false);
             var headerRect = header.GetComponent<RectTransform>();
             headerRect.anchorMin = new Vector2(0f, 1f);
             headerRect.anchorMax = new Vector2(1f, 1f);
-            headerRect.offsetMin = new Vector2(0f, -48f);
+            headerRect.offsetMin = new Vector2(0f, -PatientPuzzleShellStyle.HeaderHeight);
             headerRect.offsetMax = Vector2.zero;
-            header.GetComponent<Image>().color = HeaderColor;
+            header.GetComponent<Image>().color = PatientPuzzleShellStyle.HeaderColor;
 
             var accent = new GameObject("AccentBar", typeof(RectTransform), typeof(Image));
             accent.transform.SetParent(panel.transform, false);
@@ -127,11 +120,11 @@ namespace CyberClinic.Slices
             accentRect.anchorMin = new Vector2(0f, 0f);
             accentRect.anchorMax = new Vector2(0f, 1f);
             accentRect.offsetMin = Vector2.zero;
-            accentRect.offsetMax = new Vector2(6f, 0f);
-            accent.GetComponent<Image>().color = AccentColor;
+            accentRect.offsetMax = new Vector2(PatientPuzzleShellStyle.AccentBarWidth, 0f);
+            accent.GetComponent<Image>().color = PatientPuzzleShellStyle.AccentColor;
 
-            CreateText(header.transform, titleKey, 19, new ShellAnchorRect(Vector2.zero, Vector2.one), new Vector2(18f, 6f), new Vector2(-18f, -6f), TextAnchor.MiddleLeft, TextColor, FontStyle.Bold);
-            CreateText(panel.transform, body, 17, new ShellAnchorRect(Vector2.zero, Vector2.one), new Vector2(20f, 18f), new Vector2(-20f, -64f), TextAnchor.UpperLeft, TextColor, FontStyle.Normal);
+            CreateText(header.transform, titleKey, PatientPuzzleShellStyle.SectionHeaderFontSize, new ShellAnchorRect(Vector2.zero, Vector2.one), PatientPuzzleShellStyle.HeaderTextOffsetMin, PatientPuzzleShellStyle.HeaderTextOffsetMax, TextAnchor.MiddleLeft, PatientPuzzleShellStyle.TextColor, FontStyle.Bold);
+            CreateText(panel.transform, body, PatientPuzzleShellStyle.SectionBodyFontSize, new ShellAnchorRect(Vector2.zero, Vector2.one), PatientPuzzleShellStyle.BodyTextOffsetMin, PatientPuzzleShellStyle.BodyTextOffsetMax, TextAnchor.UpperLeft, PatientPuzzleShellStyle.TextColor, FontStyle.Normal);
         }
 
         static void CreateFullScreenImage(Transform parent, string name, Color color)
