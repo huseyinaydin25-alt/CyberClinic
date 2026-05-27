@@ -50,7 +50,7 @@ namespace CyberClinic.Slices
             var implantText = CreatePanel(root.transform, "ImplantPanel", "ui.slice.implant.panel", new Vector2(0.03f, 0.18f), new Vector2(0.31f, 0.46f));
             var riskText = CreatePanel(root.transform, "RiskPanel", "ui.slice.risk.panel", new Vector2(0.34f, 0.18f), new Vector2(0.63f, 0.74f));
             var resultText = CreatePanel(root.transform, "ResultPanel", "ui.slice.result.panel", new Vector2(0.66f, 0.18f), new Vector2(0.97f, 0.74f));
-            var actionReadoutText = CreateReadout(root.transform, "ActionReadout", "slice.pending", new Vector2(0.34f, 0.745f), new Vector2(0.97f, 0.775f));
+            var actionReadoutText = CreateReadout(root.transform, "ActionReadout", "slice.pending", new Vector2(0.66f, 0.055f), new Vector2(0.97f, 0.145f));
             var previewButton = CreateButton(root.transform, "PreviewButton", "ui.slice.preview.button", new Vector2(0.34f, 0.06f), new Vector2(0.48f, 0.14f));
             var commitButton = CreateButton(root.transform, "CommitButton", "ui.slice.commit.button", new Vector2(0.50f, 0.06f), new Vector2(0.64f, 0.14f));
 
@@ -178,7 +178,7 @@ namespace CyberClinic.Slices
             rect.offsetMin = Vector2.zero;
             rect.offsetMax = Vector2.zero;
             panel.GetComponent<Image>().color = ReadoutColor;
-            return CreateText(panel.transform, value, 19, Vector2.zero, Vector2.one, new Vector2(14f, 4f), new Vector2(-14f, -4f), TextAnchor.MiddleLeft, TextColor, FontStyle.Bold);
+            return CreateText(panel.transform, value, 16, Vector2.zero, Vector2.one, new Vector2(14f, 6f), new Vector2(-14f, -6f), TextAnchor.MiddleLeft, TextColor, FontStyle.Bold);
         }
 
         static void CreateFullScreenImage(Transform parent, string name, Color color)
