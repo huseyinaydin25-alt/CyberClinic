@@ -1,7 +1,7 @@
 # Milestone 13.5 — Patient Puzzle Slice ScreenModel Adapter
 
 **Date:** 2026-05-27  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Add a sectioned UI-facing ScreenModel adapter on top of the validated `PatientPuzzleSliceViewModel`.
 
 ---
@@ -49,7 +49,7 @@ Cyber Clinic/Slices/Run Patient Puzzle Slice ScreenModel Debug
 
 ---
 
-## Expected validator output
+## Validated output
 
 ```text
 PatientPuzzleSliceScreenModelDebug OK
@@ -57,8 +57,8 @@ patientSection.patientId=test_street_netrunner
 patientSection.patientSeed=82115621
 procedureSection.selectedImplantId=test_implant_optic_tune
 procedureSection.selectedProcedureId=test_proc_micro_install
-riskSection.previewSuccessChance=0.675
-riskSection.commitSuccessChance=0.690
+riskSection.previewSuccessChance=0,675
+riskSection.commitSuccessChance=0,690
 riskSection.riskBand=Uncertain
 riskSection.outcomeType=StableSuccess
 resultSection.creditsDelta=90
@@ -105,7 +105,4 @@ This keeps the UI architecture clearer, more scalable, and easier to validate.
 
 ## Next step after validation
 
-After this validator passes locally, M13.6 can either:
-
-1. add a debug validator that ensures UGUI, ViewModel, and ScreenModel all agree on the same deterministic slice values, or
-2. start a minimal production-intent UI shell plan that consumes `PatientPuzzleSliceScreenModel` without creating final art.
+M13.6 should add a debug validator that ensures UGUI, ViewModel, and ScreenModel all agree on the same deterministic slice values before moving toward a production-intent UI shell.
