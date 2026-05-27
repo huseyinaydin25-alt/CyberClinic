@@ -4,8 +4,8 @@
 > Update after **every major milestone**. Sync with `CHANGELOG.md`, `DECISIONS.md`, and relevant design memory docs.
 
 **Last updated:** 2026-05-27  
-**Current milestone:** **8 — Audio Feedback Foundation** (next)  
-**Doc version:** 0.7.0
+**Current milestone:** **9 — Economy, Reputation and Day Flow** (next)  
+**Doc version:** 0.8.0
 
 ---
 
@@ -57,12 +57,13 @@ Cyber Clinic will not be developed with a “fix it later” mindset. The previo
 | Operation calculation (M5) | **Done** — pure deterministic calculator and debug validation complete |
 | First landscape UI skeleton (M6) | **Done** — skeleton prefab, builder, and validator complete |
 | Visual feedback foundation (M7) | **Done** — semantic cue routing and debug validation complete |
-| Gameplay logic | Generator, data foundations, pure operation math, first UI skeleton, and feedback routing only |
+| Audio feedback foundation (M8) | **Done** — data-driven audio cue lookup and debug validation complete |
+| Gameplay logic | Generator, data foundations, pure operation math, first UI skeleton, feedback routing, and audio cue lookup only |
 | Unity packages | Localization + Addressables installed |
 | Orientation | Landscape decided |
 | Supabase | Interfaces only; no integration |
 | AdMob | Pending approval; `IAdService` only |
-| Next practical step | Milestone 8 — Audio Feedback Foundation |
+| Next practical step | Milestone 9 — Economy, Reputation and Day Flow |
 
 ---
 
@@ -335,17 +336,22 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 
 ---
 
-### Milestone 8 — Audio Feedback Foundation `Next`
+### Milestone 8 — Audio Feedback Foundation `Done`
 
-- AudioManager
-- SFX library
-- Ambience
-- Scan / warning / success / failure sounds
-- Music state hooks
+- Audio event ids added.
+- Audio categories added.
+- `ClinicAudioRequest` DTO added.
+- `ClinicAudioCueData` ScriptableObject cue data added.
+- `ClinicAudioCueLibrary` added for request-to-cue lookup.
+- Minimal test audio cue assets created under `Assets/_CyberClinic/Data/Audio/TestSeed/`.
+- Editor debug menu: **Cyber Clinic/Audio/Validate Debug Cues**.
+- Debug validation confirmed scan, warning pulse, and operation success cue lookup.
+- Completion details recorded in `MILESTONE_8_COMPLETION.md`.
+- No save, backend, platform SDK, economy, reputation, day-flow, production audio assets, real playback, or mixer implementation was created.
 
 ---
 
-### Milestone 9 — Economy, Reputation and Day Flow `Planned`
+### Milestone 9 — Economy, Reputation and Day Flow `Next`
 
 - Money
 - Reputation
@@ -409,10 +415,10 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 ## Immediate next steps
 
 1. User pulls latest documentation updates.
-2. Start Milestone 8 — Audio Feedback Foundation planning.
-3. Read `VISUAL_AUDIO_DIRECTION.md`, `GAME_DESIGN_MEMORY.md`, `LOCALIZATION_PLAN.md`, M7 feedback contracts, and existing service abstraction rules before audio work.
-4. Build only audio feedback foundation components needed by M8.
-5. Do not add save, backend, platform SDK, economy, reputation, day-flow, production VFX expansion, or production content expansion during M8.
+2. Start Milestone 9 — Economy, Reputation and Day Flow planning.
+3. Read `GAME_DESIGN_MEMORY.md`, `OPERATION_MATH.md`, M3 patient generator contracts, M5 calculator contracts, M7 feedback contracts, and M8 audio contracts before economy/day-flow work.
+4. Build only economy, reputation, clinic state, day manager, and day report foundation needed by M9.
+5. Do not add save persistence, backend, platform SDK, production content expansion, or monetization implementation during M9.
 
 ---
 
@@ -432,6 +438,7 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 | 0.5.0 | 2026-05-27 | M5 | Operation Calculation System completed and deterministic calculator debug validation confirmed |
 | 0.6.0 | 2026-05-27 | M6 | First Landscape UI Skeleton completed and prefab validation confirmed |
 | 0.7.0 | 2026-05-27 | M7 | Visual Feedback Foundation completed and cue routing validation confirmed |
+| 0.8.0 | 2026-05-27 | M8 | Audio Feedback Foundation completed and cue lookup validation confirmed |
 
 ---
 
@@ -450,3 +457,4 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 | 2026-05-27 | M5 — Operation Calculation System | Pure deterministic calculator, risk bands, outcome type, breakdown DTO, debug validation; no UI, save, backend, SDK, economy, day-flow, VFX, or audio work |
 | 2026-05-27 | M6 — First Landscape UI Skeleton | Landscape skeleton prefab, panel markers, localization-key placeholders, builder and validator; no save, backend, SDK, economy, day-flow, VFX/audio work |
 | 2026-05-27 | M7 — Visual Feedback Foundation | Semantic feedback routing, cue data, test cue assets, debug validation; no gameplay math, save, backend, SDK, economy, day-flow, audio, or production VFX work |
+| 2026-05-27 | M8 — Audio Feedback Foundation | Audio cue data, request DTO, cue library, test cue assets, debug validation; no save, backend, SDK, economy, day-flow, production audio, playback, or mixer work |
