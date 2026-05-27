@@ -4,8 +4,8 @@
 > Update after **every major milestone**. Sync with `CHANGELOG.md`, `DECISIONS.md`, and relevant design memory docs.
 
 **Last updated:** 2026-05-27  
-**Current milestone:** **6 — First Landscape UI Skeleton** (next)  
-**Doc version:** 0.5.0
+**Current milestone:** **7 — Visual Feedback Foundation** (next)  
+**Doc version:** 0.6.0
 
 ---
 
@@ -55,12 +55,13 @@ Cyber Clinic will not be developed with a “fix it later” mindset. The previo
 | Procedural patients (M3) | **Done** — deterministic generator validated with Patient*Data test assets |
 | Implant / procedure data (M4) | **Done** — data foundation and debug validation complete |
 | Operation calculation (M5) | **Done** — pure deterministic calculator and debug validation complete |
-| Gameplay logic | Generator, data foundations, and pure operation math only; no operation flow / UI yet |
+| First landscape UI skeleton (M6) | **Done** — skeleton prefab, builder, and validator complete |
+| Gameplay logic | Generator, data foundations, pure operation math, and first UI skeleton only |
 | Unity packages | Localization + Addressables installed |
 | Orientation | Landscape decided |
 | Supabase | Interfaces only; no integration |
 | AdMob | Pending approval; `IAdService` only |
-| Next practical step | Milestone 6 — First Landscape UI Skeleton |
+| Next practical step | Milestone 7 — Visual Feedback Foundation |
 
 ---
 
@@ -304,17 +305,21 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 
 ---
 
-### Milestone 6 — First Landscape UI Skeleton `Next`
+### Milestone 6 — First Landscape UI Skeleton `Done`
 
-- Landscape patient file UI
-- Implant selection UI
-- Risk preview UI
-- Result panel UI
-- All localized
+- First landscape UI skeleton prefab created.
+- `LandscapeUIScreenId` added for first four screen ids.
+- `LandscapeUIPanel` technical marker component added.
+- `CyberLocalizedText` localization-key placeholder marker added.
+- Editor builder menu: **Cyber Clinic/UI/Create Landscape Skeleton Prefab**.
+- Editor validator menu: **Cyber Clinic/UI/Validate Landscape Skeleton Prefab**.
+- Validation confirmed 4 panels, 4 localized placeholder labels, 1920x1080 reference resolution, and ScreenSpaceOverlay render mode.
+- Completion details recorded in `MILESTONE_6_COMPLETION.md`.
+- No save, backend, platform SDK, economy, reputation, day-flow, VFX/audio implementation, or production content expansion was created.
 
 ---
 
-### Milestone 7 — Visual Feedback Foundation `Planned`
+### Milestone 7 — Visual Feedback Foundation `Next`
 
 - Scan effect
 - Glitch effect
@@ -399,10 +404,10 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 ## Immediate next steps
 
 1. User pulls latest documentation updates.
-2. Start Milestone 6 — First Landscape UI Skeleton planning.
-3. Read `GAME_DESIGN_MEMORY.md`, `LOCALIZATION_PLAN.md`, `VISUAL_AUDIO_DIRECTION.md`, M3 patient generator contracts, M4 implant/procedure data contracts, and M5 operation calculation contracts before UI work.
-4. Build only first landscape UI skeleton screens and localized placeholder bindings needed by M6.
-5. Do not add save, backend, platform SDK, economy, reputation, day-flow, VFX/audio implementation, or production content expansion during M6.
+2. Start Milestone 7 — Visual Feedback Foundation planning.
+3. Read `VISUAL_AUDIO_DIRECTION.md`, `GAME_DESIGN_MEMORY.md`, `LOCALIZATION_PLAN.md`, and existing M6 UI skeleton contracts before visual feedback work.
+4. Build only visual feedback foundation components needed by M7.
+5. Do not add save, backend, platform SDK, economy, reputation, day-flow, audio implementation, or production content expansion during M7.
 
 ---
 
@@ -420,6 +425,7 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 | 0.3.0 | 2026-05-27 | M3 | Procedural Patient Generator completed and deterministic debug generation validated |
 | 0.4.0 | 2026-05-27 | M4 | Implant and Procedure System data foundation completed and debug validation confirmed |
 | 0.5.0 | 2026-05-27 | M5 | Operation Calculation System completed and deterministic calculator debug validation confirmed |
+| 0.6.0 | 2026-05-27 | M6 | First Landscape UI Skeleton completed and prefab validation confirmed |
 
 ---
 
@@ -436,3 +442,4 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 | 2026-05-27 | M3 — Procedural Patient Generator | Deterministic generator, Patient*Data test assets, debug validation; no UI, OperationCalculator, save, backend, SDK, scene, or prefab work |
 | 2026-05-27 | M4 — Implant and Procedure System | Implant/procedure data foundation, compatibility rules, visual variants, debug validation; no UI, OperationCalculator, save, backend, SDK, scene, or prefab work |
 | 2026-05-27 | M5 — Operation Calculation System | Pure deterministic calculator, risk bands, outcome type, breakdown DTO, debug validation; no UI, save, backend, SDK, economy, day-flow, VFX, or audio work |
+| 2026-05-27 | M6 — First Landscape UI Skeleton | Landscape skeleton prefab, panel markers, localization-key placeholders, builder and validator; no save, backend, SDK, economy, day-flow, VFX/audio work |
