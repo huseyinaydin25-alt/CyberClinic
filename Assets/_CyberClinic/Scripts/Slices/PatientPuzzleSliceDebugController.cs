@@ -11,6 +11,7 @@ namespace CyberClinic.Slices
         [SerializeField] Text _resultText;
         [SerializeField] Text _previewStateText;
         [SerializeField] Text _commitStateText;
+        [SerializeField] Text _actionReadoutText;
         [SerializeField] Image _previewStateImage;
         [SerializeField] Image _commitStateImage;
         [SerializeField] Image _previewButtonImage;
@@ -21,6 +22,7 @@ namespace CyberClinic.Slices
 
         PatientPuzzleSliceReport _lastReport;
         string _stateId = "preview.ready";
+        string _lastActionId = "preview";
 
         static readonly Color InactiveColor = new Color(0.12f, 0.14f, 0.18f, 0.92f);
         static readonly Color PreviewActiveColor = new Color(0.12f, 0.32f, 0.48f, 0.96f);
@@ -72,6 +74,7 @@ namespace CyberClinic.Slices
         public void RefreshPreview()
         {
             _stateId = "preview.ready";
+            _lastActionId = "preview";
             _lastReport = PatientPuzzleSliceRunner.RunDebugSlice();
             ApplyReport(_stateId);
         }
@@ -79,6 +82,7 @@ namespace CyberClinic.Slices
         public void CommitSlice()
         {
             _stateId = "commit.done";
+            _lastActionId = "commit";
             _lastReport = PatientPuzzleSliceRunner.RunDebugSlice();
             ApplyReport(_stateId);
         }
@@ -141,6 +145,7 @@ namespace CyberClinic.Slices
             if (_lastReport == null)
             {
                 SetText(_resultText, "slice.error.no_report");
+                SetText(_actionReadoutText, "slice.error.no_report");
                 return;
             }
 
@@ -167,6 +172,29 @@ namespace CyberClinic.Slices
                 "visualCueId=" + _lastReport.VisualCueId + "\n" +
                 "audioCueId=" + _lastReport.AudioCueId + "\n" +
                 "saveSummary=" + _lastReport.SaveSummary);
+
+            SetText(_actionReadoutText, BuildActionReadout(stateId));
+        }
+
+        string BuildActionReadout(string stateId)
+        {
+            if (_lastReport == null)
+            {
+                return "slice.pending";
+            }
+
+            var creditsDelta = _lastReport.EndingCredits - _lastReport.StartingCredits;
+            var reputationDelta = _lastReport.EndingReputation - _lastReport.StartingReputation;
+
+            return
+                "lastAction=" + _lastActionId + " | " +
+                "stateId=" + stateId + " | " +
+                "outcomeType=" + _lastReport.OutcomeType + " | " +
+                "riskBand=" + _lastReport.RiskBand + " | " +
+                "creditsDelta=" + FormatDelta(creditsDelta) + " | " +
+                "reputationDelta=" + FormatDelta(reputationDelta) + "\n" +
+                "visualCueId=" + _lastReport.VisualCueId + " | " +
+                "audioCueId=" + _lastReport.AudioCueId;
         }
 
         void ApplyInteractiveState(string stateId)
@@ -181,6 +209,11 @@ namespace CyberClinic.Slices
             SetImageColor(_commitStateImage, commitActive ? CommitActiveColor : InactiveColor);
             SetImageColor(_previewButtonImage, previewActive ? PreviewActiveColor : ButtonIdleColor);
             SetImageColor(_commitButtonImage, commitActive ? CommitActiveColor : ButtonIdleColor);
+        }
+
+        static string FormatDelta(int value)
+        {
+            return value >= 0 ? "+" + value : value.ToString();
         }
 
         static void SetText(Text target, string value)
