@@ -1,7 +1,7 @@
 # Milestone 13.14 — Patient Puzzle Shell Foundation Aggregate Validator
 
 **Date:** 2026-05-27  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Add one aggregate validator for the shell foundation stack.
 
 ---
@@ -36,7 +36,7 @@ Cyber Clinic/Slices/Run Patient Puzzle Shell Foundation Debug
 
 ---
 
-## Expected validator output
+## Validated output
 
 ```text
 PatientPuzzleShellFoundationDebug OK
@@ -64,6 +64,6 @@ uiBinding=shell_foundation_aggregate_ready
 
 ---
 
-## Completion criteria
+## Completion result
 
-M13.14 is complete when the aggregate foundation validator passes locally in Unity.
+M13.14 is complete because the aggregate foundation validator passed locally in Unity.
