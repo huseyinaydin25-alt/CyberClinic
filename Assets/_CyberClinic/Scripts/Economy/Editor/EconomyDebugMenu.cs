@@ -9,12 +9,23 @@ namespace CyberClinic.Economy.Editor
         [MenuItem("Cyber Clinic/Economy/Run Day Flow Debug")]
         public static void RunDayFlowDebug()
         {
-            var start = new ClinicEconomyState
+            var start = new ClinicRuntimeState
             {
-                Credits = 500,
-                Reputation = 40,
-                DayIndex = 4
+                Economy = new ClinicEconomyState
+                {
+                    Credits = 500,
+                    Reputation = 40,
+                    DayIndex = 4
+                },
+                CurrentDayIndex = 4,
+                DayActive = false
             };
+
+            var started = DayFlowController.StartDay(start, 4).State;
+            var afterPatientA = DayFlowController.RecordPatientAccepted(started);
+            var afterPatientB = DayFlowController.RecordPatientAccepted(afterPatientA);
+            var afterCompleted = DayFlowController.RecordOperationCompleted(afterPatientB);
+            var afterFailed = DayFlowController.RecordOperationFailed(afterCompleted);
 
             var deltas = new[]
             {
@@ -23,14 +34,12 @@ namespace CyberClinic.Economy.Editor
                 new EconomyDelta(0, -3, "debug.patient_unstable")
             };
 
-            var report = DayReportBuilder.Build(
-                start,
-                deltas,
-                acceptedPatients: 2,
-                completedOperations: 1,
-                failedOperations: 1);
+            var ended = DayFlowController.EndDay(afterFailed, deltas);
+            var report = ended.Report;
+            var endState = ended.State;
 
             var deterministic =
+                report != null &&
                 report.DayIndex == 4 &&
                 report.StartingCredits == 500 &&
                 report.EndingCredits == 635 &&
@@ -39,7 +48,12 @@ namespace CyberClinic.Economy.Editor
                 report.AcceptedPatients == 2 &&
                 report.CompletedOperations == 1 &&
                 report.FailedOperations == 1 &&
-                report.Deltas.Length == 3;
+                report.Deltas.Length == 3 &&
+                endState != null &&
+                endState.DayActive == false &&
+                endState.CurrentDayIndex == 5 &&
+                endState.Economy.Credits == 635 &&
+                endState.Economy.Reputation == 43;
 
             if (!deterministic)
             {
@@ -57,7 +71,9 @@ namespace CyberClinic.Economy.Editor
                 $"acceptedPatients={report.AcceptedPatients}\n" +
                 $"completedOperations={report.CompletedOperations}\n" +
                 $"failedOperations={report.FailedOperations}\n" +
-                $"deltaCount={report.Deltas.Length}");
+                $"deltaCount={report.Deltas.Length}\n" +
+                $"dayActive={endState.DayActive}\n" +
+                $"nextDayIndex={endState.CurrentDayIndex}");
         }
     }
 }
