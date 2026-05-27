@@ -56,16 +56,16 @@ namespace CyberClinic.Slices
             scaler.matchWidthOrHeight = 0.5f;
 
             CreateFullScreenImage(root.transform, "ShellBackground", BackgroundColor);
-            CreateText(root.transform, "ui.shell.patient_puzzle.title", 32, new Vector2(0.03f, 0.925f), new Vector2(0.97f, 0.985f), Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, TextColor, FontStyle.Bold);
-            CreateText(root.transform, "ui.shell.patient_puzzle.subtitle.placeholder", 18, new Vector2(0.03f, 0.885f), new Vector2(0.97f, 0.925f), Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, MutedTextColor, FontStyle.Normal);
+            CreateText(root.transform, PatientPuzzleShellLocalizationKeys.ShellTitle, 32, new Vector2(0.03f, 0.925f), new Vector2(0.97f, 0.985f), Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, TextColor, FontStyle.Bold);
+            CreateText(root.transform, PatientPuzzleShellLocalizationKeys.ShellSubtitlePlaceholder, 18, new Vector2(0.03f, 0.885f), new Vector2(0.97f, 0.925f), Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, MutedTextColor, FontStyle.Normal);
 
-            CreateSection(root.transform, "PatientDossierArea", "ui.shell.patient_dossier.title", presentation.PatientDossierBody, new Vector2(0.03f, 0.55f), new Vector2(0.31f, 0.86f));
-            CreateSection(root.transform, "ProcedureDecisionArea", "ui.shell.procedure_decision.title", presentation.ProcedureDecisionBody, new Vector2(0.03f, 0.20f), new Vector2(0.31f, 0.52f));
-            CreateSection(root.transform, "RiskAnalysisArea", "ui.shell.risk_analysis.title", presentation.RiskAnalysisBody, new Vector2(0.34f, 0.55f), new Vector2(0.64f, 0.86f));
-            CreateSection(root.transform, "OperationResultArea", "ui.shell.operation_result.title", presentation.OperationResultBody, new Vector2(0.67f, 0.55f), new Vector2(0.97f, 0.86f));
-            CreateSection(root.transform, "ActionFeedbackArea", "ui.shell.action_feedback.title", presentation.ActionFeedbackBody, new Vector2(0.34f, 0.20f), new Vector2(0.97f, 0.52f));
+            CreateSection(root.transform, "PatientDossierArea", PatientPuzzleShellLocalizationKeys.PatientDossierTitle, presentation.PatientDossierBody, new Vector2(0.03f, 0.55f), new Vector2(0.31f, 0.86f));
+            CreateSection(root.transform, "ProcedureDecisionArea", PatientPuzzleShellLocalizationKeys.ProcedureDecisionTitle, presentation.ProcedureDecisionBody, new Vector2(0.03f, 0.20f), new Vector2(0.31f, 0.52f));
+            CreateSection(root.transform, "RiskAnalysisArea", PatientPuzzleShellLocalizationKeys.RiskAnalysisTitle, presentation.RiskAnalysisBody, new Vector2(0.34f, 0.55f), new Vector2(0.64f, 0.86f));
+            CreateSection(root.transform, "OperationResultArea", PatientPuzzleShellLocalizationKeys.OperationResultTitle, presentation.OperationResultBody, new Vector2(0.67f, 0.55f), new Vector2(0.97f, 0.86f));
+            CreateSection(root.transform, "ActionFeedbackArea", PatientPuzzleShellLocalizationKeys.ActionFeedbackTitle, presentation.ActionFeedbackBody, new Vector2(0.34f, 0.20f), new Vector2(0.97f, 0.52f));
 
-            CreateText(root.transform, "ui.shell.placeholder.footer", 16, new Vector2(0.03f, 0.06f), new Vector2(0.97f, 0.13f), Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, MutedTextColor, FontStyle.Normal);
+            CreateText(root.transform, PatientPuzzleShellLocalizationKeys.FooterPlaceholder, 16, new Vector2(0.03f, 0.06f), new Vector2(0.97f, 0.13f), Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, MutedTextColor, FontStyle.Normal);
 
             _built = true;
         }
