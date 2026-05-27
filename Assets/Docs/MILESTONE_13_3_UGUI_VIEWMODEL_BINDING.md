@@ -1,7 +1,7 @@
 # Milestone 13.3 — UGUI Debug ViewModel Binding
 
 **Date:** 2026-05-27  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Wire the existing debug/playable UGUI controller through `PatientPuzzleSliceViewModel` while preserving the same visible debug behavior.
 
 ---
@@ -82,11 +82,32 @@ actionReadoutAfterCommitContains=lastAction=commit
 uiMode=UGUI
 ```
 
-Also manually validate Play Mode in:
+---
+
+## Manual validation result
+
+Manual Play Mode validation was completed in Unity:
+
+- PlayableSliceUgui scene opened in Hierarchy.
+- Preview button was clicked successfully.
+- Commit button was clicked successfully.
+- No Cyber Clinic runtime script error was reported.
+- Visible debug output remained stable after the ViewModel binding change.
+
+---
+
+## Project panel scene visibility note
+
+During validation, the scene appeared open in the Hierarchy as:
 
 ```text
-Assets/_CyberClinic/Scenes/PlayableSliceUgui.unity
+PlayableSliceUgui
+  PlayableSliceUguiRuntime
 ```
+
+However, `PlayableSliceUgui.unity` was not visible in the Project panel under `Assets/_CyberClinic/Scenes` even after the scene builder log appeared.
+
+This does not block M13.3 runtime validation, but it should be improved as editor tooling in a follow-up step so the debug scene can be created, opened, selected, and located more reliably.
 
 ---
 
@@ -105,10 +126,10 @@ Assets/_CyberClinic/Scenes/PlayableSliceUgui.unity
 
 ## Completion criteria
 
-M13.3 is complete when:
+M13.3 is complete because:
 
-- UGUI smoke validator passes
-- manual Play Mode Preview still works
-- manual Play Mode Commit still works
+- manual Play Mode Preview works
+- manual Play Mode Commit works
 - visible debug output remains stable
-- no Cyber Clinic runtime script errors are reported
+- no Cyber Clinic runtime script errors were reported
+- data now flows through `PatientPuzzleSliceViewModel`
