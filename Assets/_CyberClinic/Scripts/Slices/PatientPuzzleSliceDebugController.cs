@@ -9,17 +9,39 @@ namespace CyberClinic.Slices
         [SerializeField] Text _implantText;
         [SerializeField] Text _riskText;
         [SerializeField] Text _resultText;
+        [SerializeField] Button _previewButton;
+        [SerializeField] Button _commitButton;
+        [SerializeField] bool _showGuiFallback;
 
         PatientPuzzleSliceReport _lastReport;
         string _stateId = "preview.ready";
 
         void Start()
         {
+            BindButtons();
             RefreshPreview();
+        }
+
+        void OnDestroy()
+        {
+            if (_previewButton != null)
+            {
+                _previewButton.onClick.RemoveListener(RefreshPreview);
+            }
+
+            if (_commitButton != null)
+            {
+                _commitButton.onClick.RemoveListener(CommitSlice);
+            }
         }
 
         void OnGUI()
         {
+            if (!_showGuiFallback)
+            {
+                return;
+            }
+
             GUI.Label(new Rect(24, 16, 520, 28), "Cyber Clinic - Playable Slice Debug");
 
             if (GUI.Button(new Rect(24, 52, 180, 44), "ui.slice.preview.button"))
@@ -48,6 +70,21 @@ namespace CyberClinic.Slices
             _stateId = "commit.done";
             _lastReport = PatientPuzzleSliceRunner.RunDebugSlice();
             ApplyReport(_stateId);
+        }
+
+        void BindButtons()
+        {
+            if (_previewButton != null)
+            {
+                _previewButton.onClick.RemoveListener(RefreshPreview);
+                _previewButton.onClick.AddListener(RefreshPreview);
+            }
+
+            if (_commitButton != null)
+            {
+                _commitButton.onClick.RemoveListener(CommitSlice);
+                _commitButton.onClick.AddListener(CommitSlice);
+            }
         }
 
         string BuildBlockA()
