@@ -1,7 +1,7 @@
 # Milestone 13.9 — Patient Puzzle Shell Scene Builder
 
 **Date:** 2026-05-27  
-**Status:** Validated locally in Unity  
+**Status:** Completed and validated locally in Unity  
 **Scope:** Add editor tooling to create, open, and validate a scene for the production-intent placeholder shell.
 
 ---
@@ -64,6 +64,24 @@ uiMode=production_intent_placeholder_shell
 
 ---
 
+## Manual Play Mode validation
+
+Manual Play Mode visual inspection passed locally in Unity.
+
+Confirmed visible placeholder shell areas:
+
+```text
+PatientDossierArea
+ProcedureDecisionArea
+RiskAnalysisArea
+OperationResultArea
+ActionFeedbackArea
+```
+
+No red Cyber Clinic script error was reported during Play Mode validation.
+
+---
+
 ## Not included
 
 - final production UI
@@ -78,6 +96,4 @@ uiMode=production_intent_placeholder_shell
 
 ## Completion result
 
-M13.9 scene creation and scene validation passed locally in Unity.
-
-Manual Play Mode visual inspection is the remaining optional check for this scene.
+M13.9 scene creation, scene validation, and manual Play Mode visual inspection passed locally in Unity.
