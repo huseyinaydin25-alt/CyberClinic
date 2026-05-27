@@ -1,7 +1,7 @@
 # Milestone 13.6 — Patient Puzzle Slice Data Consistency Validator
 
 **Date:** 2026-05-27  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Add a validator that confirms the ViewModel and ScreenModel carry the same deterministic patient puzzle slice data.
 
 ---
@@ -37,7 +37,7 @@ Cyber Clinic/Slices/Run Patient Puzzle Slice Data Consistency
 
 ---
 
-## Expected validator output
+## Validated output
 
 ```text
 PatientPuzzleSliceDataConsistency OK
@@ -98,4 +98,4 @@ This protects future premium UI work from binding to mismatched or drifting data
 
 ## Next step after validation
 
-After this validator passes locally, the next step can be a minimal production-intent UI shell plan or adapter that consumes `PatientPuzzleSliceScreenModel` without final art or animation.
+The next step can be a minimal production-intent UI shell plan or adapter that consumes `PatientPuzzleSliceScreenModel` without final art or animation.
