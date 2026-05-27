@@ -12,6 +12,7 @@ namespace CyberClinic.Slices
         static readonly Color BackgroundColor = new Color(0.035f, 0.045f, 0.065f, 1f);
         static readonly Color PanelColor = new Color(0.09f, 0.11f, 0.15f, 0.94f);
         static readonly Color PanelHeaderColor = new Color(0.16f, 0.19f, 0.26f, 0.96f);
+        static readonly Color ReadoutColor = new Color(0.06f, 0.075f, 0.105f, 0.96f);
         static readonly Color ButtonColor = new Color(0.14f, 0.16f, 0.22f, 0.96f);
         static readonly Color ButtonHighlightColor = new Color(0.22f, 0.27f, 0.36f, 1f);
         static readonly Color ButtonPressedColor = new Color(0.08f, 0.1f, 0.14f, 1f);
@@ -49,6 +50,7 @@ namespace CyberClinic.Slices
             var implantText = CreatePanel(root.transform, "ImplantPanel", "ui.slice.implant.panel", new Vector2(0.03f, 0.18f), new Vector2(0.31f, 0.46f));
             var riskText = CreatePanel(root.transform, "RiskPanel", "ui.slice.risk.panel", new Vector2(0.34f, 0.18f), new Vector2(0.63f, 0.74f));
             var resultText = CreatePanel(root.transform, "ResultPanel", "ui.slice.result.panel", new Vector2(0.66f, 0.18f), new Vector2(0.97f, 0.74f));
+            var actionReadoutText = CreateReadout(root.transform, "ActionReadout", "slice.pending", new Vector2(0.34f, 0.745f), new Vector2(0.97f, 0.775f));
             var previewButton = CreateButton(root.transform, "PreviewButton", "ui.slice.preview.button", new Vector2(0.34f, 0.06f), new Vector2(0.48f, 0.14f));
             var commitButton = CreateButton(root.transform, "CommitButton", "ui.slice.commit.button", new Vector2(0.50f, 0.06f), new Vector2(0.64f, 0.14f));
 
@@ -58,6 +60,7 @@ namespace CyberClinic.Slices
             SetPrivateField(controller, "_resultText", resultText);
             SetPrivateField(controller, "_previewStateText", previewState.Label);
             SetPrivateField(controller, "_commitStateText", commitState.Label);
+            SetPrivateField(controller, "_actionReadoutText", actionReadoutText);
             SetPrivateField(controller, "_previewStateImage", previewState.Background);
             SetPrivateField(controller, "_commitStateImage", commitState.Background);
             SetPrivateField(controller, "_previewButtonImage", previewButton.GetComponent<Image>());
@@ -163,6 +166,19 @@ namespace CyberClinic.Slices
             image.color = StatusIdleColor;
             var label = CreateText(obj.transform, labelKey, 23, Vector2.zero, Vector2.one, new Vector2(14f, 8f), new Vector2(-14f, -8f), TextAnchor.MiddleCenter, TextColor, FontStyle.Bold);
             return new StateChip(image, label);
+        }
+
+        static Text CreateReadout(Transform parent, string name, string value, Vector2 anchorMin, Vector2 anchorMax)
+        {
+            var panel = new GameObject(name, typeof(RectTransform), typeof(Image));
+            panel.transform.SetParent(parent, false);
+            var rect = panel.GetComponent<RectTransform>();
+            rect.anchorMin = anchorMin;
+            rect.anchorMax = anchorMax;
+            rect.offsetMin = Vector2.zero;
+            rect.offsetMax = Vector2.zero;
+            panel.GetComponent<Image>().color = ReadoutColor;
+            return CreateText(panel.transform, value, 19, Vector2.zero, Vector2.one, new Vector2(14f, 4f), new Vector2(-14f, -4f), TextAnchor.MiddleLeft, TextColor, FontStyle.Bold);
         }
 
         static void CreateFullScreenImage(Transform parent, string name, Color color)
