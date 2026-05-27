@@ -18,12 +18,12 @@ namespace CyberClinic.Slices.Editor
             var runtime = host.AddComponent<PatientPuzzleShellRuntime>();
             runtime.EnsureBuiltDebugShell();
 
-            var root = GameObject.Find("PatientPuzzleShellRoot");
-            var patientArea = GameObject.Find("PatientDossierArea");
-            var procedureArea = GameObject.Find("ProcedureDecisionArea");
-            var riskArea = GameObject.Find("RiskAnalysisArea");
-            var resultArea = GameObject.Find("OperationResultArea");
-            var feedbackArea = GameObject.Find("ActionFeedbackArea");
+            var root = GameObject.Find(PatientPuzzleShellLayout.RootName);
+            var patientArea = GameObject.Find(PatientPuzzleShellLayout.PatientDossierAreaName);
+            var procedureArea = GameObject.Find(PatientPuzzleShellLayout.ProcedureDecisionAreaName);
+            var riskArea = GameObject.Find(PatientPuzzleShellLayout.RiskAnalysisAreaName);
+            var resultArea = GameObject.Find(PatientPuzzleShellLayout.OperationResultAreaName);
+            var feedbackArea = GameObject.Find(PatientPuzzleShellLayout.ActionFeedbackAreaName);
 
             var patientText = FindSectionText(patientArea);
             var procedureText = FindSectionText(procedureArea);
