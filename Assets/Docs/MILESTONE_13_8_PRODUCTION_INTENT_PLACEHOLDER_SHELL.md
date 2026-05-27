@@ -1,7 +1,7 @@
 # Milestone 13.8 — Production-Intent Placeholder Shell
 
 **Date:** 2026-05-27  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Runtime-generated placeholder shell for the patient puzzle slice.
 
 ---
@@ -46,7 +46,7 @@ Each area binds data from `PatientPuzzleSliceScreenModel`.
 
 ---
 
-## Expected validator output
+## Validated output
 
 ```text
 PatientPuzzleShellDebug OK
@@ -80,6 +80,15 @@ uiBinding=production_intent_shell_placeholder
 
 ---
 
-## Completion criteria
+## Completion result
 
-M13.8 is complete when the validator passes locally and no Cyber Clinic script errors are reported.
+M13.8 is complete because the validator passed locally and no Cyber Clinic script errors were reported.
+
+---
+
+## Next step
+
+The next small step should keep the shell placeholder-based and add either:
+
+1. a shell scene builder for manual visual inspection, or
+2. a shell presenter layer that separates text formatting from runtime UI construction.
