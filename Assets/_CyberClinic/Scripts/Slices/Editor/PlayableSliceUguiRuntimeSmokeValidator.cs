@@ -28,8 +28,9 @@ namespace CyberClinic.Slices.Editor
             var commitButton = FindButton("CommitButton");
             var previewStateText = FindChildText("PreviewStateChip");
             var commitStateText = FindChildText("CommitStateChip");
+            var actionReadoutText = FindChildText("ActionReadout");
 
-            if (root == null || controller == null || previewButton == null || commitButton == null || previewStateText == null || commitStateText == null)
+            if (root == null || controller == null || previewButton == null || commitButton == null || previewStateText == null || commitStateText == null || actionReadoutText == null)
             {
                 Debug.LogWarning(
                     "PlayableSliceUguiRuntimeSmokeValidator failed" +
@@ -38,25 +39,30 @@ namespace CyberClinic.Slices.Editor
                     "\npreviewButtonExists=" + (previewButton != null) +
                     "\ncommitButtonExists=" + (commitButton != null) +
                     "\npreviewStateTextExists=" + (previewStateText != null) +
-                    "\ncommitStateTextExists=" + (commitStateText != null));
+                    "\ncommitStateTextExists=" + (commitStateText != null) +
+                    "\nactionReadoutTextExists=" + (actionReadoutText != null));
                 return;
             }
 
             previewButton.onClick.Invoke();
             var previewStateAfterPreview = previewStateText.text;
             var commitStateAfterPreview = commitStateText.text;
+            var actionReadoutAfterPreview = actionReadoutText.text;
 
             commitButton.onClick.Invoke();
             var previewStateAfterCommit = previewStateText.text;
             var commitStateAfterCommit = commitStateText.text;
+            var actionReadoutAfterCommit = actionReadoutText.text;
 
             var canvasCount = Object.FindObjectsByType<Canvas>(FindObjectsSortMode.None).Length;
             var eventSystemCount = Object.FindObjectsByType<EventSystem>(FindObjectsSortMode.None).Length;
             var cameraExists = Camera.main != null;
             var previewOk = previewStateAfterPreview == "ui.slice.preview.state.active" && commitStateAfterPreview == "ui.slice.commit.state.idle";
             var commitOk = previewStateAfterCommit == "ui.slice.preview.state.idle" && commitStateAfterCommit == "ui.slice.commit.state.active";
+            var previewReadoutOk = actionReadoutAfterPreview.Contains("lastAction=preview") && actionReadoutAfterPreview.Contains("stateId=preview.ready");
+            var commitReadoutOk = actionReadoutAfterCommit.Contains("lastAction=commit") && actionReadoutAfterCommit.Contains("stateId=commit.done") && actionReadoutAfterCommit.Contains("creditsDelta=") && actionReadoutAfterCommit.Contains("reputationDelta=");
 
-            if (!cameraExists || canvasCount != 1 || eventSystemCount != 1 || !previewOk || !commitOk)
+            if (!cameraExists || canvasCount != 1 || eventSystemCount != 1 || !previewOk || !commitOk || !previewReadoutOk || !commitReadoutOk)
             {
                 Debug.LogWarning(
                     "PlayableSliceUguiRuntimeSmokeValidator failed" +
@@ -66,7 +72,9 @@ namespace CyberClinic.Slices.Editor
                     "\npreviewStateAfterPreview=" + previewStateAfterPreview +
                     "\ncommitStateAfterPreview=" + commitStateAfterPreview +
                     "\npreviewStateAfterCommit=" + previewStateAfterCommit +
-                    "\ncommitStateAfterCommit=" + commitStateAfterCommit);
+                    "\ncommitStateAfterCommit=" + commitStateAfterCommit +
+                    "\nactionReadoutAfterPreview=" + actionReadoutAfterPreview +
+                    "\nactionReadoutAfterCommit=" + actionReadoutAfterCommit);
                 return;
             }
 
@@ -80,6 +88,9 @@ namespace CyberClinic.Slices.Editor
                 "\ncommitButtonCount=1" +
                 "\npreviewStateAfterPreview=" + previewStateAfterPreview +
                 "\ncommitStateAfterCommit=" + commitStateAfterCommit +
+                "\nactionReadoutAfterPreview=" + actionReadoutAfterPreview +
+                "\nactionReadoutAfterCommit=" + actionReadoutAfterCommit +
+                "\nactionReadoutAfterCommitContains=lastAction=commit" +
                 "\nuiMode=UGUI");
         }
 
