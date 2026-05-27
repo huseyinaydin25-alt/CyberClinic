@@ -1,7 +1,7 @@
 # Milestone 13.10 — Patient Puzzle Shell Presenter
 
 **Date:** 2026-05-27  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Separate shell text presentation from runtime UI construction.
 
 ---
@@ -42,7 +42,7 @@ Cyber Clinic/Slices/Run Patient Puzzle Shell Presenter Debug
 
 ---
 
-## Expected validator output
+## Validated presenter output
 
 ```text
 PatientPuzzleShellPresenterDebug OK
@@ -52,6 +52,28 @@ riskPresentation=True
 resultPresentation=True
 feedbackPresentation=True
 uiBinding=shell_presenter_decoupled
+```
+
+---
+
+## Existing shell validator still passes
+
+```text
+PatientPuzzleShellDebug OK
+rootExists=True
+canvasCount=1
+eventSystemCount=1
+patientArea=True
+procedureArea=True
+riskArea=True
+resultArea=True
+feedbackArea=True
+patientBinding=True
+procedureBinding=True
+riskBinding=True
+resultBinding=True
+feedbackBinding=True
+uiBinding=production_intent_shell_placeholder
 ```
 
 ---
@@ -68,6 +90,6 @@ uiBinding=shell_presenter_decoupled
 
 ---
 
-## Completion criteria
+## Completion result
 
-M13.10 is complete when the presenter validator passes and the existing shell debug validator still passes.
+M13.10 is complete because the presenter validator passed and the existing shell debug validator still passed locally in Unity.
