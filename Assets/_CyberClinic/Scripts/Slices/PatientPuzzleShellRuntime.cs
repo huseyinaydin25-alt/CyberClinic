@@ -45,6 +45,8 @@ namespace CyberClinic.Slices
             EnsureCamera();
             EnsureEventSystem();
 
+            var presentation = PatientPuzzleShellPresenter.Present(screenModel);
+
             var root = new GameObject(RootName, typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             root.transform.SetParent(transform, false);
             root.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
@@ -57,52 +59,15 @@ namespace CyberClinic.Slices
             CreateText(root.transform, "ui.shell.patient_puzzle.title", 32, new Vector2(0.03f, 0.925f), new Vector2(0.97f, 0.985f), Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, TextColor, FontStyle.Bold);
             CreateText(root.transform, "ui.shell.patient_puzzle.subtitle.placeholder", 18, new Vector2(0.03f, 0.885f), new Vector2(0.97f, 0.925f), Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, MutedTextColor, FontStyle.Normal);
 
-            CreateSection(root.transform, "PatientDossierArea", "ui.shell.patient_dossier.title", BuildPatientDossierText(screenModel.PatientDossier), new Vector2(0.03f, 0.55f), new Vector2(0.31f, 0.86f));
-            CreateSection(root.transform, "ProcedureDecisionArea", "ui.shell.procedure_decision.title", BuildProcedureDecisionText(screenModel.ProcedureDecision), new Vector2(0.03f, 0.20f), new Vector2(0.31f, 0.52f));
-            CreateSection(root.transform, "RiskAnalysisArea", "ui.shell.risk_analysis.title", BuildRiskAnalysisText(screenModel.RiskAnalysis), new Vector2(0.34f, 0.55f), new Vector2(0.64f, 0.86f));
-            CreateSection(root.transform, "OperationResultArea", "ui.shell.operation_result.title", BuildOperationResultText(screenModel.OperationResult), new Vector2(0.67f, 0.55f), new Vector2(0.97f, 0.86f));
-            CreateSection(root.transform, "ActionFeedbackArea", "ui.shell.action_feedback.title", BuildActionFeedbackText(screenModel.ActionFeedback), new Vector2(0.34f, 0.20f), new Vector2(0.97f, 0.52f));
+            CreateSection(root.transform, "PatientDossierArea", "ui.shell.patient_dossier.title", presentation.PatientDossierBody, new Vector2(0.03f, 0.55f), new Vector2(0.31f, 0.86f));
+            CreateSection(root.transform, "ProcedureDecisionArea", "ui.shell.procedure_decision.title", presentation.ProcedureDecisionBody, new Vector2(0.03f, 0.20f), new Vector2(0.31f, 0.52f));
+            CreateSection(root.transform, "RiskAnalysisArea", "ui.shell.risk_analysis.title", presentation.RiskAnalysisBody, new Vector2(0.34f, 0.55f), new Vector2(0.64f, 0.86f));
+            CreateSection(root.transform, "OperationResultArea", "ui.shell.operation_result.title", presentation.OperationResultBody, new Vector2(0.67f, 0.55f), new Vector2(0.97f, 0.86f));
+            CreateSection(root.transform, "ActionFeedbackArea", "ui.shell.action_feedback.title", presentation.ActionFeedbackBody, new Vector2(0.34f, 0.20f), new Vector2(0.97f, 0.52f));
 
             CreateText(root.transform, "ui.shell.placeholder.footer", 16, new Vector2(0.03f, 0.06f), new Vector2(0.97f, 0.13f), Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, MutedTextColor, FontStyle.Normal);
 
             _built = true;
-        }
-
-        static string BuildPatientDossierText(PatientDossierSection section)
-        {
-            return "debug.patientId=" + section.PatientId + "\n" +
-                   "debug.patientSeed=" + section.PatientSeed + "\n" +
-                   "ui.placeholder.patient_profile_pending";
-        }
-
-        static string BuildProcedureDecisionText(ProcedureDecisionSection section)
-        {
-            return "debug.selectedImplantId=" + section.SelectedImplantId + "\n" +
-                   "debug.selectedProcedureId=" + section.SelectedProcedureId + "\n" +
-                   "ui.placeholder.implant_procedure_cards_pending";
-        }
-
-        static string BuildRiskAnalysisText(RiskAnalysisSection section)
-        {
-            return "debug.previewSuccessChance=" + section.PreviewSuccessChance.ToString("F3") + "\n" +
-                   "debug.commitSuccessChance=" + section.CommitSuccessChance.ToString("F3") + "\n" +
-                   "debug.riskBand=" + section.RiskBand + "\n" +
-                   "debug.outcomeType=" + section.OutcomeType;
-        }
-
-        static string BuildOperationResultText(OperationResultSection section)
-        {
-            return "debug.outcomeType=" + section.OutcomeType + "\n" +
-                   "debug.creditsDelta=" + FormatDelta(section.CreditsDelta) + "\n" +
-                   "debug.reputationDelta=" + FormatDelta(section.ReputationDelta) + "\n" +
-                   "debug.saveSummary=" + section.SaveSummary;
-        }
-
-        static string BuildActionFeedbackText(ActionFeedbackSection section)
-        {
-            return "debug.visualCueId=" + section.VisualCueId + "\n" +
-                   "debug.audioCueId=" + section.AudioCueId + "\n" +
-                   "ui.placeholder.feedback_routing_pending";
         }
 
         static void EnsureCamera()
@@ -202,11 +167,6 @@ namespace CyberClinic.Slices
             text.horizontalOverflow = HorizontalWrapMode.Wrap;
             text.verticalOverflow = VerticalWrapMode.Overflow;
             return text;
-        }
-
-        static string FormatDelta(int value)
-        {
-            return value >= 0 ? "+" + value : value.ToString();
         }
     }
 }
