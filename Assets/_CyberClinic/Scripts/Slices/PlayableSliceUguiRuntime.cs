@@ -40,19 +40,19 @@ namespace CyberClinic.Slices
                 controller = gameObject.AddComponent<PatientPuzzleSliceDebugController>();
             }
 
-            CreateText(root.transform, "Cyber Clinic Playable Slice Debug", 34, new Vector2(0.03f, 0.92f), new Vector2(0.97f, 0.985f), Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, TextColor, FontStyle.Bold);
-            CreateText(root.transform, "ui.slice.debug.helper", 21, new Vector2(0.03f, 0.875f), new Vector2(0.97f, 0.925f), Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, MutedTextColor, FontStyle.Normal);
+            CreateText(root.transform, "Cyber Clinic Playable Slice Debug", 30, new Vector2(0.03f, 0.92f), new Vector2(0.97f, 0.985f), Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, TextColor, FontStyle.Bold);
+            CreateText(root.transform, "ui.slice.debug.helper", 18, new Vector2(0.03f, 0.875f), new Vector2(0.97f, 0.925f), Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, MutedTextColor, FontStyle.Normal);
 
             var previewState = CreateStateChip(root.transform, "PreviewStateChip", "ui.slice.preview.state.idle", new Vector2(0.36f, 0.78f), new Vector2(0.58f, 0.85f));
             var commitState = CreateStateChip(root.transform, "CommitStateChip", "ui.slice.commit.state.idle", new Vector2(0.60f, 0.78f), new Vector2(0.82f, 0.85f));
 
-            var patientText = CreatePanel(root.transform, "PatientPanel", "ui.slice.patient.panel", new Vector2(0.03f, 0.48f), new Vector2(0.31f, 0.84f));
-            var implantText = CreatePanel(root.transform, "ImplantPanel", "ui.slice.implant.panel", new Vector2(0.03f, 0.18f), new Vector2(0.31f, 0.46f));
-            var riskText = CreatePanel(root.transform, "RiskPanel", "ui.slice.risk.panel", new Vector2(0.34f, 0.18f), new Vector2(0.63f, 0.74f));
-            var resultText = CreatePanel(root.transform, "ResultPanel", "ui.slice.result.panel", new Vector2(0.66f, 0.18f), new Vector2(0.97f, 0.74f));
-            var actionReadoutText = CreateReadout(root.transform, "ActionReadout", "slice.pending", new Vector2(0.66f, 0.055f), new Vector2(0.97f, 0.145f));
-            var previewButton = CreateButton(root.transform, "PreviewButton", "ui.slice.preview.button", new Vector2(0.34f, 0.06f), new Vector2(0.48f, 0.14f));
-            var commitButton = CreateButton(root.transform, "CommitButton", "ui.slice.commit.button", new Vector2(0.50f, 0.06f), new Vector2(0.64f, 0.14f));
+            var patientText = CreatePanel(root.transform, "PatientPanel", "ui.slice.patient.panel", new Vector2(0.03f, 0.55f), new Vector2(0.31f, 0.75f));
+            var implantText = CreatePanel(root.transform, "ImplantPanel", "ui.slice.implant.panel", new Vector2(0.03f, 0.43f), new Vector2(0.31f, 0.53f));
+            var riskText = CreatePanel(root.transform, "RiskPanel", "ui.slice.risk.panel", new Vector2(0.34f, 0.43f), new Vector2(0.63f, 0.75f));
+            var resultText = CreatePanel(root.transform, "ResultPanel", "ui.slice.result.panel", new Vector2(0.66f, 0.43f), new Vector2(0.97f, 0.75f));
+            var actionReadoutText = CreateReadout(root.transform, "ActionReadout", "slice.pending", new Vector2(0.03f, 0.16f), new Vector2(0.97f, 0.40f));
+            var previewButton = CreateButton(root.transform, "PreviewButton", "ui.slice.preview.button", new Vector2(0.03f, 0.04f), new Vector2(0.22f, 0.13f));
+            var commitButton = CreateButton(root.transform, "CommitButton", "ui.slice.commit.button", new Vector2(0.25f, 0.04f), new Vector2(0.44f, 0.13f));
 
             SetPrivateField(controller, "_patientText", patientText);
             SetPrivateField(controller, "_implantText", implantText);
@@ -119,12 +119,12 @@ namespace CyberClinic.Slices
             var headerRect = header.GetComponent<RectTransform>();
             headerRect.anchorMin = new Vector2(0f, 1f);
             headerRect.anchorMax = new Vector2(1f, 1f);
-            headerRect.offsetMin = new Vector2(0f, -58f);
+            headerRect.offsetMin = new Vector2(0f, -44f);
             headerRect.offsetMax = Vector2.zero;
             header.GetComponent<Image>().color = PanelHeaderColor;
 
-            CreateText(header.transform, titleKey, 25, Vector2.zero, Vector2.one, new Vector2(18f, 8f), new Vector2(-18f, -8f), TextAnchor.MiddleLeft, TextColor, FontStyle.Bold);
-            return CreateText(panel.transform, "slice.pending", 24, Vector2.zero, Vector2.one, new Vector2(22f, 22f), new Vector2(-22f, -78f), TextAnchor.UpperLeft, TextColor, FontStyle.Normal);
+            CreateText(header.transform, titleKey, 19, Vector2.zero, Vector2.one, new Vector2(14f, 6f), new Vector2(-14f, -6f), TextAnchor.MiddleLeft, TextColor, FontStyle.Bold);
+            return CreateText(panel.transform, "slice.pending", 16, Vector2.zero, Vector2.one, new Vector2(14f, 14f), new Vector2(-14f, -56f), TextAnchor.UpperLeft, TextColor, FontStyle.Normal);
         }
 
         static Button CreateButton(Transform parent, string name, string labelKey, Vector2 anchorMin, Vector2 anchorMax)
@@ -149,7 +149,7 @@ namespace CyberClinic.Slices
             colors.colorMultiplier = 1f;
             button.colors = colors;
 
-            CreateText(obj.transform, labelKey, 25, Vector2.zero, Vector2.one, new Vector2(8f, 8f), new Vector2(-8f, -8f), TextAnchor.MiddleCenter, TextColor, FontStyle.Bold);
+            CreateText(obj.transform, labelKey, 18, Vector2.zero, Vector2.one, new Vector2(8f, 8f), new Vector2(-8f, -8f), TextAnchor.MiddleCenter, TextColor, FontStyle.Bold);
             return button;
         }
 
@@ -164,7 +164,7 @@ namespace CyberClinic.Slices
             rect.offsetMax = Vector2.zero;
             var image = obj.GetComponent<Image>();
             image.color = StatusIdleColor;
-            var label = CreateText(obj.transform, labelKey, 23, Vector2.zero, Vector2.one, new Vector2(14f, 8f), new Vector2(-14f, -8f), TextAnchor.MiddleCenter, TextColor, FontStyle.Bold);
+            var label = CreateText(obj.transform, labelKey, 18, Vector2.zero, Vector2.one, new Vector2(12f, 6f), new Vector2(-12f, -6f), TextAnchor.MiddleCenter, TextColor, FontStyle.Bold);
             return new StateChip(image, label);
         }
 
@@ -178,7 +178,7 @@ namespace CyberClinic.Slices
             rect.offsetMin = Vector2.zero;
             rect.offsetMax = Vector2.zero;
             panel.GetComponent<Image>().color = ReadoutColor;
-            return CreateText(panel.transform, value, 16, Vector2.zero, Vector2.one, new Vector2(14f, 6f), new Vector2(-14f, -6f), TextAnchor.MiddleLeft, TextColor, FontStyle.Bold);
+            return CreateText(panel.transform, value, 18, Vector2.zero, Vector2.one, new Vector2(18f, 12f), new Vector2(-18f, -12f), TextAnchor.UpperLeft, TextColor, FontStyle.Bold);
         }
 
         static void CreateFullScreenImage(Transform parent, string name, Color color)
