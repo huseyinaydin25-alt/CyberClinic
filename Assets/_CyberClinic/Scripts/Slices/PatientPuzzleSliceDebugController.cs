@@ -20,7 +20,8 @@ namespace CyberClinic.Slices
         [SerializeField] Button _commitButton;
         [SerializeField] bool _showGuiFallback;
 
-        PatientPuzzleSliceReport _lastReport;
+        PatientPuzzleSliceViewModel _lastViewModel;
+        bool _hasViewModel;
         string _stateId = "preview.ready";
         string _lastActionId = "preview";
 
@@ -75,16 +76,18 @@ namespace CyberClinic.Slices
         {
             _stateId = "preview.ready";
             _lastActionId = "preview";
-            _lastReport = PatientPuzzleSliceRunner.RunDebugSlice();
-            ApplyReport(_stateId);
+            _lastViewModel = PatientPuzzleSliceViewModelBuilder.BuildDebugViewModel();
+            _hasViewModel = true;
+            ApplyViewModel(_stateId);
         }
 
         public void CommitSlice()
         {
             _stateId = "commit.done";
             _lastActionId = "commit";
-            _lastReport = PatientPuzzleSliceRunner.RunDebugSlice();
-            ApplyReport(_stateId);
+            _lastViewModel = PatientPuzzleSliceViewModelBuilder.BuildDebugViewModel();
+            _hasViewModel = true;
+            ApplyViewModel(_stateId);
         }
 
         void BindButtons()
@@ -104,94 +107,91 @@ namespace CyberClinic.Slices
 
         string BuildBlockA()
         {
-            if (_lastReport == null)
+            if (!_hasViewModel)
             {
                 return "slice.pending";
             }
 
             return
                 "stateId=" + _stateId + "\n" +
-                "patientId=" + _lastReport.PatientId + "\n" +
-                "patientSeed=" + _lastReport.PatientSeed + "\n" +
-                "selectedImplantId=" + _lastReport.SelectedImplantId + "\n" +
-                "selectedProcedureId=" + _lastReport.SelectedProcedureId;
+                "patientId=" + _lastViewModel.PatientId + "\n" +
+                "patientSeed=" + _lastViewModel.PatientSeed + "\n" +
+                "selectedImplantId=" + _lastViewModel.SelectedImplantId + "\n" +
+                "selectedProcedureId=" + _lastViewModel.SelectedProcedureId;
         }
 
         string BuildBlockB()
         {
-            if (_lastReport == null)
+            if (!_hasViewModel)
             {
                 return "slice.pending";
             }
 
             return
-                "previewSuccessChance=" + _lastReport.PreviewSuccessChance.ToString("F3") + "\n" +
-                "commitSuccessChance=" + _lastReport.CommitSuccessChance.ToString("F3") + "\n" +
-                "riskBand=" + _lastReport.RiskBand + "\n" +
-                "outcomeType=" + _lastReport.OutcomeType + "\n" +
-                "startingCredits=" + _lastReport.StartingCredits + "\n" +
-                "endingCredits=" + _lastReport.EndingCredits + "\n" +
-                "startingReputation=" + _lastReport.StartingReputation + "\n" +
-                "endingReputation=" + _lastReport.EndingReputation + "\n" +
-                "visualCueId=" + _lastReport.VisualCueId + "\n" +
-                "audioCueId=" + _lastReport.AudioCueId + "\n" +
-                "saveSummary=" + _lastReport.SaveSummary;
+                "previewSuccessChance=" + _lastViewModel.PreviewSuccessChance.ToString("F3") + "\n" +
+                "commitSuccessChance=" + _lastViewModel.CommitSuccessChance.ToString("F3") + "\n" +
+                "riskBand=" + _lastViewModel.RiskBand + "\n" +
+                "outcomeType=" + _lastViewModel.OutcomeType + "\n" +
+                "startingCredits=" + _lastViewModel.StartingCredits + "\n" +
+                "endingCredits=" + _lastViewModel.EndingCredits + "\n" +
+                "startingReputation=" + _lastViewModel.StartingReputation + "\n" +
+                "endingReputation=" + _lastViewModel.EndingReputation + "\n" +
+                "visualCueId=" + _lastViewModel.VisualCueId + "\n" +
+                "audioCueId=" + _lastViewModel.AudioCueId + "\n" +
+                "saveSummary=" + _lastViewModel.SaveSummary;
         }
 
-        void ApplyReport(string stateId)
+        void ApplyViewModel(string stateId)
         {
             ApplyInteractiveState(stateId);
 
-            if (_lastReport == null)
+            if (!_hasViewModel || !_lastViewModel.HasRequiredDebugData())
             {
-                SetText(_resultText, "slice.error.no_report");
-                SetText(_actionReadoutText, "slice.error.no_report");
+                SetText(_resultText, "slice.error.no_view_model");
+                SetText(_actionReadoutText, "slice.error.no_view_model");
                 return;
             }
 
             SetText(_patientText,
-                "patientId=" + _lastReport.PatientId + "\n" +
-                "patientSeed=" + _lastReport.PatientSeed);
+                "patientId=" + _lastViewModel.PatientId + "\n" +
+                "patientSeed=" + _lastViewModel.PatientSeed);
 
             SetText(_implantText,
-                "selectedImplantId=" + _lastReport.SelectedImplantId + "\n" +
-                "selectedProcedureId=" + _lastReport.SelectedProcedureId);
+                "selectedImplantId=" + _lastViewModel.SelectedImplantId + "\n" +
+                "selectedProcedureId=" + _lastViewModel.SelectedProcedureId);
 
             SetText(_riskText,
-                "previewSuccessChance=" + _lastReport.PreviewSuccessChance.ToString("F3") + "\n" +
-                "commitSuccessChance=" + _lastReport.CommitSuccessChance.ToString("F3") + "\n" +
-                "riskBand=" + _lastReport.RiskBand + "\n" +
-                "outcomeType=" + _lastReport.OutcomeType);
+                "previewSuccessChance=" + _lastViewModel.PreviewSuccessChance.ToString("F3") + "\n" +
+                "commitSuccessChance=" + _lastViewModel.CommitSuccessChance.ToString("F3") + "\n" +
+                "riskBand=" + _lastViewModel.RiskBand + "\n" +
+                "outcomeType=" + _lastViewModel.OutcomeType);
 
             SetText(_resultText,
                 "stateId=" + stateId + "\n" +
-                "startingCredits=" + _lastReport.StartingCredits + "\n" +
-                "endingCredits=" + _lastReport.EndingCredits + "\n" +
-                "startingReputation=" + _lastReport.StartingReputation + "\n" +
-                "endingReputation=" + _lastReport.EndingReputation + "\n" +
-                "visualCueId=" + _lastReport.VisualCueId + "\n" +
-                "audioCueId=" + _lastReport.AudioCueId + "\n" +
-                "saveSummary=" + _lastReport.SaveSummary);
+                "startingCredits=" + _lastViewModel.StartingCredits + "\n" +
+                "endingCredits=" + _lastViewModel.EndingCredits + "\n" +
+                "startingReputation=" + _lastViewModel.StartingReputation + "\n" +
+                "endingReputation=" + _lastViewModel.EndingReputation + "\n" +
+                "visualCueId=" + _lastViewModel.VisualCueId + "\n" +
+                "audioCueId=" + _lastViewModel.AudioCueId + "\n" +
+                "saveSummary=" + _lastViewModel.SaveSummary);
 
             SetText(_actionReadoutText, BuildActionReadout(stateId));
         }
 
         string BuildActionReadout(string stateId)
         {
-            if (_lastReport == null)
+            if (!_hasViewModel)
             {
                 return "slice.pending";
             }
 
-            var creditsDelta = _lastReport.EndingCredits - _lastReport.StartingCredits;
-            var reputationDelta = _lastReport.EndingReputation - _lastReport.StartingReputation;
-
             return
                 "lastAction=" + _lastActionId + " | stateId=" + stateId + "\n" +
-                "outcomeType=" + _lastReport.OutcomeType + " | riskBand=" + _lastReport.RiskBand + "\n" +
-                "creditsDelta=" + FormatDelta(creditsDelta) + " | reputationDelta=" + FormatDelta(reputationDelta) + "\n" +
-                "visualCueId=" + _lastReport.VisualCueId + "\n" +
-                "audioCueId=" + _lastReport.AudioCueId;
+                "outcomeType=" + _lastViewModel.OutcomeType + " | riskBand=" + _lastViewModel.RiskBand + "\n" +
+                "creditsDelta=" + FormatDelta(_lastViewModel.CreditsDelta) + " | reputationDelta=" + FormatDelta(_lastViewModel.ReputationDelta) + "\n" +
+                "visualCueId=" + _lastViewModel.VisualCueId + "\n" +
+                "audioCueId=" + _lastViewModel.AudioCueId;
         }
 
         void ApplyInteractiveState(string stateId)
