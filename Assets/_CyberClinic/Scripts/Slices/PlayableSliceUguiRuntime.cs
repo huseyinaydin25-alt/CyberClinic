@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace CyberClinic.Slices
@@ -7,6 +8,9 @@ namespace CyberClinic.Slices
     {
         void Awake()
         {
+            EnsureCamera();
+            EnsureEventSystem();
+
             var root = new GameObject("PlayableSliceUguiRoot", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             root.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
             var scaler = root.GetComponent<CanvasScaler>();
@@ -34,6 +38,33 @@ namespace CyberClinic.Slices
             SetPrivateField(controller, "_previewButton", previewButton);
             SetPrivateField(controller, "_commitButton", commitButton);
             SetPrivateField(controller, "_showGuiFallback", false);
+        }
+
+        static void EnsureCamera()
+        {
+            if (Camera.main != null)
+            {
+                return;
+            }
+
+            var cameraObject = new GameObject("Main Camera", typeof(Camera));
+            cameraObject.tag = "MainCamera";
+            var camera = cameraObject.GetComponent<Camera>();
+            camera.clearFlags = CameraClearFlags.SolidColor;
+            camera.backgroundColor = Color.black;
+            camera.orthographic = true;
+            camera.orthographicSize = 5f;
+            camera.transform.position = new Vector3(0f, 0f, -10f);
+        }
+
+        static void EnsureEventSystem()
+        {
+            if (Object.FindFirstObjectByType<EventSystem>() != null)
+            {
+                return;
+            }
+
+            new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
         }
 
         static Text CreatePanel(Transform parent, string name, string titleKey, Vector2 anchorMin, Vector2 anchorMax)
