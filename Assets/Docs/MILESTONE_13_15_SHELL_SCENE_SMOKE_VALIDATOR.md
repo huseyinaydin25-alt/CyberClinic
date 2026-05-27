@@ -1,7 +1,7 @@
 # Milestone 13.15 — Patient Puzzle Shell Scene Smoke Validator
 
 **Date:** 2026-05-27  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Add a scene-level smoke validator for `PatientPuzzleShell.unity`.
 
 ---
@@ -36,7 +36,7 @@ Assets/_CyberClinic/Scenes/PatientPuzzleShell.unity
 
 ---
 
-## Expected validator output
+## Validated output
 
 ```text
 PatientPuzzleShellSceneSmoke OK
@@ -65,6 +65,6 @@ uiBinding=shell_scene_smoke_ready
 
 ---
 
-## Completion criteria
+## Completion result
 
-M13.15 is complete when the scene smoke validator passes locally in Unity.
+M13.15 is complete because the scene smoke validator passed locally in Unity.
