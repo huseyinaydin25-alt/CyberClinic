@@ -49,14 +49,14 @@ namespace CyberClinic.Slices
         {
             return "debug.patientId=" + section.PatientId + "\n" +
                    "debug.patientSeed=" + section.PatientSeed + "\n" +
-                   "ui.placeholder.patient_profile_pending";
+                   PatientPuzzleShellLocalizationKeys.PatientProfilePending;
         }
 
         static string BuildProcedureDecisionText(ProcedureDecisionSection section)
         {
             return "debug.selectedImplantId=" + section.SelectedImplantId + "\n" +
                    "debug.selectedProcedureId=" + section.SelectedProcedureId + "\n" +
-                   "ui.placeholder.implant_procedure_cards_pending";
+                   PatientPuzzleShellLocalizationKeys.ImplantProcedureCardsPending;
         }
 
         static string BuildRiskAnalysisText(RiskAnalysisSection section)
@@ -79,7 +79,7 @@ namespace CyberClinic.Slices
         {
             return "debug.visualCueId=" + section.VisualCueId + "\n" +
                    "debug.audioCueId=" + section.AudioCueId + "\n" +
-                   "ui.placeholder.feedback_routing_pending";
+                   PatientPuzzleShellLocalizationKeys.FeedbackRoutingPending;
         }
 
         static string FormatDelta(int value)
