@@ -187,13 +187,10 @@ namespace CyberClinic.Slices
             var reputationDelta = _lastReport.EndingReputation - _lastReport.StartingReputation;
 
             return
-                "lastAction=" + _lastActionId + " | " +
-                "stateId=" + stateId + " | " +
-                "outcomeType=" + _lastReport.OutcomeType + " | " +
-                "riskBand=" + _lastReport.RiskBand + " | " +
-                "creditsDelta=" + FormatDelta(creditsDelta) + " | " +
-                "reputationDelta=" + FormatDelta(reputationDelta) + "\n" +
-                "visualCueId=" + _lastReport.VisualCueId + " | " +
+                "lastAction=" + _lastActionId + " | stateId=" + stateId + "\n" +
+                "outcomeType=" + _lastReport.OutcomeType + " | riskBand=" + _lastReport.RiskBand + "\n" +
+                "creditsDelta=" + FormatDelta(creditsDelta) + " | reputationDelta=" + FormatDelta(reputationDelta) + "\n" +
+                "visualCueId=" + _lastReport.VisualCueId + "\n" +
                 "audioCueId=" + _lastReport.AudioCueId;
         }
 
