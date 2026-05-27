@@ -4,8 +4,8 @@
 > Update after **every major milestone**. Sync with `CHANGELOG.md`, `DECISIONS.md`, and relevant design memory docs.
 
 **Last updated:** 2026-05-27  
-**Current milestone:** **7 — Visual Feedback Foundation** (next)  
-**Doc version:** 0.6.0
+**Current milestone:** **8 — Audio Feedback Foundation** (next)  
+**Doc version:** 0.7.0
 
 ---
 
@@ -56,12 +56,13 @@ Cyber Clinic will not be developed with a “fix it later” mindset. The previo
 | Implant / procedure data (M4) | **Done** — data foundation and debug validation complete |
 | Operation calculation (M5) | **Done** — pure deterministic calculator and debug validation complete |
 | First landscape UI skeleton (M6) | **Done** — skeleton prefab, builder, and validator complete |
-| Gameplay logic | Generator, data foundations, pure operation math, and first UI skeleton only |
+| Visual feedback foundation (M7) | **Done** — semantic cue routing and debug validation complete |
+| Gameplay logic | Generator, data foundations, pure operation math, first UI skeleton, and feedback routing only |
 | Unity packages | Localization + Addressables installed |
 | Orientation | Landscape decided |
 | Supabase | Interfaces only; no integration |
 | AdMob | Pending approval; `IAdService` only |
-| Next practical step | Milestone 7 — Visual Feedback Foundation |
+| Next practical step | Milestone 8 — Audio Feedback Foundation |
 
 ---
 
@@ -319,18 +320,22 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 
 ---
 
-### Milestone 7 — Visual Feedback Foundation `Next`
+### Milestone 7 — Visual Feedback Foundation `Done`
 
-- Scan effect
-- Glitch effect
-- Warning pulse
-- Result reveal
-- UI transitions
-- Event-driven VisualFeedbackManager stack
+- Semantic feedback event ids added.
+- Feedback categories added.
+- `ClinicFeedbackRequest` DTO added.
+- `ClinicFeedbackCueData` ScriptableObject cue data added.
+- `ClinicFeedbackRouter` added for request-to-cue routing.
+- Minimal test cue assets created under `Assets/_CyberClinic/Data/Feedback/TestSeed/`.
+- Editor debug menu: **Cyber Clinic/Feedback/Validate Debug Cues**.
+- Debug validation confirmed scan, warning pulse, and result reveal cue routing.
+- Completion details recorded in `MILESTONE_7_COMPLETION.md`.
+- No gameplay math, save, backend, platform SDK, economy, reputation, day-flow, audio implementation, or production VFX assets were created.
 
 ---
 
-### Milestone 8 — Audio Feedback Foundation `Planned`
+### Milestone 8 — Audio Feedback Foundation `Next`
 
 - AudioManager
 - SFX library
@@ -404,10 +409,10 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 ## Immediate next steps
 
 1. User pulls latest documentation updates.
-2. Start Milestone 7 — Visual Feedback Foundation planning.
-3. Read `VISUAL_AUDIO_DIRECTION.md`, `GAME_DESIGN_MEMORY.md`, `LOCALIZATION_PLAN.md`, and existing M6 UI skeleton contracts before visual feedback work.
-4. Build only visual feedback foundation components needed by M7.
-5. Do not add save, backend, platform SDK, economy, reputation, day-flow, audio implementation, or production content expansion during M7.
+2. Start Milestone 8 — Audio Feedback Foundation planning.
+3. Read `VISUAL_AUDIO_DIRECTION.md`, `GAME_DESIGN_MEMORY.md`, `LOCALIZATION_PLAN.md`, M7 feedback contracts, and existing service abstraction rules before audio work.
+4. Build only audio feedback foundation components needed by M8.
+5. Do not add save, backend, platform SDK, economy, reputation, day-flow, production VFX expansion, or production content expansion during M8.
 
 ---
 
@@ -426,6 +431,7 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 | 0.4.0 | 2026-05-27 | M4 | Implant and Procedure System data foundation completed and debug validation confirmed |
 | 0.5.0 | 2026-05-27 | M5 | Operation Calculation System completed and deterministic calculator debug validation confirmed |
 | 0.6.0 | 2026-05-27 | M6 | First Landscape UI Skeleton completed and prefab validation confirmed |
+| 0.7.0 | 2026-05-27 | M7 | Visual Feedback Foundation completed and cue routing validation confirmed |
 
 ---
 
@@ -443,3 +449,4 @@ Detail: `COSMETIC_SYSTEM.md` and `CLINIC_VISUAL_PROGRESSION.md`
 | 2026-05-27 | M4 — Implant and Procedure System | Implant/procedure data foundation, compatibility rules, visual variants, debug validation; no UI, OperationCalculator, save, backend, SDK, scene, or prefab work |
 | 2026-05-27 | M5 — Operation Calculation System | Pure deterministic calculator, risk bands, outcome type, breakdown DTO, debug validation; no UI, save, backend, SDK, economy, day-flow, VFX, or audio work |
 | 2026-05-27 | M6 — First Landscape UI Skeleton | Landscape skeleton prefab, panel markers, localization-key placeholders, builder and validator; no save, backend, SDK, economy, day-flow, VFX/audio work |
+| 2026-05-27 | M7 — Visual Feedback Foundation | Semantic feedback routing, cue data, test cue assets, debug validation; no gameplay math, save, backend, SDK, economy, day-flow, audio, or production VFX work |
