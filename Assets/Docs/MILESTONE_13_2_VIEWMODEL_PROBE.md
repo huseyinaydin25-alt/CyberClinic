@@ -1,7 +1,7 @@
 # Milestone 13.2 — Patient Puzzle Slice ViewModel Probe
 
 **Date:** 2026-05-27  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Production-intent UI architecture probe for the patient puzzle slice.
 
 ---
@@ -54,7 +54,7 @@ saveSummary
 
 ---
 
-## Expected validator output
+## Validated output
 
 ```text
 PatientPuzzleSliceViewModelDebug OK
@@ -62,8 +62,8 @@ patientId=test_street_netrunner
 patientSeed=82115621
 selectedImplantId=test_implant_optic_tune
 selectedProcedureId=test_proc_micro_install
-previewSuccessChance=0.675
-commitSuccessChance=0.690
+previewSuccessChance=0,675
+commitSuccessChance=0,690
 riskBand=Uncertain
 outcomeType=StableSuccess
 creditsDelta=90
@@ -99,7 +99,6 @@ The view-model layer makes it possible to later build premium UI screens that co
 
 ## Next step after validation
 
-After this validator is confirmed in Unity, the next small step should be either:
+M13.3 should wire the existing debug UGUI controller to consume `PatientPuzzleSliceViewModel` while preserving the same visible output.
 
-1. wire the existing debug UGUI to consume the view-model while preserving the same visible output, or
-2. create a separate production-intent UI data binding plan before touching UI prefabs.
+This keeps the debug UI working while aligning the data flow with the future premium UI architecture.
