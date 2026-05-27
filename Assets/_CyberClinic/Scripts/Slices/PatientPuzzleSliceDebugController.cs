@@ -9,12 +9,23 @@ namespace CyberClinic.Slices
         [SerializeField] Text _implantText;
         [SerializeField] Text _riskText;
         [SerializeField] Text _resultText;
+        [SerializeField] Text _previewStateText;
+        [SerializeField] Text _commitStateText;
+        [SerializeField] Image _previewStateImage;
+        [SerializeField] Image _commitStateImage;
+        [SerializeField] Image _previewButtonImage;
+        [SerializeField] Image _commitButtonImage;
         [SerializeField] Button _previewButton;
         [SerializeField] Button _commitButton;
         [SerializeField] bool _showGuiFallback;
 
         PatientPuzzleSliceReport _lastReport;
         string _stateId = "preview.ready";
+
+        static readonly Color InactiveColor = new Color(0.12f, 0.14f, 0.18f, 0.92f);
+        static readonly Color PreviewActiveColor = new Color(0.12f, 0.32f, 0.48f, 0.96f);
+        static readonly Color CommitActiveColor = new Color(0.18f, 0.42f, 0.24f, 0.96f);
+        static readonly Color ButtonIdleColor = new Color(0.14f, 0.16f, 0.22f, 0.96f);
 
         void Start()
         {
@@ -125,6 +136,8 @@ namespace CyberClinic.Slices
 
         void ApplyReport(string stateId)
         {
+            ApplyInteractiveState(stateId);
+
             if (_lastReport == null)
             {
                 SetText(_resultText, "slice.error.no_report");
@@ -156,11 +169,33 @@ namespace CyberClinic.Slices
                 "saveSummary=" + _lastReport.SaveSummary);
         }
 
+        void ApplyInteractiveState(string stateId)
+        {
+            bool previewActive = stateId == "preview.ready";
+            bool commitActive = stateId == "commit.done";
+
+            SetText(_previewStateText, previewActive ? "ui.slice.preview.state.active" : "ui.slice.preview.state.idle");
+            SetText(_commitStateText, commitActive ? "ui.slice.commit.state.active" : "ui.slice.commit.state.idle");
+
+            SetImageColor(_previewStateImage, previewActive ? PreviewActiveColor : InactiveColor);
+            SetImageColor(_commitStateImage, commitActive ? CommitActiveColor : InactiveColor);
+            SetImageColor(_previewButtonImage, previewActive ? PreviewActiveColor : ButtonIdleColor);
+            SetImageColor(_commitButtonImage, commitActive ? CommitActiveColor : ButtonIdleColor);
+        }
+
         static void SetText(Text target, string value)
         {
             if (target != null)
             {
                 target.text = value;
+            }
+        }
+
+        static void SetImageColor(Image target, Color value)
+        {
+            if (target != null)
+            {
+                target.color = value;
             }
         }
     }
