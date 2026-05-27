@@ -1,0 +1,53 @@
+workflows:
+  cyber-clinic-ios:
+    name: Cyber Clinic iOS Pipeline
+    max_build_duration: 120
+    instance_type: mac_mini_m2
+
+    environment:
+      unity: 6000.3.16f1
+      groups:
+        - apple_credentials
+      vars:
+        UNITY_PROJECT_PATH: .
+        XCODE_PROJECT_PATH: build/ios
+        XCODE_WORKSPACE: Unity-iPhone.xcworkspace
+        XCODE_SCHEME: Unity-iPhone
+        BUNDLE_ID: com.cyberclinic.game
+
+    cache:
+      cache_paths:
+        - $HOME/Library/Unity/cache
+        - Library
+
+    scripts:
+      - name: Unity version
+        script: |
+          echo "Unity 6000.3.16f1 expected"
+
+      - name: Export iOS project from Unity
+        script: |
+          echo "TODO: Replace with validated Unity batchmode iOS export command after local iOS build settings are finalized."
+          echo "No Apple certificates or provisioning profiles are stored in git."
+
+      - name: Prepare Xcode signing
+        script: |
+          echo "TODO: Configure CodeMagic Apple Developer Portal integration or App Store Connect API key in CodeMagic UI."
+          echo "Expected env group: apple_credentials"
+
+      - name: Build iOS archive
+        script: |
+          echo "TODO: Enable xcodebuild archive after Unity iOS export is validated."
+
+    artifacts:
+      - build/ios/build/*.ipa
+      - build/ios/build/*.xcarchive
+      - build/ios/*.log
+
+    publishing:
+      email:
+        recipients:
+          - huseyinaydin25@gmail.com
+        notify:
+          success: true
+          failure: true
