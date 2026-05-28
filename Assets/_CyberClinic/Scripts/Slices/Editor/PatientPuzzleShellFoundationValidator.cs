@@ -24,7 +24,9 @@ namespace CyberClinic.Slices.Editor
                 presentation.ProcedureDecisionBody.Contains("debug.selectedImplantId=test_implant_optic_tune") &&
                 presentation.RiskAnalysisBody.Contains("debug.riskBand=Uncertain") &&
                 presentation.OperationResultBody.Contains("debug.creditsDelta=+90") &&
-                presentation.ActionFeedbackBody.Contains("debug.visualCueId=test_cue_result_reveal");
+                presentation.ActionFeedbackBody.Contains("debug.visualCueId=test_cue_result_reveal") &&
+                presentation.PrimaryActionBody.Contains("debug.previewActionState=available") &&
+                presentation.PrimaryActionBody.Contains("debug.commitActionState=available");
 
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
             var host = new GameObject("PatientPuzzleShellFoundationHost");
@@ -42,7 +44,8 @@ namespace CyberClinic.Slices.Editor
                 GameObject.Find(PatientPuzzleShellLayout.ProcedureDecisionAreaName) != null &&
                 GameObject.Find(PatientPuzzleShellLayout.RiskAnalysisAreaName) != null &&
                 GameObject.Find(PatientPuzzleShellLayout.OperationResultAreaName) != null &&
-                GameObject.Find(PatientPuzzleShellLayout.ActionFeedbackAreaName) != null;
+                GameObject.Find(PatientPuzzleShellLayout.ActionFeedbackAreaName) != null &&
+                GameObject.Find(PatientPuzzleShellLayout.PrimaryActionAreaName) != null;
 
             if (!localizationOk || !layoutOk || !styleOk || !presenterOk || !runtimeOk)
             {
@@ -65,6 +68,7 @@ namespace CyberClinic.Slices.Editor
                 "\nstyleOk=True" +
                 "\npresenterOk=True" +
                 "\nruntimeOk=True" +
+                "\nprimaryActionIncluded=True" +
                 "\ncanvasCount=" + canvasCount +
                 "\neventSystemCount=" + eventSystemCount +
                 "\nuiBinding=shell_foundation_aggregate_ready");
