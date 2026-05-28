@@ -22,6 +22,7 @@ namespace CyberClinic.Slices
         public const string RiskAnalysisAreaName = "RiskAnalysisArea";
         public const string OperationResultAreaName = "OperationResultArea";
         public const string ActionFeedbackAreaName = "ActionFeedbackArea";
+        public const string PrimaryActionAreaName = "PrimaryActionArea";
 
         public static readonly Vector2 ReferenceResolution = new Vector2(1920f, 1080f);
         public static readonly ShellAnchorRect Title = new ShellAnchorRect(new Vector2(0.03f, 0.925f), new Vector2(0.97f, 0.985f));
@@ -30,7 +31,8 @@ namespace CyberClinic.Slices
         public static readonly ShellAnchorRect ProcedureDecision = new ShellAnchorRect(new Vector2(0.03f, 0.20f), new Vector2(0.31f, 0.52f));
         public static readonly ShellAnchorRect RiskAnalysis = new ShellAnchorRect(new Vector2(0.34f, 0.55f), new Vector2(0.64f, 0.86f));
         public static readonly ShellAnchorRect OperationResult = new ShellAnchorRect(new Vector2(0.67f, 0.55f), new Vector2(0.97f, 0.86f));
-        public static readonly ShellAnchorRect ActionFeedback = new ShellAnchorRect(new Vector2(0.34f, 0.20f), new Vector2(0.97f, 0.52f));
+        public static readonly ShellAnchorRect ActionFeedback = new ShellAnchorRect(new Vector2(0.34f, 0.20f), new Vector2(0.64f, 0.52f));
+        public static readonly ShellAnchorRect PrimaryAction = new ShellAnchorRect(new Vector2(0.67f, 0.20f), new Vector2(0.97f, 0.52f));
         public static readonly ShellAnchorRect Footer = new ShellAnchorRect(new Vector2(0.03f, 0.06f), new Vector2(0.97f, 0.13f));
 
         public static bool HasRequiredContract()
@@ -42,13 +44,15 @@ namespace CyberClinic.Slices
                 HasValue(RiskAnalysisAreaName) &&
                 HasValue(OperationResultAreaName) &&
                 HasValue(ActionFeedbackAreaName) &&
+                HasValue(PrimaryActionAreaName) &&
                 ReferenceResolution.x > 0f &&
                 ReferenceResolution.y > 0f &&
                 IsValid(PatientDossier) &&
                 IsValid(ProcedureDecision) &&
                 IsValid(RiskAnalysis) &&
                 IsValid(OperationResult) &&
-                IsValid(ActionFeedback);
+                IsValid(ActionFeedback) &&
+                IsValid(PrimaryAction);
         }
 
         static bool HasValue(string value)
