@@ -9,10 +9,13 @@ namespace CyberClinic.Slices
         public const string RiskAnalysisTitle = "ui.shell.risk_analysis.title";
         public const string OperationResultTitle = "ui.shell.operation_result.title";
         public const string ActionFeedbackTitle = "ui.shell.action_feedback.title";
+        public const string PrimaryActionTitle = "ui.shell.primary_action.title";
         public const string FooterPlaceholder = "ui.shell.placeholder.footer";
         public const string PatientProfilePending = "ui.placeholder.patient_profile_pending";
         public const string ImplantProcedureCardsPending = "ui.placeholder.implant_procedure_cards_pending";
         public const string FeedbackRoutingPending = "ui.placeholder.feedback_routing_pending";
+        public const string PreviewActionPlaceholder = "ui.placeholder.preview_action_state_pending";
+        public const string CommitActionPlaceholder = "ui.placeholder.commit_action_state_pending";
 
         public static bool HasRequiredKeys()
         {
@@ -24,10 +27,13 @@ namespace CyberClinic.Slices
                 HasValue(RiskAnalysisTitle) &&
                 HasValue(OperationResultTitle) &&
                 HasValue(ActionFeedbackTitle) &&
+                HasValue(PrimaryActionTitle) &&
                 HasValue(FooterPlaceholder) &&
                 HasValue(PatientProfilePending) &&
                 HasValue(ImplantProcedureCardsPending) &&
-                HasValue(FeedbackRoutingPending);
+                HasValue(FeedbackRoutingPending) &&
+                HasValue(PreviewActionPlaceholder) &&
+                HasValue(CommitActionPlaceholder);
         }
 
         static bool HasValue(string value)
