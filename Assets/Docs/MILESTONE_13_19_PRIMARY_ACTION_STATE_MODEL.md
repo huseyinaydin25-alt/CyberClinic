@@ -1,7 +1,7 @@
 # Milestone 13.19 — Primary Action State Model
 
 **Date:** 2026-05-28  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Add and validate a small state model for the shell primary action area.
 
 ---
@@ -60,7 +60,7 @@ Cyber Clinic/Slices/Run Patient Puzzle Primary Action State Debug
 
 ---
 
-## Expected validator output
+## Validated state model output
 
 ```text
 PatientPuzzlePrimaryActionStateDebug OK
@@ -77,39 +77,77 @@ uiBinding=primary_action_state_model_ready
 
 ---
 
-## Already observed regression outputs
+## Existing shell primary action validator still passes
 
 ```text
 PatientPuzzleShellPrimaryActionDebug OK
+keysOk=True
+layoutOk=True
+presentationOk=True
+runtimeOk=True
+primaryActionArea=True
 previewActionState=Available
 commitActionState=Available
 uiBinding=shell_primary_action_placeholder_ready
 ```
 
+---
+
+## Existing foundation validator still passes
+
 ```text
 PatientPuzzleShellFoundationDebug OK
+localizationOk=True
+layoutOk=True
+styleOk=True
+presenterOk=True
+runtimeOk=True
 primaryActionIncluded=True
 primaryActionStateIncluded=True
 previewState=Available
 commitState=Available
+canvasCount=1
+eventSystemCount=1
 uiBinding=shell_foundation_aggregate_ready
 ```
 
+---
+
+## Existing scene smoke validator still passes
+
 ```text
 PatientPuzzleShellSceneSmoke OK
+scenePath=Assets/_CyberClinic/Scenes/PatientPuzzleShell.unity
+sceneName=PatientPuzzleShell
+runtimeExists=True
+rootExists=True
+canvasCount=1
+eventSystemCount=1
+sectionsOk=True
 primaryActionIncluded=True
 primaryActionStateIncluded=True
 previewState=Available
 commitState=Available
+bindingOk=True
 uiBinding=shell_scene_smoke_ready
 ```
 
+---
+
+## Existing end-to-end validator still passes
+
 ```text
 PatientPuzzleShellEndToEndDebug OK
+foundationOk=True
+sceneSmokeOk=True
 primaryActionIncluded=True
 primaryActionStateIncluded=True
 previewState=Available
 commitState=Available
+scenePath=Assets/_CyberClinic/Scenes/PatientPuzzleShell.unity
+sceneName=PatientPuzzleShell
+canvasCount=1
+eventSystemCount=1
 uiBinding=shell_end_to_end_ready
 ```
 
@@ -128,6 +166,6 @@ uiBinding=shell_end_to_end_ready
 
 ---
 
-## Completion criteria
+## Completion result
 
-M13.19 is complete when the primary action state validator passes and the existing shell primary action, foundation, scene smoke, and end-to-end validators still pass locally in Unity.
+M13.19 is complete because the primary action state validator passed and the existing shell primary action, foundation, scene smoke, and end-to-end validators still passed locally in Unity.
