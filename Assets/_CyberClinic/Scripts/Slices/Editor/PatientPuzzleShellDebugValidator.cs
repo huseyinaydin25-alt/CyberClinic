@@ -42,7 +42,8 @@ namespace CyberClinic.Slices.Editor
             var riskOk = riskText != null && riskText.text.Contains("debug.riskBand=Uncertain") && riskText.text.Contains("debug.outcomeType=StableSuccess");
             var resultOk = resultText != null && resultText.text.Contains("debug.creditsDelta=+90") && resultText.text.Contains("debug.reputationDelta=+5");
             var feedbackOk = feedbackText != null && feedbackText.text.Contains("debug.visualCueId=test_cue_result_reveal") && feedbackText.text.Contains("debug.audioCueId=test_audio_operation_success");
-            var primaryActionOk = primaryActionText != null && primaryActionText.text.Contains("debug.previewActionState=available") && primaryActionText.text.Contains("debug.commitActionState=available");
+            var primaryActionStateIncluded = primaryActionText != null && primaryActionText.text.Contains("debug.previewActionState=Available") && primaryActionText.text.Contains("debug.commitActionState=Available");
+            var primaryActionOk = primaryActionStateIncluded;
 
             if (!rootOk || canvasCount != 1 || eventSystemCount != 1 || !sectionsOk || !patientOk || !procedureOk || !riskOk || !resultOk || !feedbackOk || !primaryActionOk)
             {
@@ -58,6 +59,7 @@ namespace CyberClinic.Slices.Editor
                     "\nresultOk=" + resultOk +
                     "\nfeedbackOk=" + feedbackOk +
                     "\nprimaryActionOk=" + primaryActionOk +
+                    "\nprimaryActionStateIncluded=" + primaryActionStateIncluded +
                     "\npatientText=" + SafeText(patientText) +
                     "\nprocedureText=" + SafeText(procedureText) +
                     "\nriskText=" + SafeText(riskText) +
@@ -84,6 +86,9 @@ namespace CyberClinic.Slices.Editor
                 "\nresultBinding=True" +
                 "\nfeedbackBinding=True" +
                 "\nprimaryActionBinding=True" +
+                "\nprimaryActionStateIncluded=True" +
+                "\npreviewState=Available" +
+                "\ncommitState=Available" +
                 "\nuiBinding=production_intent_shell_placeholder");
         }
 

@@ -10,7 +10,8 @@ namespace CyberClinic.Slices
             string riskAnalysisBody,
             string operationResultBody,
             string actionFeedbackBody,
-            string primaryActionBody)
+            string primaryActionBody,
+            PatientPuzzlePrimaryActionState primaryActionState)
         {
             PatientDossierBody = patientDossierBody;
             ProcedureDecisionBody = procedureDecisionBody;
@@ -18,6 +19,7 @@ namespace CyberClinic.Slices
             OperationResultBody = operationResultBody;
             ActionFeedbackBody = actionFeedbackBody;
             PrimaryActionBody = primaryActionBody;
+            PrimaryActionState = primaryActionState;
         }
 
         public string PatientDossierBody { get; }
@@ -26,6 +28,7 @@ namespace CyberClinic.Slices
         public string OperationResultBody { get; }
         public string ActionFeedbackBody { get; }
         public string PrimaryActionBody { get; }
+        public PatientPuzzlePrimaryActionState PrimaryActionState { get; }
 
         public bool HasRequiredDebugData()
         {
@@ -35,7 +38,15 @@ namespace CyberClinic.Slices
                 !string.IsNullOrWhiteSpace(RiskAnalysisBody) &&
                 !string.IsNullOrWhiteSpace(OperationResultBody) &&
                 !string.IsNullOrWhiteSpace(ActionFeedbackBody) &&
-                !string.IsNullOrWhiteSpace(PrimaryActionBody);
+                !string.IsNullOrWhiteSpace(PrimaryActionBody) &&
+                HasDefaultPrimaryActionState();
+        }
+
+        public bool HasDefaultPrimaryActionState()
+        {
+            return
+                PrimaryActionState.PreviewState == PreviewActionState.Available &&
+                PrimaryActionState.CommitState == CommitActionState.Available;
         }
     }
 
@@ -43,13 +54,16 @@ namespace CyberClinic.Slices
     {
         public static PatientPuzzleShellPresentation Present(PatientPuzzleSliceScreenModel screenModel)
         {
+            var primaryActionState = PatientPuzzlePrimaryActionState.DefaultAvailable;
+
             return new PatientPuzzleShellPresentation(
                 BuildPatientDossierText(screenModel.PatientDossier),
                 BuildProcedureDecisionText(screenModel.ProcedureDecision),
                 BuildRiskAnalysisText(screenModel.RiskAnalysis),
                 BuildOperationResultText(screenModel.OperationResult),
                 BuildActionFeedbackText(screenModel.ActionFeedback),
-                BuildPrimaryActionText(screenModel.RiskAnalysis));
+                BuildPrimaryActionText(screenModel.RiskAnalysis, primaryActionState),
+                primaryActionState);
         }
 
         static string BuildPatientDossierText(PatientDossierSection section)
@@ -89,10 +103,10 @@ namespace CyberClinic.Slices
                    PatientPuzzleShellLocalizationKeys.FeedbackRoutingPending;
         }
 
-        static string BuildPrimaryActionText(RiskAnalysisSection section)
+        static string BuildPrimaryActionText(RiskAnalysisSection section, PatientPuzzlePrimaryActionState primaryActionState)
         {
-            return "debug.previewActionState=available" + "\n" +
-                   "debug.commitActionState=available" + "\n" +
+            return "debug.previewActionState=" + primaryActionState.PreviewState + "\n" +
+                   "debug.commitActionState=" + primaryActionState.CommitState + "\n" +
                    "debug.previewSuccessChance=" + FormatChance(section.PreviewSuccessChance) + "\n" +
                    "debug.commitSuccessChance=" + FormatChance(section.CommitSuccessChance) + "\n" +
                    PatientPuzzleShellLocalizationKeys.PreviewActionPlaceholder + "\n" +

@@ -35,6 +35,9 @@ namespace CyberClinic.Slices.Editor
                 "\nfoundationOk=True" +
                 "\nsceneSmokeOk=True" +
                 "\nprimaryActionIncluded=True" +
+                "\nprimaryActionStateIncluded=True" +
+                "\npreviewState=Available" +
+                "\ncommitState=Available" +
                 "\nscenePath=" + ScenePath +
                 "\nsceneName=" + sceneName +
                 "\ncanvasCount=" + canvasCount +
@@ -63,13 +66,15 @@ namespace CyberClinic.Slices.Editor
             var presentation = PatientPuzzleShellPresenter.Present(screenModel);
             return
                 presentation.HasRequiredDebugData() &&
+                presentation.PrimaryActionState.PreviewState == PreviewActionState.Available &&
+                presentation.PrimaryActionState.CommitState == CommitActionState.Available &&
                 presentation.PatientDossierBody.Contains("debug.patientId=test_street_netrunner") &&
                 presentation.ProcedureDecisionBody.Contains("debug.selectedImplantId=test_implant_optic_tune") &&
                 presentation.RiskAnalysisBody.Contains("debug.riskBand=Uncertain") &&
                 presentation.OperationResultBody.Contains("debug.creditsDelta=+90") &&
                 presentation.ActionFeedbackBody.Contains("debug.visualCueId=test_cue_result_reveal") &&
-                presentation.PrimaryActionBody.Contains("debug.previewActionState=available") &&
-                presentation.PrimaryActionBody.Contains("debug.commitActionState=available");
+                presentation.PrimaryActionBody.Contains("debug.previewActionState=Available") &&
+                presentation.PrimaryActionBody.Contains("debug.commitActionState=Available");
         }
 
         static bool ValidateSceneSmoke(out int canvasCount, out int eventSystemCount, out string sceneName)
@@ -128,7 +133,9 @@ namespace CyberClinic.Slices.Editor
                 riskText != null && riskText.text.Contains("debug.riskBand=Uncertain") &&
                 resultText != null && resultText.text.Contains("debug.creditsDelta=+90") &&
                 feedbackText != null && feedbackText.text.Contains("debug.visualCueId=test_cue_result_reveal") &&
-                primaryActionText != null && primaryActionText.text.Contains("debug.previewActionState=available");
+                primaryActionText != null &&
+                primaryActionText.text.Contains("debug.previewActionState=Available") &&
+                primaryActionText.text.Contains("debug.commitActionState=Available");
         }
 
         static Text FindSectionText(GameObject section)

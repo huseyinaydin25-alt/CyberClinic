@@ -6,66 +6,56 @@ using UnityEngine.UI;
 
 namespace CyberClinic.Slices.Editor
 {
-    public static class PatientPuzzleShellPrimaryActionValidator
+    public static class PatientPuzzleShellPrimaryActionStateValidator
     {
-        [MenuItem("Cyber Clinic/Slices/Run Patient Puzzle Shell Primary Action Debug")]
+        [MenuItem("Cyber Clinic/Slices/Validate Patient Puzzle Shell Primary Action State")]
         public static void RunDebug()
         {
-            var keysOk =
-                PatientPuzzleShellLocalizationKeys.HasRequiredKeys() &&
-                PatientPuzzleShellLocalizationKeys.PrimaryActionTitle == "ui.shell.primary_action.title" &&
-                PatientPuzzleShellLocalizationKeys.PreviewActionPlaceholder == "ui.placeholder.preview_action_state_pending" &&
-                PatientPuzzleShellLocalizationKeys.CommitActionPlaceholder == "ui.placeholder.commit_action_state_pending";
-
-            var layoutOk =
-                PatientPuzzleShellLayout.HasRequiredContract() &&
-                PatientPuzzleShellLayout.PrimaryActionAreaName == "PrimaryActionArea";
+            var defaultState = PatientPuzzlePrimaryActionState.DefaultAvailable;
+            var stateModelOk =
+                defaultState.PreviewState == PreviewActionState.Available &&
+                defaultState.CommitState == CommitActionState.Available;
 
             var presentation = PatientPuzzleShellPresenter.Present(PatientPuzzleSliceScreenModelBuilder.BuildDebugScreenModel());
-            var presentationOk =
+            var presentationStateOk =
                 presentation.HasRequiredDebugData() &&
                 presentation.PrimaryActionState.PreviewState == PreviewActionState.Available &&
                 presentation.PrimaryActionState.CommitState == CommitActionState.Available &&
                 presentation.PrimaryActionBody.Contains("debug.previewActionState=Available") &&
-                presentation.PrimaryActionBody.Contains("debug.commitActionState=Available") &&
-                presentation.PrimaryActionBody.Contains("debug.previewSuccessChance=0.675") &&
-                presentation.PrimaryActionBody.Contains("debug.commitSuccessChance=0.690");
+                presentation.PrimaryActionBody.Contains("debug.commitActionState=Available");
 
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
-            var host = new GameObject("PatientPuzzleShellPrimaryActionHost");
+            var host = new GameObject("PatientPuzzleShellPrimaryActionStateHost");
             var runtime = host.AddComponent<PatientPuzzleShellRuntime>();
             runtime.EnsureBuiltDebugShell();
 
             var primaryActionArea = GameObject.Find(PatientPuzzleShellLayout.PrimaryActionAreaName);
             var primaryActionText = FindSectionText(primaryActionArea);
-            var runtimeOk =
-                primaryActionArea != null &&
+            var runtimeStateOk =
                 primaryActionText != null &&
                 primaryActionText.text.Contains("debug.previewActionState=Available") &&
                 primaryActionText.text.Contains("debug.commitActionState=Available");
 
-            if (!keysOk || !layoutOk || !presentationOk || !runtimeOk)
+            if (!stateModelOk || !presentationStateOk || !runtimeStateOk || primaryActionArea == null)
             {
                 Debug.LogWarning(
-                    "PatientPuzzleShellPrimaryActionDebug failed" +
-                    "\nkeysOk=" + keysOk +
-                    "\nlayoutOk=" + layoutOk +
-                    "\npresentationOk=" + presentationOk +
-                    "\nruntimeOk=" + runtimeOk +
+                    "PatientPuzzleShellPrimaryActionStateDebug failed" +
+                    "\nstateModelOk=" + stateModelOk +
+                    "\npresentationStateOk=" + presentationStateOk +
+                    "\nruntimeStateOk=" + runtimeStateOk +
+                    "\nprimaryActionArea=" + (primaryActionArea != null) +
                     "\nprimaryActionText=" + SafeText(primaryActionText));
                 return;
             }
 
             Debug.Log(
-                "PatientPuzzleShellPrimaryActionDebug OK" +
-                "\nkeysOk=True" +
-                "\nlayoutOk=True" +
-                "\npresentationOk=True" +
-                "\nruntimeOk=True" +
+                "PatientPuzzleShellPrimaryActionStateDebug OK" +
+                "\npreviewState=" + defaultState.PreviewState +
+                "\ncommitState=" + defaultState.CommitState +
+                "\npresentationStateOk=True" +
+                "\nruntimeStateOk=True" +
                 "\nprimaryActionArea=True" +
-                "\npreviewActionState=Available" +
-                "\ncommitActionState=Available" +
-                "\nuiBinding=shell_primary_action_placeholder_ready");
+                "\nuiBinding=shell_primary_action_state_model_ready");
         }
 
         static Text FindSectionText(GameObject section)

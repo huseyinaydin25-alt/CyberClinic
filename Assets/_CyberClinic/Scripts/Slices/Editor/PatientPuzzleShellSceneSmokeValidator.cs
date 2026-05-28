@@ -56,7 +56,9 @@ namespace CyberClinic.Slices.Editor
                 riskText != null && riskText.text.Contains("debug.riskBand=Uncertain") &&
                 resultText != null && resultText.text.Contains("debug.creditsDelta=+90") &&
                 feedbackText != null && feedbackText.text.Contains("debug.visualCueId=test_cue_result_reveal") &&
-                primaryActionText != null && primaryActionText.text.Contains("debug.previewActionState=available");
+                primaryActionText != null &&
+                primaryActionText.text.Contains("debug.previewActionState=Available") &&
+                primaryActionText.text.Contains("debug.commitActionState=Available");
 
             if (!rootOk || canvasCount != 1 || eventSystemCount != 1 || !sectionsOk || !bindingOk)
             {
@@ -87,6 +89,9 @@ namespace CyberClinic.Slices.Editor
                 "\neventSystemCount=" + eventSystemCount +
                 "\nsectionsOk=True" +
                 "\nprimaryActionIncluded=True" +
+                "\nprimaryActionStateIncluded=True" +
+                "\npreviewState=Available" +
+                "\ncommitState=Available" +
                 "\nbindingOk=True" +
                 "\nuiBinding=shell_scene_smoke_ready");
         }

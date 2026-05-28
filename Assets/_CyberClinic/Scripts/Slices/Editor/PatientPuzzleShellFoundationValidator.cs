@@ -18,6 +18,9 @@ namespace CyberClinic.Slices.Editor
 
             var screenModel = PatientPuzzleSliceScreenModelBuilder.BuildDebugScreenModel();
             var presentation = PatientPuzzleShellPresenter.Present(screenModel);
+            var primaryActionStateIncluded =
+                presentation.PrimaryActionState.PreviewState == PreviewActionState.Available &&
+                presentation.PrimaryActionState.CommitState == CommitActionState.Available;
             var presenterOk =
                 presentation.HasRequiredDebugData() &&
                 presentation.PatientDossierBody.Contains("debug.patientId=test_street_netrunner") &&
@@ -25,8 +28,9 @@ namespace CyberClinic.Slices.Editor
                 presentation.RiskAnalysisBody.Contains("debug.riskBand=Uncertain") &&
                 presentation.OperationResultBody.Contains("debug.creditsDelta=+90") &&
                 presentation.ActionFeedbackBody.Contains("debug.visualCueId=test_cue_result_reveal") &&
-                presentation.PrimaryActionBody.Contains("debug.previewActionState=available") &&
-                presentation.PrimaryActionBody.Contains("debug.commitActionState=available");
+                primaryActionStateIncluded &&
+                presentation.PrimaryActionBody.Contains("debug.previewActionState=Available") &&
+                presentation.PrimaryActionBody.Contains("debug.commitActionState=Available");
 
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
             var host = new GameObject("PatientPuzzleShellFoundationHost");
@@ -56,6 +60,7 @@ namespace CyberClinic.Slices.Editor
                     "\nstyleOk=" + styleOk +
                     "\npresenterOk=" + presenterOk +
                     "\nruntimeOk=" + runtimeOk +
+                    "\nprimaryActionStateIncluded=" + primaryActionStateIncluded +
                     "\ncanvasCount=" + canvasCount +
                     "\neventSystemCount=" + eventSystemCount);
                 return;
@@ -69,6 +74,9 @@ namespace CyberClinic.Slices.Editor
                 "\npresenterOk=True" +
                 "\nruntimeOk=True" +
                 "\nprimaryActionIncluded=True" +
+                "\nprimaryActionStateIncluded=True" +
+                "\npreviewState=" + presentation.PrimaryActionState.PreviewState +
+                "\ncommitState=" + presentation.PrimaryActionState.CommitState +
                 "\ncanvasCount=" + canvasCount +
                 "\neventSystemCount=" + eventSystemCount +
                 "\nuiBinding=shell_foundation_aggregate_ready");
