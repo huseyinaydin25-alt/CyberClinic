@@ -7,13 +7,15 @@ namespace CyberClinic.Slices
             string procedureDecisionBody,
             string riskAnalysisBody,
             string operationResultBody,
-            string actionFeedbackBody)
+            string actionFeedbackBody,
+            string primaryActionBody)
         {
             PatientDossierBody = patientDossierBody;
             ProcedureDecisionBody = procedureDecisionBody;
             RiskAnalysisBody = riskAnalysisBody;
             OperationResultBody = operationResultBody;
             ActionFeedbackBody = actionFeedbackBody;
+            PrimaryActionBody = primaryActionBody;
         }
 
         public string PatientDossierBody { get; }
@@ -21,6 +23,7 @@ namespace CyberClinic.Slices
         public string RiskAnalysisBody { get; }
         public string OperationResultBody { get; }
         public string ActionFeedbackBody { get; }
+        public string PrimaryActionBody { get; }
 
         public bool HasRequiredDebugData()
         {
@@ -29,7 +32,8 @@ namespace CyberClinic.Slices
                 !string.IsNullOrWhiteSpace(ProcedureDecisionBody) &&
                 !string.IsNullOrWhiteSpace(RiskAnalysisBody) &&
                 !string.IsNullOrWhiteSpace(OperationResultBody) &&
-                !string.IsNullOrWhiteSpace(ActionFeedbackBody);
+                !string.IsNullOrWhiteSpace(ActionFeedbackBody) &&
+                !string.IsNullOrWhiteSpace(PrimaryActionBody);
         }
     }
 
@@ -42,7 +46,8 @@ namespace CyberClinic.Slices
                 BuildProcedureDecisionText(screenModel.ProcedureDecision),
                 BuildRiskAnalysisText(screenModel.RiskAnalysis),
                 BuildOperationResultText(screenModel.OperationResult),
-                BuildActionFeedbackText(screenModel.ActionFeedback));
+                BuildActionFeedbackText(screenModel.ActionFeedback),
+                BuildPrimaryActionText(screenModel.RiskAnalysis));
         }
 
         static string BuildPatientDossierText(PatientDossierSection section)
@@ -80,6 +85,16 @@ namespace CyberClinic.Slices
             return "debug.visualCueId=" + section.VisualCueId + "\n" +
                    "debug.audioCueId=" + section.AudioCueId + "\n" +
                    PatientPuzzleShellLocalizationKeys.FeedbackRoutingPending;
+        }
+
+        static string BuildPrimaryActionText(RiskAnalysisSection section)
+        {
+            return "debug.previewActionState=available" + "\n" +
+                   "debug.commitActionState=available" + "\n" +
+                   "debug.previewSuccessChance=" + section.PreviewSuccessChance.ToString("F3") + "\n" +
+                   "debug.commitSuccessChance=" + section.CommitSuccessChance.ToString("F3") + "\n" +
+                   PatientPuzzleShellLocalizationKeys.PreviewActionPlaceholder + "\n" +
+                   PatientPuzzleShellLocalizationKeys.CommitActionPlaceholder;
         }
 
         static string FormatDelta(int value)
