@@ -55,6 +55,7 @@ namespace CyberClinic.Slices
             CreateSection(root.transform, PatientPuzzleShellLayout.RiskAnalysisAreaName, PatientPuzzleShellLocalizationKeys.RiskAnalysisTitle, presentation.RiskAnalysisBody, PatientPuzzleShellLayout.RiskAnalysis);
             CreateSection(root.transform, PatientPuzzleShellLayout.OperationResultAreaName, PatientPuzzleShellLocalizationKeys.OperationResultTitle, presentation.OperationResultBody, PatientPuzzleShellLayout.OperationResult);
             CreateSection(root.transform, PatientPuzzleShellLayout.ActionFeedbackAreaName, PatientPuzzleShellLocalizationKeys.ActionFeedbackTitle, presentation.ActionFeedbackBody, PatientPuzzleShellLayout.ActionFeedback);
+            CreateSection(root.transform, PatientPuzzleShellLayout.PrimaryActionAreaName, PatientPuzzleShellLocalizationKeys.PrimaryActionTitle, presentation.PrimaryActionBody, PatientPuzzleShellLayout.PrimaryAction);
 
             CreateText(root.transform, PatientPuzzleShellLocalizationKeys.FooterPlaceholder, PatientPuzzleShellStyle.FooterFontSize, PatientPuzzleShellLayout.Footer, Vector2.zero, Vector2.zero, TextAnchor.MiddleLeft, PatientPuzzleShellStyle.MutedTextColor, FontStyle.Normal);
 
