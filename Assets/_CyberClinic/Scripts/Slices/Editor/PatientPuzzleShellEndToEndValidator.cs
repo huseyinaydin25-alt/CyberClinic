@@ -34,6 +34,7 @@ namespace CyberClinic.Slices.Editor
                 "PatientPuzzleShellEndToEndDebug OK" +
                 "\nfoundationOk=True" +
                 "\nsceneSmokeOk=True" +
+                "\nprimaryActionIncluded=True" +
                 "\nscenePath=" + ScenePath +
                 "\nsceneName=" + sceneName +
                 "\ncanvasCount=" + canvasCount +
@@ -66,7 +67,9 @@ namespace CyberClinic.Slices.Editor
                 presentation.ProcedureDecisionBody.Contains("debug.selectedImplantId=test_implant_optic_tune") &&
                 presentation.RiskAnalysisBody.Contains("debug.riskBand=Uncertain") &&
                 presentation.OperationResultBody.Contains("debug.creditsDelta=+90") &&
-                presentation.ActionFeedbackBody.Contains("debug.visualCueId=test_cue_result_reveal");
+                presentation.ActionFeedbackBody.Contains("debug.visualCueId=test_cue_result_reveal") &&
+                presentation.PrimaryActionBody.Contains("debug.previewActionState=available") &&
+                presentation.PrimaryActionBody.Contains("debug.commitActionState=available");
         }
 
         static bool ValidateSceneSmoke(out int canvasCount, out int eventSystemCount, out string sceneName)
@@ -101,12 +104,14 @@ namespace CyberClinic.Slices.Editor
             var riskArea = GameObject.Find(PatientPuzzleShellLayout.RiskAnalysisAreaName);
             var resultArea = GameObject.Find(PatientPuzzleShellLayout.OperationResultAreaName);
             var feedbackArea = GameObject.Find(PatientPuzzleShellLayout.ActionFeedbackAreaName);
+            var primaryActionArea = GameObject.Find(PatientPuzzleShellLayout.PrimaryActionAreaName);
 
             var patientText = FindSectionText(patientArea);
             var procedureText = FindSectionText(procedureArea);
             var riskText = FindSectionText(riskArea);
             var resultText = FindSectionText(resultArea);
             var feedbackText = FindSectionText(feedbackArea);
+            var primaryActionText = FindSectionText(primaryActionArea);
 
             return
                 root != null &&
@@ -117,11 +122,13 @@ namespace CyberClinic.Slices.Editor
                 riskArea != null &&
                 resultArea != null &&
                 feedbackArea != null &&
+                primaryActionArea != null &&
                 patientText != null && patientText.text.Contains("debug.patientId=test_street_netrunner") &&
                 procedureText != null && procedureText.text.Contains("debug.selectedImplantId=test_implant_optic_tune") &&
                 riskText != null && riskText.text.Contains("debug.riskBand=Uncertain") &&
                 resultText != null && resultText.text.Contains("debug.creditsDelta=+90") &&
-                feedbackText != null && feedbackText.text.Contains("debug.visualCueId=test_cue_result_reveal");
+                feedbackText != null && feedbackText.text.Contains("debug.visualCueId=test_cue_result_reveal") &&
+                primaryActionText != null && primaryActionText.text.Contains("debug.previewActionState=available");
         }
 
         static Text FindSectionText(GameObject section)
