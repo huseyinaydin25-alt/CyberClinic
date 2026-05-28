@@ -48,14 +48,26 @@ namespace CyberClinic.Slices
                 PrimaryActionState.PreviewState == PreviewActionState.Available &&
                 PrimaryActionState.CommitState == CommitActionState.Available;
         }
+
+        public bool HasPrimaryActionState(PatientPuzzlePrimaryActionState expectedState)
+        {
+            return
+                PrimaryActionState.PreviewState == expectedState.PreviewState &&
+                PrimaryActionState.CommitState == expectedState.CommitState;
+        }
     }
 
     public static class PatientPuzzleShellPresenter
     {
         public static PatientPuzzleShellPresentation Present(PatientPuzzleSliceScreenModel screenModel)
         {
-            var primaryActionState = PatientPuzzlePrimaryActionState.DefaultAvailable;
+            return Present(screenModel, PatientPuzzlePrimaryActionStateResolver.Initial());
+        }
 
+        public static PatientPuzzleShellPresentation Present(
+            PatientPuzzleSliceScreenModel screenModel,
+            PatientPuzzlePrimaryActionState primaryActionState)
+        {
             return new PatientPuzzleShellPresentation(
                 BuildPatientDossierText(screenModel.PatientDossier),
                 BuildProcedureDecisionText(screenModel.ProcedureDecision),
