@@ -1,7 +1,7 @@
 # Milestone 13.17 — Patient Puzzle Shell Primary Action Area
 
 **Date:** 2026-05-27  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Add a placeholder PrimaryActionArea to the patient puzzle shell.
 
 ---
@@ -45,7 +45,15 @@ Cyber Clinic/Slices/Run Patient Puzzle Shell Primary Action Debug
 
 ---
 
-## Expected validator output
+## Validation fix
+
+During local validation, the first run exposed culture-sensitive decimal formatting in shell presentation output.
+
+The presenter now formats chance values with invariant culture so debug shell output is deterministic across editor locales.
+
+---
+
+## Validated primary action output
 
 ```text
 PatientPuzzleShellPrimaryActionDebug OK
@@ -61,12 +69,17 @@ uiBinding=shell_primary_action_placeholder_ready
 
 ---
 
-## Regression check
-
-After this validator passes, run:
+## End-to-end regression still passes
 
 ```text
-Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
+PatientPuzzleShellEndToEndDebug OK
+foundationOk=True
+sceneSmokeOk=True
+scenePath=Assets/_CyberClinic/Scenes/PatientPuzzleShell.unity
+sceneName=PatientPuzzleShell
+canvasCount=1
+eventSystemCount=1
+uiBinding=shell_end_to_end_ready
 ```
 
 ---
@@ -84,6 +97,6 @@ Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
 
 ---
 
-## Completion criteria
+## Completion result
 
-M13.17 is complete when the primary action validator passes and the shell end-to-end validator still passes locally in Unity.
+M13.17 is complete because the primary action validator passed and the shell end-to-end validator still passed locally in Unity.
