@@ -1,7 +1,7 @@
 # Milestone 13.16 — Patient Puzzle Shell End-to-End Validator
 
 **Date:** 2026-05-27  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Add a single validator that checks both shell foundation and saved shell scene smoke behavior.
 
 ---
@@ -33,7 +33,7 @@ Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
 
 ---
 
-## Expected validator output
+## Validated output
 
 ```text
 PatientPuzzleShellEndToEndDebug OK
@@ -60,6 +60,6 @@ uiBinding=shell_end_to_end_ready
 
 ---
 
-## Completion criteria
+## Completion result
 
-M13.16 is complete when the end-to-end validator passes locally in Unity.
+M13.16 is complete because the end-to-end validator passed locally in Unity.
