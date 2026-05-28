@@ -24,24 +24,27 @@ namespace CyberClinic.Slices.Editor
             var riskArea = GameObject.Find(PatientPuzzleShellLayout.RiskAnalysisAreaName);
             var resultArea = GameObject.Find(PatientPuzzleShellLayout.OperationResultAreaName);
             var feedbackArea = GameObject.Find(PatientPuzzleShellLayout.ActionFeedbackAreaName);
+            var primaryActionArea = GameObject.Find(PatientPuzzleShellLayout.PrimaryActionAreaName);
 
             var patientText = FindSectionText(patientArea);
             var procedureText = FindSectionText(procedureArea);
             var riskText = FindSectionText(riskArea);
             var resultText = FindSectionText(resultArea);
             var feedbackText = FindSectionText(feedbackArea);
+            var primaryActionText = FindSectionText(primaryActionArea);
 
             var rootOk = root != null;
             var canvasCount = Object.FindObjectsByType<Canvas>(FindObjectsSortMode.None).Length;
             var eventSystemCount = Object.FindObjectsByType<EventSystem>(FindObjectsSortMode.None).Length;
-            var sectionsOk = patientArea != null && procedureArea != null && riskArea != null && resultArea != null && feedbackArea != null;
+            var sectionsOk = patientArea != null && procedureArea != null && riskArea != null && resultArea != null && feedbackArea != null && primaryActionArea != null;
             var patientOk = patientText != null && patientText.text.Contains("debug.patientId=test_street_netrunner") && patientText.text.Contains("debug.patientSeed=82115621");
             var procedureOk = procedureText != null && procedureText.text.Contains("debug.selectedImplantId=test_implant_optic_tune") && procedureText.text.Contains("debug.selectedProcedureId=test_proc_micro_install");
             var riskOk = riskText != null && riskText.text.Contains("debug.riskBand=Uncertain") && riskText.text.Contains("debug.outcomeType=StableSuccess");
             var resultOk = resultText != null && resultText.text.Contains("debug.creditsDelta=+90") && resultText.text.Contains("debug.reputationDelta=+5");
             var feedbackOk = feedbackText != null && feedbackText.text.Contains("debug.visualCueId=test_cue_result_reveal") && feedbackText.text.Contains("debug.audioCueId=test_audio_operation_success");
+            var primaryActionOk = primaryActionText != null && primaryActionText.text.Contains("debug.previewActionState=available") && primaryActionText.text.Contains("debug.commitActionState=available");
 
-            if (!rootOk || canvasCount != 1 || eventSystemCount != 1 || !sectionsOk || !patientOk || !procedureOk || !riskOk || !resultOk || !feedbackOk)
+            if (!rootOk || canvasCount != 1 || eventSystemCount != 1 || !sectionsOk || !patientOk || !procedureOk || !riskOk || !resultOk || !feedbackOk || !primaryActionOk)
             {
                 Debug.LogWarning(
                     "PatientPuzzleShellDebug failed" +
@@ -54,11 +57,13 @@ namespace CyberClinic.Slices.Editor
                     "\nriskOk=" + riskOk +
                     "\nresultOk=" + resultOk +
                     "\nfeedbackOk=" + feedbackOk +
+                    "\nprimaryActionOk=" + primaryActionOk +
                     "\npatientText=" + SafeText(patientText) +
                     "\nprocedureText=" + SafeText(procedureText) +
                     "\nriskText=" + SafeText(riskText) +
                     "\nresultText=" + SafeText(resultText) +
-                    "\nfeedbackText=" + SafeText(feedbackText));
+                    "\nfeedbackText=" + SafeText(feedbackText) +
+                    "\nprimaryActionText=" + SafeText(primaryActionText));
                 return;
             }
 
@@ -72,11 +77,13 @@ namespace CyberClinic.Slices.Editor
                 "\nriskArea=True" +
                 "\nresultArea=True" +
                 "\nfeedbackArea=True" +
+                "\nprimaryActionArea=True" +
                 "\npatientBinding=True" +
                 "\nprocedureBinding=True" +
                 "\nriskBinding=True" +
                 "\nresultBinding=True" +
                 "\nfeedbackBinding=True" +
+                "\nprimaryActionBinding=True" +
                 "\nuiBinding=production_intent_shell_placeholder");
         }
 
