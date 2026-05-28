@@ -1,7 +1,7 @@
 # Milestone 13.18 — Primary Action Validation Coverage
 
 **Date:** 2026-05-27  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Include `PrimaryActionArea` in higher-level shell validators.
 
 ---
@@ -21,7 +21,7 @@ M13.18 ensures the new `PrimaryActionArea` is not only checked by its dedicated 
 
 ---
 
-## Expected validation outputs
+## Validated outputs
 
 ### Foundation
 
@@ -42,7 +42,20 @@ uiBinding=shell_foundation_aggregate_ready
 
 ```text
 PatientPuzzleShellDebug OK
+rootExists=True
+canvasCount=1
+eventSystemCount=1
+patientArea=True
+procedureArea=True
+riskArea=True
+resultArea=True
+feedbackArea=True
 primaryActionArea=True
+patientBinding=True
+procedureBinding=True
+riskBinding=True
+resultBinding=True
+feedbackBinding=True
 primaryActionBinding=True
 uiBinding=production_intent_shell_placeholder
 ```
@@ -51,6 +64,13 @@ uiBinding=production_intent_shell_placeholder
 
 ```text
 PatientPuzzleShellSceneSmoke OK
+scenePath=Assets/_CyberClinic/Scenes/PatientPuzzleShell.unity
+sceneName=PatientPuzzleShell
+runtimeExists=True
+rootExists=True
+canvasCount=1
+eventSystemCount=1
+sectionsOk=True
 primaryActionIncluded=True
 bindingOk=True
 uiBinding=shell_scene_smoke_ready
@@ -63,6 +83,10 @@ PatientPuzzleShellEndToEndDebug OK
 foundationOk=True
 sceneSmokeOk=True
 primaryActionIncluded=True
+scenePath=Assets/_CyberClinic/Scenes/PatientPuzzleShell.unity
+sceneName=PatientPuzzleShell
+canvasCount=1
+eventSystemCount=1
 uiBinding=shell_end_to_end_ready
 ```
 
@@ -81,6 +105,6 @@ uiBinding=shell_end_to_end_ready
 
 ---
 
-## Completion criteria
+## Completion result
 
-M13.18 is complete when all updated validators pass locally in Unity.
+M13.18 is complete because all updated validators passed locally in Unity.
