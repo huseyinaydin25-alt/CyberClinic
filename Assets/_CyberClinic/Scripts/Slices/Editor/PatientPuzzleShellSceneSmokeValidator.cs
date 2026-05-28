@@ -37,23 +37,26 @@ namespace CyberClinic.Slices.Editor
             var riskArea = GameObject.Find(PatientPuzzleShellLayout.RiskAnalysisAreaName);
             var resultArea = GameObject.Find(PatientPuzzleShellLayout.OperationResultAreaName);
             var feedbackArea = GameObject.Find(PatientPuzzleShellLayout.ActionFeedbackAreaName);
+            var primaryActionArea = GameObject.Find(PatientPuzzleShellLayout.PrimaryActionAreaName);
 
             var patientText = FindSectionText(patientArea);
             var procedureText = FindSectionText(procedureArea);
             var riskText = FindSectionText(riskArea);
             var resultText = FindSectionText(resultArea);
             var feedbackText = FindSectionText(feedbackArea);
+            var primaryActionText = FindSectionText(primaryActionArea);
 
             var canvasCount = Object.FindObjectsByType<Canvas>(FindObjectsSortMode.None).Length;
             var eventSystemCount = Object.FindObjectsByType<EventSystem>(FindObjectsSortMode.None).Length;
             var rootOk = root != null;
-            var sectionsOk = patientArea != null && procedureArea != null && riskArea != null && resultArea != null && feedbackArea != null;
+            var sectionsOk = patientArea != null && procedureArea != null && riskArea != null && resultArea != null && feedbackArea != null && primaryActionArea != null;
             var bindingOk =
                 patientText != null && patientText.text.Contains("debug.patientId=test_street_netrunner") &&
                 procedureText != null && procedureText.text.Contains("debug.selectedImplantId=test_implant_optic_tune") &&
                 riskText != null && riskText.text.Contains("debug.riskBand=Uncertain") &&
                 resultText != null && resultText.text.Contains("debug.creditsDelta=+90") &&
-                feedbackText != null && feedbackText.text.Contains("debug.visualCueId=test_cue_result_reveal");
+                feedbackText != null && feedbackText.text.Contains("debug.visualCueId=test_cue_result_reveal") &&
+                primaryActionText != null && primaryActionText.text.Contains("debug.previewActionState=available");
 
             if (!rootOk || canvasCount != 1 || eventSystemCount != 1 || !sectionsOk || !bindingOk)
             {
@@ -69,7 +72,8 @@ namespace CyberClinic.Slices.Editor
                     "\nprocedureText=" + SafeText(procedureText) +
                     "\nriskText=" + SafeText(riskText) +
                     "\nresultText=" + SafeText(resultText) +
-                    "\nfeedbackText=" + SafeText(feedbackText));
+                    "\nfeedbackText=" + SafeText(feedbackText) +
+                    "\nprimaryActionText=" + SafeText(primaryActionText));
                 return;
             }
 
@@ -82,6 +86,7 @@ namespace CyberClinic.Slices.Editor
                 "\ncanvasCount=" + canvasCount +
                 "\neventSystemCount=" + eventSystemCount +
                 "\nsectionsOk=True" +
+                "\nprimaryActionIncluded=True" +
                 "\nbindingOk=True" +
                 "\nuiBinding=shell_scene_smoke_ready");
         }
