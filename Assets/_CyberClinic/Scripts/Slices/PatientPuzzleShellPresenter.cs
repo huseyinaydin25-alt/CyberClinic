@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace CyberClinic.Slices
 {
     public readonly struct PatientPuzzleShellPresentation
@@ -66,8 +68,8 @@ namespace CyberClinic.Slices
 
         static string BuildRiskAnalysisText(RiskAnalysisSection section)
         {
-            return "debug.previewSuccessChance=" + section.PreviewSuccessChance.ToString("F3") + "\n" +
-                   "debug.commitSuccessChance=" + section.CommitSuccessChance.ToString("F3") + "\n" +
+            return "debug.previewSuccessChance=" + FormatChance(section.PreviewSuccessChance) + "\n" +
+                   "debug.commitSuccessChance=" + FormatChance(section.CommitSuccessChance) + "\n" +
                    "debug.riskBand=" + section.RiskBand + "\n" +
                    "debug.outcomeType=" + section.OutcomeType;
         }
@@ -91,10 +93,15 @@ namespace CyberClinic.Slices
         {
             return "debug.previewActionState=available" + "\n" +
                    "debug.commitActionState=available" + "\n" +
-                   "debug.previewSuccessChance=" + section.PreviewSuccessChance.ToString("F3") + "\n" +
-                   "debug.commitSuccessChance=" + section.CommitSuccessChance.ToString("F3") + "\n" +
+                   "debug.previewSuccessChance=" + FormatChance(section.PreviewSuccessChance) + "\n" +
+                   "debug.commitSuccessChance=" + FormatChance(section.CommitSuccessChance) + "\n" +
                    PatientPuzzleShellLocalizationKeys.PreviewActionPlaceholder + "\n" +
                    PatientPuzzleShellLocalizationKeys.CommitActionPlaceholder;
+        }
+
+        static string FormatChance(float value)
+        {
+            return value.ToString("F3", CultureInfo.InvariantCulture);
         }
 
         static string FormatDelta(int value)
