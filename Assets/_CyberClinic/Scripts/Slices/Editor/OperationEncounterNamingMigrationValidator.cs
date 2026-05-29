@@ -6,33 +6,33 @@ namespace CyberClinic.Slices.Editor
 {
     public static class OperationEncounterNamingMigrationValidator
     {
-        [MenuItem("Cyber Clinic/Slices/Run Operation Encounter Naming Migration Debug")]
+        [MenuItem("Cyber Clinic/Operation Encounter/Run Naming Migration Debug")]
         public static void RunDebug()
         {
             var screenModel = PatientPuzzleSliceScreenModelBuilder.BuildDebugScreenModel();
             var controller = new OperationEncounterSessionController(screenModel);
 
             var initial = controller.CurrentState;
-            var preview = controller.Preview();
-            var binding = OperationEncounterPreviewResultBinder.Bind(preview);
-            var commit = controller.Commit();
+            var planned = controller.Plan();
+            var binding = OperationEncounterPlanResultBinder.Bind(planned);
+            var executed = controller.Execute();
             var reset = controller.Reset();
 
             var initialOk =
                 initial.ActionState.PreviewState == PreviewActionState.Available &&
                 initial.ActionState.CommitState == CommitActionState.Available &&
-                initial.LastInteractionId == "patient_puzzle.session.initial" &&
+                initial.LastInteractionId == "operation_encounter.session.initial" &&
                 !initial.HasPreviewed &&
                 !initial.HasCommitted &&
                 !initial.IsLocked;
 
-            var previewOk =
-                preview.ActionState.PreviewState == PreviewActionState.Previewed &&
-                preview.ActionState.CommitState == CommitActionState.Available &&
-                preview.LastInteractionId == "primary_action.preview" &&
-                preview.HasPreviewed &&
-                !preview.HasCommitted &&
-                !preview.IsLocked;
+            var planOk =
+                planned.ActionState.PreviewState == PreviewActionState.Previewed &&
+                planned.ActionState.CommitState == CommitActionState.Available &&
+                planned.LastInteractionId == "operation_action.plan" &&
+                planned.HasPreviewed &&
+                !planned.HasCommitted &&
+                !planned.IsLocked;
 
             var bindingOk =
                 binding.SessionState.ActionState.PreviewState == PreviewActionState.Previewed &&
@@ -40,30 +40,30 @@ namespace CyberClinic.Slices.Editor
                 binding.FeedbackRouteId == "primary_action.feedback.previewed" &&
                 binding.ReadoutVisualTokenId == "primary_action.visual.previewed";
 
-            var commitOk =
-                commit.ActionState.PreviewState == PreviewActionState.Previewed &&
-                commit.ActionState.CommitState == CommitActionState.Committed &&
-                commit.LastInteractionId == "primary_action.commit" &&
-                commit.HasPreviewed &&
-                commit.HasCommitted &&
-                commit.IsLocked;
+            var executeOk =
+                executed.ActionState.PreviewState == PreviewActionState.Previewed &&
+                executed.ActionState.CommitState == CommitActionState.Committed &&
+                executed.LastInteractionId == "operation_action.execute" &&
+                executed.HasPreviewed &&
+                executed.HasCommitted &&
+                executed.IsLocked;
 
             var resetOk =
                 reset.ActionState.PreviewState == PreviewActionState.Available &&
                 reset.ActionState.CommitState == CommitActionState.Available &&
-                reset.LastInteractionId == "patient_puzzle.session.initial" &&
+                reset.LastInteractionId == "operation_encounter.session.initial" &&
                 !reset.HasPreviewed &&
                 !reset.HasCommitted &&
                 !reset.IsLocked;
 
-            if (!initialOk || !previewOk || !bindingOk || !commitOk || !resetOk)
+            if (!initialOk || !planOk || !bindingOk || !executeOk || !resetOk)
             {
                 Debug.LogWarning(
                     "OperationEncounterNamingMigrationDebug failed" +
                     "\ninitialOk=" + initialOk +
-                    "\npreviewOk=" + previewOk +
+                    "\nplanOk=" + planOk +
                     "\nbindingOk=" + bindingOk +
-                    "\ncommitOk=" + commitOk +
+                    "\nexecuteOk=" + executeOk +
                     "\nresetOk=" + resetOk);
                 return;
             }
@@ -71,13 +71,11 @@ namespace CyberClinic.Slices.Editor
             Debug.Log(
                 "OperationEncounterNamingMigrationDebug OK" +
                 "\ncanonicalName=OperationEncounter" +
-                "\nlegacyName=PatientPuzzle" +
                 "\ninitialState=Available/Available" +
-                "\npreviewState=Previewed/Available" +
-                "\npreviewBinding=True" +
-                "\ncommitState=Previewed/Committed" +
+                "\nplanState=Previewed/Available" +
+                "\nplanBinding=True" +
+                "\nexecuteState=Previewed/Committed" +
                 "\nresetState=Available/Available" +
-                "\nlegacyCompatibility=True" +
                 "\nuiBinding=operation_encounter_naming_ready");
         }
     }

@@ -1,41 +1,41 @@
 namespace CyberClinic.Slices
 {
-    public readonly struct PatientPuzzlePreviewResultBinding
+    public readonly struct OperationEncounterPlanResultBinding
     {
-        public PatientPuzzlePreviewResultBinding(
-            PatientPuzzleSessionState sessionState,
-            float previewSuccessChance,
+        public OperationEncounterPlanResultBinding(
+            OperationEncounterSessionState sessionState,
+            float planningSuccessChance,
             string riskBand,
             string feedbackRouteId,
             string readoutVisualTokenId,
             PatientPuzzleShellPresentation presentation)
         {
             SessionState = sessionState;
-            PreviewSuccessChance = previewSuccessChance;
+            PlanningSuccessChance = planningSuccessChance;
             RiskBand = riskBand;
             FeedbackRouteId = feedbackRouteId;
             ReadoutVisualTokenId = readoutVisualTokenId;
             Presentation = presentation;
         }
 
-        public PatientPuzzleSessionState SessionState { get; }
-        public float PreviewSuccessChance { get; }
+        public OperationEncounterSessionState SessionState { get; }
+        public float PlanningSuccessChance { get; }
         public string RiskBand { get; }
         public string FeedbackRouteId { get; }
         public string ReadoutVisualTokenId { get; }
         public PatientPuzzleShellPresentation Presentation { get; }
     }
 
-    public static class PatientPuzzlePreviewResultBinder
+    public static class OperationEncounterPlanResultBinder
     {
-        public static PatientPuzzlePreviewResultBinding Bind(PatientPuzzleSessionState sessionState)
+        public static OperationEncounterPlanResultBinding Bind(OperationEncounterSessionState sessionState)
         {
-            var readout = PatientPuzzlePrimaryActionStateReadoutPresenter.Present(sessionState.PrimaryActionState);
+            var readout = PatientPuzzlePrimaryActionStateReadoutPresenter.Present(sessionState.ActionState);
             var presentation = PatientPuzzleShellPresenter.Present(
                 sessionState.ScreenModel,
-                sessionState.PrimaryActionState);
+                sessionState.ActionState);
 
-            return new PatientPuzzlePreviewResultBinding(
+            return new OperationEncounterPlanResultBinding(
                 sessionState,
                 sessionState.ScreenModel.RiskAnalysis.PreviewSuccessChance,
                 sessionState.ScreenModel.RiskAnalysis.RiskBand,

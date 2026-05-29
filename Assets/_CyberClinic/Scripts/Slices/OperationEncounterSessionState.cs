@@ -2,42 +2,75 @@ namespace CyberClinic.Slices
 {
     public readonly struct OperationEncounterSessionState
     {
-        readonly PatientPuzzleSessionState _legacyState;
-
-        public OperationEncounterSessionState(PatientPuzzleSessionState legacyState)
+        public OperationEncounterSessionState(
+            PatientPuzzleSliceScreenModel screenModel,
+            PatientPuzzlePrimaryActionState actionState,
+            string lastInteractionId,
+            PatientPuzzlePrimaryActionFeedbackRoute lastFeedbackRoute,
+            bool hasPreviewed,
+            bool hasCommitted,
+            bool isLocked)
         {
-            _legacyState = legacyState;
+            ScreenModel = screenModel;
+            ActionState = actionState;
+            LastInteractionId = lastInteractionId;
+            LastFeedbackRoute = lastFeedbackRoute;
+            HasPreviewed = hasPreviewed;
+            HasCommitted = hasCommitted;
+            IsLocked = isLocked;
         }
 
-        public PatientPuzzleSessionState LegacyState => _legacyState;
-        public PatientPuzzleSliceScreenModel ScreenModel => _legacyState.ScreenModel;
-        public PatientPuzzlePrimaryActionState ActionState => _legacyState.PrimaryActionState;
-        public string LastInteractionId => _legacyState.LastInteractionId;
-        public PatientPuzzlePrimaryActionFeedbackRoute LastFeedbackRoute => _legacyState.LastFeedbackRoute;
-        public bool HasPreviewed => _legacyState.HasPreviewed;
-        public bool HasCommitted => _legacyState.HasCommitted;
-        public bool IsLocked => _legacyState.IsLocked;
+        public PatientPuzzleSliceScreenModel ScreenModel { get; }
+        public PatientPuzzlePrimaryActionState ActionState { get; }
+        public string LastInteractionId { get; }
+        public PatientPuzzlePrimaryActionFeedbackRoute LastFeedbackRoute { get; }
+        public bool HasPreviewed { get; }
+        public bool HasCommitted { get; }
+        public bool IsLocked { get; }
 
         public static OperationEncounterSessionState CreateInitial(PatientPuzzleSliceScreenModel screenModel)
         {
-            return new OperationEncounterSessionState(PatientPuzzleSessionState.CreateInitial(screenModel));
+            var actionState = PatientPuzzlePrimaryActionStateResolver.Initial();
+            return new OperationEncounterSessionState(
+                screenModel,
+                actionState,
+                "operation_encounter.session.initial",
+                PatientPuzzlePrimaryActionFeedbackRouter.Route(actionState),
+                false,
+                false,
+                false);
         }
 
         public OperationEncounterSessionState WithInteraction(
             string interactionId,
             PatientPuzzlePrimaryActionState actionState)
         {
-            return new OperationEncounterSessionState(_legacyState.WithInteraction(interactionId, actionState));
+            return new OperationEncounterSessionState(
+                ScreenModel,
+                actionState,
+                interactionId,
+                PatientPuzzlePrimaryActionFeedbackRouter.Route(actionState),
+                HasPreviewed || actionState.PreviewState == PreviewActionState.Previewed,
+                HasCommitted || actionState.CommitState == CommitActionState.Committed,
+                IsLocked || actionState.CommitState == CommitActionState.Committed);
         }
 
         public OperationEncounterSessionState WithLockedDisabled(string interactionId)
         {
-            return new OperationEncounterSessionState(_legacyState.WithLockedDisabled(interactionId));
+            var disabledState = PatientPuzzlePrimaryActionStateResolver.Disabled();
+            return new OperationEncounterSessionState(
+                ScreenModel,
+                disabledState,
+                interactionId,
+                PatientPuzzlePrimaryActionFeedbackRouter.Route(disabledState),
+                HasPreviewed,
+                HasCommitted,
+                true);
         }
 
         public OperationEncounterSessionState Reset()
         {
-            return new OperationEncounterSessionState(_legacyState.Reset());
+            return CreateInitial(ScreenModel);
         }
     }
 }
