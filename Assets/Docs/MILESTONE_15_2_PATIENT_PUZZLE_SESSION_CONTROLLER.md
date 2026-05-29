@@ -1,7 +1,7 @@
 # Milestone 15.2 — Patient Puzzle Session Controller
 
 **Date:** 2026-05-29  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Add a lightweight controller for Patient Puzzle session state transitions.
 
 ---
@@ -56,7 +56,7 @@ Cyber Clinic/Slices/Run Patient Puzzle Session Controller Debug
 
 ---
 
-## Expected validator output
+## Validated session controller output
 
 ```text
 PatientPuzzleSessionControllerDebug OK
@@ -76,15 +76,7 @@ uiBinding=patient_puzzle_session_controller_ready
 
 ## Regression checks
 
-After this validator passes, run:
-
-```text
-Cyber Clinic/Slices/Run Patient Puzzle Session State Debug
-Cyber Clinic/Slices/Run Patient Puzzle Playable Shell Interaction Aggregate Debug
-Cyber Clinic/Slices/Run Patient Puzzle Primary Action Flow Aggregate Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell Foundation Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
-```
+Existing session state, playable shell interaction aggregate, primary action flow aggregate, shell foundation, and shell end-to-end validators were also run locally and no regression errors were observed.
 
 ---
 
@@ -104,6 +96,12 @@ Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
 
 ---
 
-## Completion criteria
+## Completion result
 
-M15.2 is complete when the session controller validator passes and existing session state / playable shell interaction / primary action / shell regressions still pass locally in Unity.
+M15.2 is complete because the session controller validator passed and existing session state / playable shell interaction / primary action / shell regressions still passed locally in Unity.
+
+---
+
+## Overall project progress estimate
+
+Approximate full-game completion after M15.2: **18%**.
