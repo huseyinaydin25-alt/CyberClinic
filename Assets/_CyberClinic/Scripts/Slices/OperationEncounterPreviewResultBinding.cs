@@ -1,29 +1,47 @@
 namespace CyberClinic.Slices
 {
-    public readonly struct OperationEncounterPreviewResultBinding
+    public readonly struct OperationEncounterPlanResultBinding
     {
-        readonly PatientPuzzlePreviewResultBinding _legacyBinding;
-
-        public OperationEncounterPreviewResultBinding(PatientPuzzlePreviewResultBinding legacyBinding)
+        public OperationEncounterPlanResultBinding(
+            OperationEncounterSessionState sessionState,
+            float planningSuccessChance,
+            string riskBand,
+            string feedbackRouteId,
+            string readoutVisualTokenId,
+            PatientPuzzleShellPresentation presentation)
         {
-            _legacyBinding = legacyBinding;
+            SessionState = sessionState;
+            PlanningSuccessChance = planningSuccessChance;
+            RiskBand = riskBand;
+            FeedbackRouteId = feedbackRouteId;
+            ReadoutVisualTokenId = readoutVisualTokenId;
+            Presentation = presentation;
         }
 
-        public PatientPuzzlePreviewResultBinding LegacyBinding => _legacyBinding;
-        public OperationEncounterSessionState SessionState => new OperationEncounterSessionState(_legacyBinding.SessionState);
-        public float PreviewSuccessChance => _legacyBinding.PreviewSuccessChance;
-        public string RiskBand => _legacyBinding.RiskBand;
-        public string FeedbackRouteId => _legacyBinding.FeedbackRouteId;
-        public string ReadoutVisualTokenId => _legacyBinding.ReadoutVisualTokenId;
-        public PatientPuzzleShellPresentation Presentation => _legacyBinding.Presentation;
+        public OperationEncounterSessionState SessionState { get; }
+        public float PlanningSuccessChance { get; }
+        public string RiskBand { get; }
+        public string FeedbackRouteId { get; }
+        public string ReadoutVisualTokenId { get; }
+        public PatientPuzzleShellPresentation Presentation { get; }
     }
 
-    public static class OperationEncounterPreviewResultBinder
+    public static class OperationEncounterPlanResultBinder
     {
-        public static OperationEncounterPreviewResultBinding Bind(OperationEncounterSessionState sessionState)
+        public static OperationEncounterPlanResultBinding Bind(OperationEncounterSessionState sessionState)
         {
-            return new OperationEncounterPreviewResultBinding(
-                PatientPuzzlePreviewResultBinder.Bind(sessionState.LegacyState));
+            var readout = PatientPuzzlePrimaryActionStateReadoutPresenter.Present(sessionState.ActionState);
+            var presentation = PatientPuzzleShellPresenter.Present(
+                sessionState.ScreenModel,
+                sessionState.ActionState);
+
+            return new OperationEncounterPlanResultBinding(
+                sessionState,
+                sessionState.ScreenModel.RiskAnalysis.PreviewSuccessChance,
+                sessionState.ScreenModel.RiskAnalysis.RiskBand,
+                sessionState.LastFeedbackRoute.RouteId,
+                readout.VisualTokenId,
+                presentation);
         }
     }
 }
