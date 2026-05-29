@@ -1,7 +1,7 @@
 # Milestone 14.1 — Primary Action Runtime Interaction Bridge
 
 **Date:** 2026-05-28  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Add a lightweight bridge between future interaction calls and primary action controller state flow.
 
 ---
@@ -46,7 +46,7 @@ Cyber Clinic/Slices/Run Patient Puzzle Primary Action Interaction Bridge Debug
 
 ---
 
-## Expected validator output
+## Validated interaction bridge output
 
 ```text
 PatientPuzzlePrimaryActionInteractionBridgeDebug OK
@@ -67,13 +67,7 @@ uiBinding=primary_action_interaction_bridge_ready
 
 ## Regression checks
 
-After this validator passes, run:
-
-```text
-Cyber Clinic/Slices/Run Patient Puzzle Primary Action Flow Aggregate Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell Foundation Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
-```
+Existing primary action flow aggregate, shell foundation, and shell end-to-end validators were also run locally and no regression errors were observed.
 
 ---
 
@@ -91,6 +85,12 @@ Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
 
 ---
 
-## Completion criteria
+## Completion result
 
-M14.1 is complete when the interaction bridge validator passes and existing primary action flow aggregate / shell regressions still pass locally in Unity.
+M14.1 is complete because the interaction bridge validator passed and existing primary action flow aggregate / shell regressions still passed locally in Unity.
+
+---
+
+## Overall project progress estimate
+
+Approximate full-game completion after M14.1: **17%**.
