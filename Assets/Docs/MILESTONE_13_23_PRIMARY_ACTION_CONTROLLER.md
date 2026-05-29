@@ -1,7 +1,7 @@
 # Milestone 13.23 — Primary Action Runtime Controller Foundation
 
 **Date:** 2026-05-28  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Add a small controller foundation for primary action state flow.
 
 ---
@@ -46,7 +46,7 @@ Cyber Clinic/Slices/Run Patient Puzzle Primary Action Controller Debug
 
 ---
 
-## Expected validator output
+## Validated controller output
 
 ```text
 PatientPuzzlePrimaryActionControllerDebug OK
@@ -64,15 +64,7 @@ uiBinding=primary_action_controller_ready
 
 ## Regression checks
 
-After this validator passes, run:
-
-```text
-Cyber Clinic/Slices/Run Patient Puzzle Shell Runtime State Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell Presenter State Debug
-Cyber Clinic/Slices/Run Patient Puzzle Primary Action State Resolver Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell Foundation Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
-```
+Existing runtime, presenter, resolver, shell foundation, and shell end-to-end validators were also run locally and no regression errors were observed.
 
 ---
 
@@ -90,6 +82,12 @@ Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
 
 ---
 
-## Completion criteria
+## Completion result
 
-M13.23 is complete when the primary action controller validator passes and existing runtime / presenter / resolver / shell regression validators still pass locally in Unity.
+M13.23 is complete because the primary action controller validator passed and existing runtime / presenter / resolver / shell regression validators still passed locally in Unity.
+
+---
+
+## Overall project progress estimate
+
+Approximate full-game completion after M13.23: **17%**.
