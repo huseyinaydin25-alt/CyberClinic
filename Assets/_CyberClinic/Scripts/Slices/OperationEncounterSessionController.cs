@@ -2,38 +2,59 @@ namespace CyberClinic.Slices
 {
     public sealed class OperationEncounterSessionController
     {
-        readonly PatientPuzzleSessionController _legacyController;
-
         public OperationEncounterSessionController(PatientPuzzleSliceScreenModel screenModel)
-            : this(new PatientPuzzleSessionController(screenModel))
+            : this(OperationEncounterSessionState.CreateInitial(screenModel))
         {
         }
 
-        public OperationEncounterSessionController(PatientPuzzleSessionController legacyController)
+        public OperationEncounterSessionController(OperationEncounterSessionState initialState)
         {
-            _legacyController = legacyController;
+            CurrentState = initialState;
         }
 
-        public OperationEncounterSessionState CurrentState => new OperationEncounterSessionState(_legacyController.CurrentState);
+        public OperationEncounterSessionState CurrentState { get; private set; }
 
-        public OperationEncounterSessionState Preview()
+        public OperationEncounterSessionState Plan()
         {
-            return new OperationEncounterSessionState(_legacyController.Preview());
+            if (CurrentState.IsLocked)
+            {
+                return CurrentState;
+            }
+
+            var nextState = PatientPuzzlePrimaryActionStateResolver.AfterPreview(CurrentState.ActionState);
+            CurrentState = CurrentState.WithInteraction("operation_action.plan", nextState);
+            return CurrentState;
         }
 
-        public OperationEncounterSessionState Commit()
+        public OperationEncounterSessionState Execute()
         {
-            return new OperationEncounterSessionState(_legacyController.Commit());
+            if (CurrentState.IsLocked)
+            {
+                return CurrentState;
+            }
+
+            var nextState = PatientPuzzlePrimaryActionStateResolver.AfterCommit(CurrentState.ActionState);
+            CurrentState = CurrentState.WithInteraction("operation_action.execute", nextState);
+            return CurrentState;
         }
 
         public OperationEncounterSessionState Disable()
         {
-            return new OperationEncounterSessionState(_legacyController.Disable());
+            if (CurrentState.IsLocked &&
+                CurrentState.ActionState.PreviewState == PreviewActionState.Disabled &&
+                CurrentState.ActionState.CommitState == CommitActionState.Disabled)
+            {
+                return CurrentState;
+            }
+
+            CurrentState = CurrentState.WithLockedDisabled("operation_action.disable");
+            return CurrentState;
         }
 
         public OperationEncounterSessionState Reset()
         {
-            return new OperationEncounterSessionState(_legacyController.Reset());
+            CurrentState = CurrentState.Reset();
+            return CurrentState;
         }
     }
 }
