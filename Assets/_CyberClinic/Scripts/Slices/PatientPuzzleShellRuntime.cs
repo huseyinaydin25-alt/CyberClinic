@@ -28,6 +28,13 @@ namespace CyberClinic.Slices
 
         public void BuildShell(PatientPuzzleSliceScreenModel screenModel)
         {
+            BuildShell(screenModel, PatientPuzzlePrimaryActionStateResolver.Initial());
+        }
+
+        public void BuildShell(
+            PatientPuzzleSliceScreenModel screenModel,
+            PatientPuzzlePrimaryActionState primaryActionState)
+        {
             if (_built)
             {
                 return;
@@ -36,7 +43,7 @@ namespace CyberClinic.Slices
             EnsureCamera();
             EnsureEventSystem();
 
-            var presentation = PatientPuzzleShellPresenter.Present(screenModel);
+            var presentation = PatientPuzzleShellPresenter.Present(screenModel, primaryActionState);
 
             var root = new GameObject(PatientPuzzleShellLayout.RootName, typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             root.transform.SetParent(transform, false);
