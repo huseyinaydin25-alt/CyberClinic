@@ -1,7 +1,7 @@
 # Milestone 14.6 — Preview / Commit Runtime Smoke Validator
 
 **Date:** 2026-05-29  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Add one smoke validator for Preview and Commit runtime interaction flow.
 
 ---
@@ -44,7 +44,7 @@ Commit readout token      -> primary_action.visual.committed
 
 ---
 
-## Expected validator output
+## Validated runtime smoke output
 
 ```text
 PatientPuzzlePreviewCommitRuntimeSmoke OK
@@ -65,15 +65,7 @@ uiBinding=preview_commit_runtime_smoke_ready
 
 ## Regression checks
 
-After this validator passes, run:
-
-```text
-Cyber Clinic/Slices/Run Patient Puzzle Primary Action Feedback Router Debug
-Cyber Clinic/Slices/Run Patient Puzzle Primary Action State Readout Debug
-Cyber Clinic/Slices/Run Patient Puzzle Primary Action Flow Aggregate Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell Foundation Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
-```
+Existing feedback router, readout, primary action flow aggregate, shell foundation, and shell end-to-end validators were also run locally and no regression errors were observed.
 
 ---
 
@@ -93,6 +85,12 @@ Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
 
 ---
 
-## Completion criteria
+## Completion result
 
-M14.6 is complete when the Preview / Commit runtime smoke validator passes and existing feedback router / readout / primary action flow / shell regressions still pass locally in Unity.
+M14.6 is complete because the Preview / Commit runtime smoke validator passed and existing feedback router / readout / primary action flow / shell regressions still passed locally in Unity.
+
+---
+
+## Overall project progress estimate
+
+Approximate full-game completion after M14.6: **17%**.
