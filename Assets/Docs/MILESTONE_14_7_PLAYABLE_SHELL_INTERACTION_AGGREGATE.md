@@ -1,7 +1,7 @@
 # Milestone 14.7 — Playable Shell Interaction Aggregate Validator
 
 **Date:** 2026-05-29  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Add one aggregate validator for M14 Playable Shell Interaction Foundation.
 
 ---
@@ -37,7 +37,7 @@ Cyber Clinic/Slices/Run Patient Puzzle Playable Shell Interaction Aggregate Debu
 
 ---
 
-## Expected validator output
+## Validated aggregate output
 
 ```text
 PatientPuzzlePlayableShellInteractionAggregateDebug OK
@@ -58,13 +58,7 @@ uiBinding=playable_shell_interaction_aggregate_ready
 
 ## Regression checks
 
-After this validator passes, run:
-
-```text
-Cyber Clinic/Slices/Run Patient Puzzle Primary Action Flow Aggregate Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell Foundation Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
-```
+Existing primary action flow aggregate, shell foundation, and shell end-to-end validators were also run locally and no regression errors were observed.
 
 ---
 
@@ -84,6 +78,12 @@ Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
 
 ---
 
-## Completion criteria
+## Completion result
 
-M14.7 is complete when the playable shell interaction aggregate validator passes and existing primary action flow / shell regressions still pass locally in Unity.
+M14.7 is complete because the playable shell interaction aggregate validator passed and existing primary action flow / shell regressions still passed locally in Unity.
+
+---
+
+## Overall project progress estimate
+
+Approximate full-game completion after M14.7: **18%**.
