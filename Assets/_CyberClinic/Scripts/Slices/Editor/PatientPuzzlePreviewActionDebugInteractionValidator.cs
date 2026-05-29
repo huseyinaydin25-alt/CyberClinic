@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 namespace CyberClinic.Slices.Editor
 {
-    public static class PatientPuzzlePreviewActionDebugInteractionValidator
+    public static class OperationEncounterPlanActionDebugInteractionValidator
     {
-        [MenuItem("Cyber Clinic/Slices/Run Patient Puzzle Preview Action Debug Interaction")]
+        [MenuItem("Cyber Clinic/Operation Encounter/Run Plan Action Debug Interaction")]
         public static void RunDebug()
         {
             var screenModel = PatientPuzzleSliceScreenModelBuilder.BuildDebugScreenModel();
@@ -28,7 +28,7 @@ namespace CyberClinic.Slices.Editor
             if (!interactionOk || !stateOk || !presentationOk || !runtimeOk)
             {
                 Debug.LogWarning(
-                    "PatientPuzzlePreviewActionDebugInteraction failed" +
+                    "OperationEncounterPlanActionDebugInteraction failed" +
                     "\ninteractionOk=" + interactionOk +
                     "\nstateOk=" + stateOk +
                     "\npresentationOk=" + presentationOk +
@@ -40,19 +40,19 @@ namespace CyberClinic.Slices.Editor
             }
 
             Debug.Log(
-                "PatientPuzzlePreviewActionDebugInteraction OK" +
+                "OperationEncounterPlanActionDebugInteraction OK" +
                 "\ninteractionId=" + result.InteractionId +
-                "\npreviewState=" + result.State.PreviewState +
-                "\ncommitState=" + result.State.CommitState +
+                "\nplanState=" + result.State.PreviewState +
+                "\nexecuteState=" + result.State.CommitState +
                 "\npresentationOk=True" +
                 "\nruntimeOk=True" +
-                "\nuiBinding=preview_action_debug_interaction_ready");
+                "\nuiBinding=plan_action_debug_interaction_ready");
         }
 
         static bool RuntimeRendersState(PatientPuzzleSliceScreenModel screenModel, PatientPuzzlePrimaryActionState state)
         {
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
-            var host = new GameObject("PatientPuzzlePreviewActionDebugInteractionHost");
+            var host = new GameObject("OperationEncounterPlanActionDebugInteractionHost");
             var runtime = host.AddComponent<PatientPuzzleShellRuntime>();
             runtime.BuildShell(screenModel, state);
 
