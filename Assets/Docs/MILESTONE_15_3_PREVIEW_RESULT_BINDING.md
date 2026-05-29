@@ -1,7 +1,7 @@
 # Milestone 15.3 — Preview Result Binding
 
 **Date:** 2026-05-29  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Bind preview session state to a reusable result binding for the operation encounter foundation.
 
 ---
@@ -60,7 +60,7 @@ Cyber Clinic/Slices/Run Patient Puzzle Preview Result Binding Debug
 
 ---
 
-## Expected validator output
+## Validated output
 
 ```text
 PatientPuzzlePreviewResultBindingDebug OK
@@ -96,16 +96,7 @@ operation result panel
 
 ## Regression checks
 
-After this validator passes, run:
-
-```text
-Cyber Clinic/Slices/Run Patient Puzzle Session Controller Debug
-Cyber Clinic/Slices/Run Patient Puzzle Session State Debug
-Cyber Clinic/Slices/Run Patient Puzzle Playable Shell Interaction Aggregate Debug
-Cyber Clinic/Slices/Run Patient Puzzle Primary Action Flow Aggregate Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell Foundation Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
-```
+Existing session controller, session state, playable shell interaction aggregate, primary action flow aggregate, shell foundation, and shell end-to-end validators were also run locally and no regression errors were observed.
 
 ---
 
@@ -124,6 +115,15 @@ Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
 
 ---
 
-## Completion criteria
+## Completion result
 
-M15.3 is complete when the Preview result binding validator passes and existing session / shell / interaction regressions still pass locally in Unity.
+M15.3 is complete because the Preview result binding validator passed and existing session / shell / interaction regressions still passed locally in Unity.
+
+---
+
+## Progress estimate
+
+```text
+Core operation logic foundation progress: ~19%
+Full 3D MMO-lite RPG vision progress: ~3%
+```
