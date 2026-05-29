@@ -1,7 +1,7 @@
 # Milestone 14.2 — Preview Action Debug Interaction
 
 **Date:** 2026-05-28  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Add a debug interaction wrapper for the Preview primary action flow.
 
 ---
@@ -48,7 +48,7 @@ Cyber Clinic/Slices/Run Patient Puzzle Preview Action Debug Interaction
 
 ---
 
-## Expected validator output
+## Validated Preview debug interaction output
 
 ```text
 PatientPuzzlePreviewActionDebugInteraction OK
@@ -64,14 +64,7 @@ uiBinding=preview_action_debug_interaction_ready
 
 ## Regression checks
 
-After this validator passes, run:
-
-```text
-Cyber Clinic/Slices/Run Patient Puzzle Primary Action Interaction Bridge Debug
-Cyber Clinic/Slices/Run Patient Puzzle Primary Action Flow Aggregate Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell Foundation Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
-```
+Existing interaction bridge, primary action flow aggregate, shell foundation, and shell end-to-end validators were also run locally and no regression errors were observed.
 
 ---
 
@@ -89,6 +82,12 @@ Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
 
 ---
 
-## Completion criteria
+## Completion result
 
-M14.2 is complete when the Preview action debug interaction validator passes and existing interaction bridge / primary action flow / shell regressions still pass locally in Unity.
+M14.2 is complete because the Preview action debug interaction validator passed and existing interaction bridge / primary action flow / shell regressions still passed locally in Unity.
+
+---
+
+## Overall project progress estimate
+
+Approximate full-game completion after M14.2: **17%**.
