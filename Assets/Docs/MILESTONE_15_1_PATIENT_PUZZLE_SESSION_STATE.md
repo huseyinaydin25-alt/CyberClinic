@@ -1,7 +1,7 @@
 # Milestone 15.1 — Patient Puzzle Session State
 
 **Date:** 2026-05-29  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Add a lightweight session state model for the Patient Puzzle decision loop.
 
 ---
@@ -60,7 +60,7 @@ Cyber Clinic/Slices/Run Patient Puzzle Session State Debug
 
 ---
 
-## Expected validator output
+## Validated session state output
 
 ```text
 PatientPuzzleSessionStateDebug OK
@@ -81,14 +81,7 @@ uiBinding=patient_puzzle_session_state_ready
 
 ## Regression checks
 
-After this validator passes, run:
-
-```text
-Cyber Clinic/Slices/Run Patient Puzzle Playable Shell Interaction Aggregate Debug
-Cyber Clinic/Slices/Run Patient Puzzle Primary Action Flow Aggregate Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell Foundation Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
-```
+Existing playable shell interaction aggregate, primary action flow aggregate, shell foundation, and shell end-to-end validators were also run locally and no regression errors were observed.
 
 ---
 
@@ -108,6 +101,12 @@ Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
 
 ---
 
-## Completion criteria
+## Completion result
 
-M15.1 is complete when the session state validator passes and existing playable shell interaction / primary action / shell regressions still pass locally in Unity.
+M15.1 is complete because the session state validator passed and existing playable shell interaction / primary action / shell regressions still passed locally in Unity.
+
+---
+
+## Overall project progress estimate
+
+Approximate full-game completion after M15.1: **18%**.
