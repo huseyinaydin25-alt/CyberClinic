@@ -1,7 +1,7 @@
 # Milestone 13.25 — Primary Action Flow Aggregate Validator
 
 **Date:** 2026-05-28  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Add one aggregate validator for the Primary Action foundation stack.
 
 ---
@@ -37,7 +37,7 @@ Cyber Clinic/Slices/Run Patient Puzzle Primary Action Flow Aggregate Debug
 
 ---
 
-## Expected validator output
+## Validated aggregate output
 
 ```text
 PatientPuzzlePrimaryActionFlowAggregateDebug OK
@@ -58,12 +58,7 @@ uiBinding=primary_action_flow_aggregate_ready
 
 ## Regression checks
 
-After this validator passes, run:
-
-```text
-Cyber Clinic/Slices/Run Patient Puzzle Shell Foundation Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
-```
+Shell foundation and shell end-to-end validators were also run locally and no regression errors were observed.
 
 ---
 
@@ -81,6 +76,12 @@ Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
 
 ---
 
-## Completion criteria
+## Completion result
 
-M13.25 is complete when the aggregate validator passes and shell foundation / end-to-end regressions still pass locally in Unity.
+M13.25 is complete because the aggregate validator passed and shell foundation / end-to-end regressions still passed locally in Unity.
+
+---
+
+## Overall project progress estimate
+
+Approximate full-game completion after M13.25: **17%**.
