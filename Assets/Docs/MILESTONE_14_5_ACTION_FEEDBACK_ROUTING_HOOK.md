@@ -1,7 +1,7 @@
 # Milestone 14.5 — Action Feedback Routing Hook
 
 **Date:** 2026-05-29  
-**Status:** Implemented, pending local Unity validation  
+**Status:** Validated locally in Unity  
 **Scope:** Add token/key based feedback routing hook for primary action states.
 
 ---
@@ -46,7 +46,7 @@ Cyber Clinic/Slices/Run Patient Puzzle Primary Action Feedback Router Debug
 
 ---
 
-## Expected validator output
+## Validated feedback router output
 
 ```text
 PatientPuzzlePrimaryActionFeedbackRouterDebug OK
@@ -65,16 +65,7 @@ uiBinding=primary_action_feedback_router_ready
 
 ## Regression checks
 
-After this validator passes, run:
-
-```text
-Cyber Clinic/Slices/Run Patient Puzzle Primary Action State Readout Debug
-Cyber Clinic/Slices/Run Patient Puzzle Preview Action Debug Interaction
-Cyber Clinic/Slices/Run Patient Puzzle Commit Action Debug Interaction
-Cyber Clinic/Slices/Run Patient Puzzle Primary Action Flow Aggregate Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell Foundation Debug
-Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
-```
+Existing readout, Preview action debug interaction, Commit action debug interaction, primary action flow aggregate, shell foundation, and shell end-to-end validators were also run locally and no regression errors were observed.
 
 ---
 
@@ -94,6 +85,12 @@ Cyber Clinic/Slices/Run Patient Puzzle Shell End To End Debug
 
 ---
 
-## Completion criteria
+## Completion result
 
-M14.5 is complete when the feedback router validator passes and existing readout / Preview / Commit / primary action flow / shell regressions still pass locally in Unity.
+M14.5 is complete because the feedback router validator passed and existing readout / Preview / Commit / primary action flow / shell regressions still passed locally in Unity.
+
+---
+
+## Overall project progress estimate
+
+Approximate full-game completion after M14.5: **17%**.
