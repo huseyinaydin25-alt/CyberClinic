@@ -24,9 +24,11 @@ namespace CyberClinic.Slices.Editor
                 loadResult.Count == 1 &&
                 loadResult.Message == "content_load_ok";
 
+            OperationEncounterDefinition definition;
+            var foundDefinition = registry.TryGet("debug_encounter_street_netrunner_optic_tune", out definition);
             var registryOk =
                 registry.Count == 1 &&
-                registry.TryGet("debug_encounter_street_netrunner_optic_tune", out var definition) &&
+                foundDefinition &&
                 definition.IsValid() &&
                 definition.ContentVersion == "debug.v1" &&
                 definition.Participant.ArchetypeId == "archetype.street_netrunner" &&

@@ -40,10 +40,12 @@ namespace CyberClinic.Slices.Editor
             var definitionOk = definition.IsValid();
 
             var registry = OperationEncounterDefinitionRegistry.CreateDebugRegistry();
+            OperationEncounterDefinition loaded;
+            var foundLoaded = registry.TryGet("debug_encounter_street_netrunner_optic_tune", out loaded);
             var registryOk =
                 registry.Count == 1 &&
                 registry.Contains("debug_encounter_street_netrunner_optic_tune") &&
-                registry.TryGet("debug_encounter_street_netrunner_optic_tune", out var loaded) &&
+                foundLoaded &&
                 loaded.IsValid() &&
                 loaded.EncounterId == definition.EncounterId &&
                 loaded.ContentVersion == "debug.v1" &&
